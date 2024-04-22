@@ -1,8 +1,33 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {
+  Inter,
+
+  Plus_Jakarta_Sans,
+  Montserrat,
+  Rajdhani,
+} from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+const monts = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-monts",
+});
+
+const rajdhani = Rajdhani({
+  weight: ["300", "400", "500", "600", "700"], 
+  subsets: ["latin"], 
+  variable: "--font-rajdhani",
+});
+
+const jakrata = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakrata",
+});
+
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +41,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+     <body
+        className={` ${inter.variable}  ${jakrata.variable}  ${monts.variable} ${rajdhani.variable} `}
+      >{children}</body>
     </html>
   );
 }
