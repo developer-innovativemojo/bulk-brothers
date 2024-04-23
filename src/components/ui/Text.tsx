@@ -19,7 +19,7 @@ const Text = forwardRef<HTMLHeadingElement | HTMLParagraphElement, Props>(
         <h1
           ref={ref}
           className={cn(
-            "font-bold text-center text-[64px] leading-[59px] text-[#FFFFFF] font-rajdhani   ",
+            "font-bold  text-[64px] leading-[59px] text-[#FFFFFF] font-rajdhani   ",
             className
           )}
           onClick={onClick}

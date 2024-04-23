@@ -32,7 +32,7 @@ const Hero = () => {
           />
 
             <div className="relative z-[12]">
-              <Text as="h1" className="text-[#FFFFFF] font-rajdhani ">
+              <Text as="h1" className="text-[#FFFFFF] text-center font-rajdhani ">
                 {" "}
                 Move with strength, <br /> move with us
               </Text>
