@@ -35,7 +35,7 @@ const Text = forwardRef<HTMLHeadingElement | HTMLParagraphElement, Props>(
         <h2
           ref={ref}
           className={cn(
-            "font-normal font-jakrata text-[40px] leading-[43.2px] text-[#FFFFFF]  ",
+            "font-normal font-rajdhani text-[40px] leading-[43.2px] text-[#FFFFFF]  ",
             className
           )}
           id={id}

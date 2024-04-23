@@ -10,8 +10,8 @@ import airr from "@/public/images/home/hero/air-r.png";
 
 const Hero = () => {
   return (
-    <div className="bg-[#48422D] min-h-[785px] relative flex justify-center items-center  overflow-hidden">
-      <div className="w-full max-w-[1484px] max-h-[785px] relative pt-[60px] pb-[190px]">
+    <div className="bg-[#48422D] min-h-[735px] relative flex justify-center items-center  overflow-hidden">
+      <div className="w-full max-w-[1484px] max-h-[785px] h-full relative pt-[0px] pb-[190px]">
         {/* content */}
         <div className="flex justify-center  relative z-10">
           <div className="bg-[#191A05]/85 w-full max-w-[860px] min-h-[418px] rounded-[20px] flex justify-center  items-center relative z-[11]">
