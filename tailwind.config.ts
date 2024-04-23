@@ -11,7 +11,7 @@ const config: Config = {
       fontFamily: {
         inter: ["var(--font-inter)"],
         monts: ["var(--font-monts)"],
-        jakrata: ["var(--font-jakrata)"],
+        rajdhani: ["var(--font-rajdhani)"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -19,7 +19,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        "primary-dark": "191A05",
+        "primary-dark": "#48422D",
         "secondary-dark": "#2C2C3E",
         "para-dark": "#8D9DBC",
         accent: "#C98200",
