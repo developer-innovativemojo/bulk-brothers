@@ -1,5 +1,7 @@
+import Contactus from "@/components/Home/Contactus";
 import Estimate from "@/components/Home/Estimate";
 import Hero from "@/components/Home/Hero";
+import OurCLient from "@/components/Home/OurCLient";
 import TeamSupport from "@/components/Home/TeamSupport";
 import WhatWeOffer from "@/components/Home/WhatWeOffer";
 import WhoWeAre from "@/components/Home/WhoWeAre";
@@ -14,7 +16,9 @@ export default function Home() {
      <WhoWeAre/>
      <YearsService/>
      <WhatWeOffer/>
+     <OurCLient/>
      <TeamSupport/>
+     <Contactus/>
     </main>
   );
 }
