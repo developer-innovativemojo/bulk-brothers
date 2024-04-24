@@ -6,7 +6,7 @@ import Text from "@/components/ui/Text";
 import formbg from "@/public/images/home/formbg.png";
 const Contactus = () => {
   return (
-    <div className=" min-h-[830px] relative flex justify-center items-center  ">
+    <div className=" min-h-[663px] relative flex justify-center items-center  ">
       <div className="w-full max-w-[1484px]  h-full  flex justify-center">
         <Image
           className="bg-background-image bg-cover  bg-top bg-no-repeat absolute top-0 left-0 w-full h-full z-0"
@@ -16,7 +16,7 @@ const Contactus = () => {
           height={830}
         />
 
-        <div className="max-w-[1140px] w-full relative z-10 mt-[13%]">
+        <div className="max-w-[1140px] w-full relative z-10 mt-[7%]">
           <Text
             as="h1"
             className="text-[45px] text-center text-[#FFFFFF] leading-[57.42px]"

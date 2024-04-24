@@ -36,10 +36,6 @@ const Slider = () => {
         ]}
         spaceBetween={0}
         slidesPerView={1}
-        // navigation
-        // direction="vertical"
-        // onSwiper={(swiper) => console.log(swiper)}
-        // onSlideChange={() => console.log("slide change")}
         pagination={{ clickable: true }}
         breakpoints={{
           768: {
@@ -50,7 +46,6 @@ const Slider = () => {
             slidesPerView: 3,
           },
         }}
-        // mousewheel={{ invert: true }}
       >
         <SwiperSlide className="mob:px-[20px]">
           <CardContent
