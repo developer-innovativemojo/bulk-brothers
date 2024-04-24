@@ -19,7 +19,6 @@
 .bg-form{
   background-image: url('../../public//images//home//formbg.png');
   background-position: center;
-  /* object-fit: cover; */
   background-repeat: no-repeat;
   background-size: auto;
 }
