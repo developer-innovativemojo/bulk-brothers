@@ -90,7 +90,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <Link
-                        href=""
+                        href="/aboutus"
                         className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
                       >
                       Expertise

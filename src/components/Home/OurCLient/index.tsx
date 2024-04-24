@@ -1,14 +1,12 @@
 import React from "react";
-import Image from "next/image";
 
 import Text from "@/components/ui/Text";
 
-import stars from "@/public/icons/starsclient.svg";
 import Slider from "./Slider";
 const OurCLient = () => {
   return (
-    <div className="bg-[#E2E1DB] min-h-[200px] flex justify-center items-center py-16">
-      <div className=" w-full max-w-[1327px]  gap-10 pb-[100px]">
+    <div className="bg-[#E2E1DB] min-h-[200px] flex justify-center items-center pt-20">
+      <div className=" w-full max-w-[1327px]  gap-10 ">
         <Text
           as="h1"
           className="text-[45px] text-center text-[#191A05] leading-[57.42px]"
