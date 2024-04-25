@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaYoutube, FaPhoneAlt } from "react-icons/fa";
 
 import Text from "@/components/ui/Text";
 
-import backimg from "@/public/images/aboutus/bg.png";
+import backimg from "@/public/images/home/hero/herobgnew.png";
 
 
 const Hero = () => {

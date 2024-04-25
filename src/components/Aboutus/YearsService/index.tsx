@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import Text from "@/components/ui/Text";
 
-import leftimg from "@/public/images/home/whoweare.png";
+import leftimg from "@/public/images/aboutus/yearsofservice.png";
 
 const YearsService = () => {
   return (

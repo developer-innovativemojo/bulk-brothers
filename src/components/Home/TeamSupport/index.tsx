@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import Text from "@/components/ui/Text";
 
-import leftimg from "@/public/images/home/teamsupport.png";
+import leftimg from "@/public/images/home/teamsupportnew.png";
 import Button from "@/components/ui/Button";
 const TeamSupport = () => {
   return (
