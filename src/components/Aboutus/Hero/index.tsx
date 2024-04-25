@@ -5,7 +5,9 @@ import { FaFacebook, FaInstagram, FaYoutube, FaPhoneAlt } from "react-icons/fa";
 import Text from "@/components/ui/Text";
 
 import backimg from "@/public/images/home/hero/herobgnew.png";
-
+import facebook from "@/public/icons/facebook.svg";
+import youtube from "@/public/icons/insta.svg";
+import insta from "@/public/icons/youtube.svg";
 
 const Hero = () => {
   return (
@@ -30,12 +32,12 @@ const Hero = () => {
                 Veteran owned and <br /> operated company <br /> here to serve you.
               </Text>
               <div className="flex justify-center gap-[30px] mt-10">
-                  {/* facebook */}
-                  <FaFacebook className="text-[#FFFFFF] cursor-pointer text-[26px] hover:opacity-75 " />
+                 {/* facebook */}
+                 <Image className=" cursor-pointer hover:opacity-75 "  src={facebook} alt="fb" width={26} height={26} />
                   {/* insta */}
-                  <FaInstagram className="text-[#FFFFFF] cursor-pointer text-[26px] hover:opacity-75 " />
+                <Image className=" cursor-pointer hover:opacity-75 " src={youtube} alt="fb" width={26} height={26} />
                   {/* youtube */}
-                  <FaYoutube className="text-[#FFFFFF] cursor-pointer text-[26px] hover:opacity-75 " />
+                <Image className=" cursor-pointer hover:opacity-75 " src={insta} alt="fb" width={26} height={26} />
                 </div>
             </div>
           </div>
