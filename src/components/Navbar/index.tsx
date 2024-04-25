@@ -83,7 +83,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         href="/"
-                        className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
+                        className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  uppercase"
                       >
                        Home
                       </Link>
@@ -91,7 +91,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         href="/aboutus"
-                        className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
+                        className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  uppercase"
                       >
                       Expertise
                       </Link>
@@ -99,7 +99,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         href=""
-                        className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
+                        className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  uppercase"
                       >
                         Services
                       </Link>
@@ -107,7 +107,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         href=""
-                        className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
+                        className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  uppercase  "
                       >
                       Contact
                       </Link>
@@ -119,7 +119,7 @@ const Navbar = () => {
                           href=""
                           className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF] "
                         >
-                          <button className=" tab:hidden px-[23px] py-[11px] rounded-[150px] bg-[#191A05]   border-[#191A05] border text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF] ">
+                          <button className=" uppercase tab:hidden px-[23px] h-[44px] rounded-[150px] bg-[#191A05]   border-[#191A05] border text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF] ">
                           Get Free Estimate
                           </button>
                         </Link>

@@ -5,6 +5,7 @@ import {
   Plus_Jakarta_Sans,
   Montserrat,
   Rajdhani,
+  Inknut_Antiqua,
 } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -24,9 +25,10 @@ const rajdhani = Rajdhani({
   variable: "--font-rajdhani",
 });
 
-const jakrata = Plus_Jakarta_Sans({
+const inknut = Inknut_Antiqua({
+  weight: ["300", "400", "500", "600", "700"], 
   subsets: ["latin"],
-  variable: "--font-jakrata",
+  variable: "--font-inknut",
 });
 
 
@@ -44,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en">
      <body
-        className={` ${inter.variable}    ${monts.variable} ${rajdhani.variable} `}
+        className={` ${inter.variable}  ${monts.variable} ${rajdhani.variable} ${inknut.variable} `}
       >
         <Navbar/>
         {children}

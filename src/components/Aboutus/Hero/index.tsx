@@ -4,12 +4,12 @@ import { FaFacebook, FaInstagram, FaYoutube, FaPhoneAlt } from "react-icons/fa";
 
 import Text from "@/components/ui/Text";
 
-import backimg from "@/public/images/aboutus/bg.png";
+import backimg from "@/public/images/home/hero/herobgnew.png";
 
 
 const Hero = () => {
   return (
-    <div className="bg-[#48422D] min-h-[366px] relative flex justify-center   ">
+    <div className="bg-[#48422D] min-h-[366px] relative flex justify-center  mob:px-5  ">
       <Image
         className="absolute bottom-[0px] mob:bottom-[60px] z-[9] "
         src={backimg}
@@ -24,7 +24,7 @@ const Hero = () => {
             <div className="relative z-[12]">
               <Text
                 as="h1"
-                className="text-[#FFFFFF] text-center font-rajdhani "
+                className="text-[#FFFFFF] text-center font-rajdhani mob:text-[35px] mob:leading-[38px] "
               >
                 {" "}
                 Veteran owned and <br /> operated company <br /> here to serve you.

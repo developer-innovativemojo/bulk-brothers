@@ -24,10 +24,10 @@ const WhoWeAre = () => {
           </div>
 
           <div className="flex flex-col  ">
-            <div className="relative  max-w-[498px] ">
+            <div className="relative  max-w-[498px] mob:px-5 ">
               <Text
                 as="p"
-                className="text-[#191A05] text-[17px] leading-[27px] max-w-[498px]"
+                className="text-[#191A05] text-[17px] leading-[27px] max-w-[498px] mob:text-center"
               >
                 {" "}
                 <span className="font-bold"> Bulk Brothers </span> is a veteran owned and
@@ -43,7 +43,7 @@ const WhoWeAre = () => {
 
               <Text
                 as="p"
-                className="text-[#191A05] text-[17px] leading-[27px] max-w-[498px] mt-8"
+                className="text-[#191A05] text-[17px] leading-[27px] max-w-[498px] mt-8 mob:text-center"
               >
                 Bulk Brothers specializes in both commercial and residential
                 services including moving, hauling, and trash removal. No matter

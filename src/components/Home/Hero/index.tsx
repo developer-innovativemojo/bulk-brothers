@@ -4,7 +4,7 @@ import Image from "next/image";
 import Text from "@/components/ui/Text";
 
 import bussesimg from "@/public/images/home/hero/busses.png";
-import backimg from "@/public/images/home/hero/herobg.png";
+import backimg from "@/public/images/home/hero/herobgnew.png";
 import airl from "@/public/images/home/hero/air-l.png";
 import airr from "@/public/images/home/hero/air-r.png";
 
@@ -32,14 +32,14 @@ const Hero = () => {
           />
 
             <div className="relative z-[12]">
-              <Text as="h1" className="text-[#FFFFFF] text-center font-rajdhani ">
+              <Text as="h1" className="text-[#FFFFFF] text-center mob:text-[35px] mob:leading-[35px] font-rajdhani ">
                 {" "}
                 Move with strength, <br /> move with us
               </Text>
              <div className="flex justify-center">
              <Text
                 as="p"
-                className="text-[#FFFFFF] font-rajdhani text-center max-w-[345px] leading-[27px] mt-2 "
+                className="text-[#E2E1DB] font-inknut text-center max-w-[345px] leading-[27px] mt-2 "
               >
                 {" "}
                 Don’t pay high delivery fees or rent a truck to pick up that new
