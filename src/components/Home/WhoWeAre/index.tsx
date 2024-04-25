@@ -9,7 +9,7 @@ const WhoWeAre = () => {
   return (
     <>
       <div className="bg-[#E2E1DB] min-h-[200px] flex justify-center items-center py-16">
-        <div className=" w-full max-w-[1188.5px] flex flex-wrap items-center gap-10 pb-[100px]">
+        <div className=" w-full max-w-[1188.5px] flex flex-wrap items-center gap-10 pb-[100px] mob:px-5">
           <div className="flex flex-col ">
             <Image
               className="  "
@@ -24,7 +24,7 @@ const WhoWeAre = () => {
           </div>
 
           <div className="flex flex-col  ">
-            <div className="relative  max-w-[498px] mob:px-5 ">
+            <div className="relative  max-w-[498px]  ">
               <Text
                 as="p"
                 className="text-[#191A05] text-[17px] leading-[27px] max-w-[498px] mob:text-center"

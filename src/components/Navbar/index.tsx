@@ -98,7 +98,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <Link
-                        href=""
+                        href="/services"
                         className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  uppercase"
                       >
                         Services
@@ -177,7 +177,7 @@ const Navbar = () => {
                         <hr className="h-px  bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
 
                         <Link
-                          href=""
+                        href="/aboutus"
                           className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
                         >
                           <li className="flex justify-center py-[15px] list-items">
@@ -187,7 +187,7 @@ const Navbar = () => {
                         <hr className="h-px  bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
 
                         <Link
-                          href="/"
+                          href="/services"
                           className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
                         >
                           <li className="flex justify-center py-[15px] list-items">
