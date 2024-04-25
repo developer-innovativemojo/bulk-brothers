@@ -80,7 +80,7 @@ const Contactus = () => {
   };
 
   return (
-    <div className=" min-h-[663px] relative flex justify-center items-center  ">
+    <div className=" min-h-[663px] relative flex justify-center items-center mob:px-5 mob:py-5 ">
       <div className="w-full max-w-[1484px]  h-full  flex justify-center">
         <Image
           className="bg-background-image bg-cover  bg-top bg-no-repeat absolute top-0 left-0 w-full h-full z-0"
@@ -93,7 +93,7 @@ const Contactus = () => {
         <div className="max-w-[1140px] w-full relative z-10 mt-[7%]">
           <Text
             as="h1"
-            className="text-[45px] text-center text-[#FFFFFF] leading-[57.42px]"
+            className="text-[45px] text-center text-[#FFFFFF] leading-[57.42px] mob:text-[35px] mob:leading-[38.42px]"
           >
             Get Free Estimate today!
           </Text>
@@ -158,10 +158,10 @@ const Contactus = () => {
               />
 
               <button
-                // onClick={sendMail}
+                onClick={sendMail}
                 disabled={loading}
                 type="button"
-                className="absolute top-0 right-0 bg-[#E2E1DB] w-full max-w-[217px] h-[80px] "
+                className="absolute top-0 right-0 bg-[#E2E1DB] w-full max-w-[217px] h-[80px] mob:max-w-[150px] "
               >
                 {loading ? "Sending..." : "CONTACT US"}
               </button>

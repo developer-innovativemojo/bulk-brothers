@@ -16,7 +16,7 @@ import Button from "@/components/ui/Button";
 const WhatWeOffer = () => {
   return (
     <>
-      <div className="bg-[#191A05] min-h-[200px] flex justify-center items-center pb-[100px]">
+      <div className="bg-[#191A05] min-h-[200px] flex justify-center items-center pb-[100px] mob:px-5">
         <div className=" w-full max-w-[1140px] ">
           <Text
             as="h1"

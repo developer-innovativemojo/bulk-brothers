@@ -39,13 +39,13 @@ const Footer = () => {
                 Subscribe to our newsletter
               </Text>
 
-              <div className="relative mb-12 max-w-[301px] flex items-center">
+              <div className="relative mb-12 max-w-[301px] flex items-center mob:justify-center mob:max-w-full">
                 <input
                   className="w-full max-w-[301px] h-[48px] px-5 rounded-[150px] bg-[#E2E1DB] text-[15px] font-inter font-normal outline-none"
                   type="text"
                   placeholder="Email Address"
                 />
-                <Button className="absolute  right-3 h-[32px] max-w-[114px] uppercase tracking-[1px] text-[13px] leading-[15.73px] ">
+                <Button className="absolute  right-3 mob:right-8 h-[32px] max-w-[114px] uppercase tracking-[1px] text-[13px] leading-[15.73px] ">
                   Subscribe
                 </Button>
               </div>
@@ -53,7 +53,7 @@ const Footer = () => {
 
             {/* second col */}
             {/* list 1 */}
-            <div className="xl:flex xl:justify-center mob:w-[50%]">
+            <div className="xl:flex xl:justify-center mob:w-full">
               <div className="">
                 <Text
                   as="h2"
@@ -108,7 +108,7 @@ const Footer = () => {
             </div>
 
             {/* list2 */}
-            <div className="xl:flex xl:justify-center mob:w-[50%]">
+            <div className="xl:flex xl:justify-center mob:w-full">
               <div className=" ">
                 <Text
                   as="h2"
@@ -132,7 +132,7 @@ const Footer = () => {
                 </Text>
 
                 {/* phone number */}
-                <div className="flex gap-[15px] mt-4">
+                <div className="flex mob:justify-center gap-[15px] mt-4">
                   {/* phone */}
                   <FaPhoneAlt className="text-[#FFFFFF] cursor-pointer text-[39px] hover:opacity-75 " />
                   <Text
@@ -153,7 +153,7 @@ const Footer = () => {
           <div className="max-w-[1127px] w-full xl:px-[5%]">
             <hr className="h-px mt-[0px] mb-3 bg-[#FFFFFF33]/20 border-0 "></hr>
 
-            <div className="flex justify-between">
+            <div className="flex justify-between mob:block">
               <Text
                 as="p"
                 className=" mob:max-w-full xl:flex xl:justify-center xl:text-center text-[#E2E1DB] text-[15px] leading-[20px] font-inter font-normal my-5 mob:my-4 "
@@ -162,7 +162,7 @@ const Footer = () => {
                © 2024 Bulk Brothers. All Rights Reserved.
               </Text>
 
-           <div className="flex gap-[40px]">
+           <div className="flex mob:justify-center gap-[40px]">
            <Text
                 as="p"
                 className=" mob:max-w-full cursor-pointer xl:flex xl:justify-center xl:text-center text-[#E2E1DB] text-[15px] leading-[20px] font-inter font-normal my-5 mob:my-4 "

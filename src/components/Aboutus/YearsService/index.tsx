@@ -8,7 +8,7 @@ import leftimg from "@/public/images/home/whoweare.png";
 const YearsService = () => {
   return (
     <>
-      <div className="bg-[#E2E1DB] min-h-[200px] flex justify-center items-center pt-[130px]">
+      <div className="bg-[#E2E1DB] min-h-[200px] flex justify-center items-center pt-[130px] mob:px-5">
         <div className=" w-full max-w-[1188.5px] flex flex-wrap items-center gap-10 pb-[100px]">
           <div className="flex flex-col ">
             <Image
@@ -24,7 +24,7 @@ const YearsService = () => {
             <div className="relative  max-w-[498px] ">
               <Text
                 as="p"
-                className="text-[#191A05] text-[17px] leading-[27px] max-w-[498px]"
+                className="text-[#191A05] text-[17px] leading-[27px] max-w-[498px] mob:text-center"
               >
                 {" "}
                 <span className="font-bold"> Bulk Brothers </span> is a veteran
@@ -40,7 +40,7 @@ const YearsService = () => {
 
               <Text
                 as="p"
-                className="text-[#191A05] text-[17px] leading-[27px] max-w-[498px] mt-8"
+                className="text-[#191A05] text-[17px] leading-[27px] max-w-[498px] mt-8 mob:text-center"
               >
                 Bulk Brothers specializes in both commercial and residential
                 services including moving, hauling, and trash removal. No matter
@@ -51,7 +51,7 @@ const YearsService = () => {
               </Text>
               <Text
                 as="p"
-                className="text-[#191A05] text-[17px] leading-[27px] max-w-[498px] mt-8"
+                className="text-[#191A05] text-[17px] leading-[27px] max-w-[498px] mt-8 mob:text-center"
               >
                 Bulk Brothers also serves the community by hosting food and
                 clothing drives for the homeless. Bulk Brothers employees and

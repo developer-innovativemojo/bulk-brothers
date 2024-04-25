@@ -8,7 +8,7 @@ const YearsService = () => {
   return (
     <>
       <div className="">
-        <div className="bg-[#191A05] min-h-[200px] flex justify-center items-center pb-[100px]">
+        <div className="bg-[#191A05] min-h-[200px] flex justify-center items-center pb-[100px] mob:px-5">
           <div className=" w-full max-w-[1440px] flex justify-end">
             <div className="w-full max-w-[1098px] mt-[-100px] relative">
               <Image src={backimg} alt="" width={1098} height={520} />
@@ -29,7 +29,7 @@ const YearsService = () => {
               </div>
 
               {/* card */}
-              <div className="bg-[#FFFFFF] w-full max-w-[441px] p-[40px] absolute right-[15%] bottom-[-80px]  ">
+              <div className="bg-[#FFFFFF] w-full max-w-[441px] p-[40px] absolute right-[15%] bottom-[-80px] mob:right-0 ">
                 <Text
                   as="p"
                   className="text-[18px] text-[#191A05] font-normal leading-[30px]"

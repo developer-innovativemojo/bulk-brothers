@@ -8,13 +8,13 @@ import calender from "@/public/icons/calender.svg"
 
 const Estimate = () => {
   return (
-    <div className="bg-[#191A05] min-h-[200px] flex justify-center items-center">
-      <div className=" w-full max-w-[1138.5px] flex flex-wrap items-end gap-5">
-        <div className="flex flex-col">
-          <Text as="h1" className="text-[36px]">
+    <div className="bg-[#191A05] min-h-[200px] flex justify-center items-center  mob:py-10">
+      <div className=" w-full max-w-[1138.5px] flex flex-wrap mob:justify-center items-end gap-5 mob: px-5">
+        <div className="flex flex-col mob:w-full">
+          <Text as="h1" className="text-[36px] mob:text-center mob:text-[30px] mob:leading-[35px]">
             Get Free Estimate today!
           </Text>
-          <Text as="p" className="text-[17px] leading-[27px] max-w-[366px]">
+          <Text as="p" className="text-[17px] leading-[27px] max-w-[366px] mob:text-center mob:max-w-full mob:leading-[35px]">
             Veteran owned and operated company here to serve you.
           </Text>
         </div>
