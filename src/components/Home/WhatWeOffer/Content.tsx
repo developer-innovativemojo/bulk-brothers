@@ -21,7 +21,7 @@ const Content: React.FC<ContentProps> = ({
       
        
 
-        <div className="w-full max-w-[560px] mob:max-w-[260px] min-h-[295px] border border-[#FFFFFF33]/20 flex flex-wrap mob:justify-center items-center gap-7 py-[6px] px-2">
+        <div className="w-full max-w-[560px] mob:max-w-[260px] min-h-[295px] border border-[#FFFFFF33]/20 flex flex-wrap mob:justify-center items-center gap-5 py-[6px] px-2">
           <div className="flex flex-col  ">
             <div className="relative  max-w-[248px] ">
             {iconSrc ? (
@@ -37,10 +37,10 @@ const Content: React.FC<ContentProps> = ({
             </div>
           </div>
           <div className="flex flex-col items-center ">
-            <div className="relative  max-w-[253px] ">
+            <div className="relative  max-w-[264px] pr-[12px]">
               <Text
                 as="h2"
-                className="text-[22px] tracking-[1px] font-bold  text-[#FFFFFF] leading-[28.07px] mob:text-center"
+                className="text-[22px] tracking-[1px] font-bold  text-[#FFFFFF] leading-[28.07px] mob:text-center uppercase"
               >
                 {heading}
               </Text>

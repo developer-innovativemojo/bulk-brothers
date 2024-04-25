@@ -12,6 +12,7 @@ const config: Config = {
         inter: ["var(--font-inter)"],
         monts: ["var(--font-monts)"],
         rajdhani: ["var(--font-rajdhani)"],
+        inknut: ["var(--font-inknut)"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

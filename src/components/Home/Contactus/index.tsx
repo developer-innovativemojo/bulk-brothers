@@ -90,10 +90,10 @@ const Contactus = () => {
           height={830}
         />
 
-        <div className="max-w-[1140px] w-full relative z-10 mt-[7%]">
+        <div className="max-w-[1140px] w-full relative z-10 ">
           <Text
             as="h1"
-            className="text-[45px] text-center text-[#FFFFFF] leading-[57.42px] mob:text-[35px] mob:leading-[38.42px]"
+            className="text-[45px] text-center text-[#FFFFFF] leading-[57.42px] mob:text-[35px] mob:leading-[38.42px] uppercase"
           >
             Get Free Estimate today!
           </Text>
@@ -112,7 +112,7 @@ const Contactus = () => {
           <form action="" className="flex flex-wrap justify-center">
             <div className="flex flex-col  relative w-full max-w-[570px] border-t lg:border-r border-[#FFFFFF]">
               <input
-                className=" flex flex-col  text-[17px] text-[#FFFFFF] leading-[25px] font-medium font-inter  bg-transparent placeholder-white border-l  px-5 w-full max-w-[570px] h-[80px]  outline-none"
+                className=" flex flex-col  text-[17px] text-[#FFFFFF] leading-[25px] font-medium font-inter  bg-transparent placeholder:font-medium placeholder-white border-l  px-5 w-full max-w-[570px] h-[80px]  outline-none"
                 type="text"
                 placeholder="First Name"
                 onChange={(e) => {
@@ -161,9 +161,9 @@ const Contactus = () => {
                 onClick={sendMail}
                 disabled={loading}
                 type="button"
-                className="absolute top-0 right-0 bg-[#E2E1DB] w-full max-w-[217px] h-[80px] mob:max-w-[150px] "
+                className="absolute top-0 right-0 bg-[#E2E1DB] w-full max-w-[217px] h-[80px] mob:max-w-[150px] uppercase font-inter font-medium text-[17px] leading-[20.57px] tracking-[1px]"
               >
-                {loading ? "Sending..." : "CONTACT US"}
+                {loading ? "Submiting..." : "Submit"}
               </button>
             </div>
           </form>

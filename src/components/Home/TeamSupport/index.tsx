@@ -31,7 +31,7 @@ const TeamSupport = () => {
 
               <Text
                 as="p"
-                className="text-[#191A05] text-[17px] leading-[27px] max-w-[498px] mob:text-center"
+                className="text-[#191A05] text-[17px] leading-[27px] max-w-[475px] mob:text-center"
               >
                 Bulk Brothers has been trusted for over 20 years to provide
                 moving, trash removal, and hauling services for residents and

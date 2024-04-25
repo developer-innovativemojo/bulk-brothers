@@ -39,7 +39,7 @@ const Hero = () => {
              <div className="flex justify-center">
              <Text
                 as="p"
-                className="text-[#FFFFFF] font-rajdhani text-center max-w-[345px] leading-[27px] mt-2 "
+                className="text-[#E2E1DB] font-inknut text-center max-w-[345px] leading-[27px] mt-2 "
               >
                 {" "}
                 Don’t pay high delivery fees or rent a truck to pick up that new

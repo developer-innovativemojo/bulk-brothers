@@ -4,11 +4,17 @@ import Image from "next/image";
 import backimg from "@/public/images/home/yearsofservice.png";
 import Text from "@/components/ui/Text";
 import Button from "@/components/ui/Button";
+
+import mask from "@/public/images/home/Mask group.png";
+
+
 const YearsService = () => {
   return (
     <>
       <div className="">
-        <div className="bg-[#191A05] min-h-[200px] flex justify-center items-center pb-[100px] mob:px-5">
+        <div className="bg-[#191A05] min-h-[200px] flex justify-center items-center pb-[100px] mob:px-5 relative">
+  <Image className="absolute  w-full " src={mask} alt="" width={1440} height={1546}/>
+          
           <div className=" w-full max-w-[1440px] flex justify-end">
             <div className="w-full max-w-[1098px] mt-[-100px] relative">
               <Image src={backimg} alt="" width={1098} height={520} />
@@ -22,7 +28,7 @@ const YearsService = () => {
                 </Text>
                 <Text
                   as="h2"
-                  className="text-[30px] text-[#E2E1DB] font-bold leading-[38.28px]"
+                  className="text-[30px] text-[#E2E1DB] font-bold leading-[38.28px] uppercase"
                 >
                   years of service
                 </Text>

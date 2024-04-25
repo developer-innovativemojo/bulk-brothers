@@ -9,7 +9,7 @@ const OurCLient = () => {
       <div className=" w-full max-w-[1327px]  gap-10 ">
         <Text
           as="h1"
-          className="text-[45px] text-center text-[#191A05] leading-[57.42px] mob:text-[35px]"
+          className="text-[45px] text-center text-[#191A05] leading-[57.42px] mob:text-[35px] uppercase"
         >
           What Our Clients Say
         </Text>

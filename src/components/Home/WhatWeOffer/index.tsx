@@ -9,6 +9,7 @@ import third from "@/public/images/home/whatweoffer/3.png";
 import four from "@/public/images/home/whatweoffer/4.png";
 import firsticon from "@/public/images/home/whatweoffer/serviceicon.png";
 import thirdicon from "@/public/images/home/whatweoffer/3icon.png";
+import mask from "@/public/images/home/Mask group.png";
 
 import Content from "./Content";
 import Button from "@/components/ui/Button";
@@ -16,11 +17,13 @@ import Button from "@/components/ui/Button";
 const WhatWeOffer = () => {
   return (
     <>
-      <div className="bg-[#191A05] min-h-[200px] flex justify-center items-center pb-[100px] mob:px-5">
+      <div className="bg-[#191A05] min-h-[200px] flex justify-center items-center pb-[100px] mob:px-5 relative">
+      <Image className="absolute  w-full h-full " src={mask} alt="" width={1440} height={1546}/>
+
         <div className=" w-full max-w-[1140px] ">
           <Text
             as="h1"
-            className="text-[45px] text-center text-[#FFFFFF] leading-[57.42px] mb-16 mt-20"
+            className="text-[45px] text-center text-[#FFFFFF] leading-[57.42px] mb-16 mt-20 uppercase"
           >
             What we offer
           </Text>
@@ -35,19 +38,19 @@ const WhatWeOffer = () => {
             />
             <Content
               imageSrc={second}
-              heading="Moving Services"
-              text="You don't have to pick between affordable rates or quality service. Trust Bulk Brothers to get your items to your new home safely and efficiently at affordable rates."
+              heading="Delivery Services"
+              text="Don’t pay high delivery fees or rent a truck to pick up that new item you love. Let Bulk Brothers take care of your delivery needs."
             />
             <Content
               imageSrc={third}
               iconSrc={thirdicon}
-              heading="Moving Services"
-              text="You don't have to pick between affordable rates or quality service. Trust Bulk Brothers to get your items to your new home safely and efficiently at affordable rates."
+              heading="Trash Removal Services"
+              text="Whether large or small, Bulk Brothers can take care of all of your clutter, trash, and junk removal needs. "
             />
             <Content
               imageSrc={four}
-              heading="Moving Services"
-              text="You don't have to pick between affordable rates or quality service. Trust Bulk Brothers to get your items to your new home safely and efficiently at affordable rates."
+              heading="Labor Only Services"
+              text="We provide a variety of labor only services when customers need someone to do the heavy lifting."
             />
           </div>
 

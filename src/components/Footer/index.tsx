@@ -1,11 +1,15 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { FaFacebook, FaInstagram, FaYoutube, FaPhoneAlt } from "react-icons/fa";
 
 import Text from "../ui/Text";
-import logo from "@/public/images/logo.png";
-import Link from "next/link";
 import Button from "../ui/Button";
+
+import logo from "@/public/images/logo.png";
+import facebook from "@/public/icons/facebook.svg";
+import youtube from "@/public/icons/insta.svg";
+import insta from "@/public/icons/youtube.svg";
 // import Subscribe from "./Subscribe";
 
 const Footer = () => {
@@ -98,11 +102,11 @@ const Footer = () => {
                 {/* social icons */}
                 <div className="flex gap-[15px] mt-4">
                   {/* facebook */}
-                  <FaFacebook className="text-[#FFFFFF] cursor-pointer text-[26px] hover:opacity-75 " />
+                <Image className=" cursor-pointer hover:opacity-75 "  src={facebook} alt="fb" width={26} height={26} />
                   {/* insta */}
-                  <FaInstagram className="text-[#FFFFFF] cursor-pointer text-[26px] hover:opacity-75 " />
+                <Image className=" cursor-pointer hover:opacity-75 " src={youtube} alt="fb" width={26} height={26} />
                   {/* youtube */}
-                  <FaYoutube className="text-[#FFFFFF] cursor-pointer text-[26px] hover:opacity-75 " />
+                <Image className=" cursor-pointer hover:opacity-75 " src={insta} alt="fb" width={26} height={26} />
                 </div>
               </div>
             </div>
@@ -118,20 +122,23 @@ const Footer = () => {
                 </Text>
                 <Text
                   as="p"
-                  className=" w-[229px] xl:w-full mob:max-w-full xl:flex xl:justify-center xl:text-center text-[#E2E1DB] text-[15px] leading-[20px] font-inter font-normal my-5 mob:my-4 "
+                  className=" w-[229px] xl:w-full mob:max-w-full xl:flex xl:justify-center xl:text-center text-[#E2E1DB] text-[14px] leading-[20px] font-inter font-normal my-5 mob:my-4 "
                 >
                   Bulk Brothers services Maryland and surrounding states.
                 </Text>
 
                 {/* email */}
+                <a href="mailto:info@bulkbrothersmove.com">
                 <Text
                   as="p"
-                  className=" w-[229px] xl:w-full mob:max-w-full xl:flex xl:justify-center xl:text-center text-[#E2E1DB] text-[15px] leading-[20px] font-inter font-normal my-5 pb-2 mob:my-4 "
+                  className=" w-[229px] xl:w-full mob:max-w-full xl:flex xl:justify-center xl:text-center text-[#E2E1DB] text-[14px] leading-[20px] font-inter font-normal my-5 pb-2 mob:my-4 "
                 >
                   info@bulkbrothersmove.com
                 </Text>
+                </a>
 
                 {/* phone number */}
+                <a href="tel:443-636-1824">
                 <div className="flex mob:justify-center gap-[15px] mt-4">
                   {/* phone */}
                   <FaPhoneAlt className="text-[#FFFFFF] cursor-pointer text-[39px] hover:opacity-75 " />
@@ -142,6 +149,7 @@ const Footer = () => {
                     443-636-1824
                   </Text>
                 </div>
+                </a>
               </div>
             </div>
           </div>
