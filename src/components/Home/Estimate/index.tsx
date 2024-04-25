@@ -21,7 +21,7 @@ const Estimate = () => {
 
   return (
     <div className="bg-[#191A05] min-h-[200px] flex justify-center items-center  mob:py-10">
-      <div className=" w-full max-w-[1164.5px] flex flex-wrap mob:justify-center items-end gap-5 mob: px-5">
+      <div className=" w-full max-w-[1169.5px] flex flex-wrap mob:justify-center items-end gap-5 mob: px-5">
         <div className="flex flex-col mob:w-full">
           <Text
             as="h1"
