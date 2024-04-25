@@ -49,7 +49,7 @@ const Footer = () => {
                   type="text"
                   placeholder="Email Address"
                 />
-                <Button className="absolute  right-3 mob:right-8 h-[32px] max-w-[114px] uppercase tracking-[1px] text-[13px] leading-[15.73px] ">
+                <Button className="absolute  right-3 mob:right-11 h-[32px] max-w-[114px] uppercase tracking-[1px] text-[13px] leading-[15.73px] ">
                   Subscribe
                 </Button>
               </div>

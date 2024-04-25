@@ -1,10 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
+
 import Button from "@/components/ui/Button";
 import Text from "@/components/ui/Text";
 
@@ -41,7 +40,7 @@ const Estimate = () => {
           <div className="relative z-30  max-w-[247px] flex items-center selected={startDate} onChange={(date) => setStartDate(date)} ">
             <DatePicker
               placeholderText={showPlaceholder ? "Moving From" : ""}
-              className="w-full max-w-[247px] h-[51px] px-5 rounded-[150px] bg-[#E2E1DB] text-[15px] font-inter font-normal outline-none"
+              className="w-full max-w-[247px] h-[51px] px-5 rounded-[150px] bg-[#E2E1DB] text-[15px] font-inter font-normal outline-none "
               selected={startDate}
               onChange={(date) => handleDateChange(date)}
               isClearable={true}
@@ -60,7 +59,7 @@ const Estimate = () => {
         </div>
 
         <div className="flex-col ">
-          <div className="relative  max-w-[247px] flex items-center z-30">
+          <div className="relative  max-w-[247px] flex items-center z-20">
           <DatePicker
               placeholderText={showPlaceholder ? "Moving To" : ""}
               className="w-full max-w-[247px] h-[51px] px-5 rounded-[150px] bg-[#E2E1DB] text-[15px] font-inter font-normal outline-none"

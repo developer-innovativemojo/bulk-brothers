@@ -13,8 +13,8 @@ const Hero = () => {
     <div className="bg-[#48422D] min-h-[735px] relative flex justify-center items-center  overflow-hidden">
       <div className="w-full max-w-[1484px] max-h-[785px] h-full relative pt-[0px] pb-[190px]">
         {/* content */}
-        <div className="flex justify-center  relative z-10">
-          <div className="bg-[#191A05]/85 w-full max-w-[860px] min-h-[418px] rounded-[20px] flex justify-center  items-center relative z-[11]">
+        <div className="flex justify-center  relative z-10 mob:px-5">
+          <div className="bg-[#191A05]/85 w-full max-w-[860px] min-h-[418px] rounded-[20px] flex justify-center  items-center relative z-[11] ">
 
           <Image
             className="absolute left-[-50px] bottom-[170px] z-[10]"
@@ -32,14 +32,14 @@ const Hero = () => {
           />
 
             <div className="relative z-[12]">
-              <Text as="h1" className="text-[#FFFFFF] text-center mob:text-[35px] mob:leading-[35px] font-rajdhani ">
+              <Text as="h1" className="text-[#FFFFFF] text-center mob:text-[35px] mob:leading-[40px] font-rajdhani ">
                 {" "}
                 Move with strength, <br /> move with us
               </Text>
              <div className="flex justify-center">
              <Text
                 as="p"
-                className="text-[#E2E1DB] font-inknut text-center max-w-[345px] leading-[27px] mt-2 "
+                className="text-[#E2E1DB] font-inknut text-center max-w-[345px] leading-[27px] mt-2 mob:mt-5 "
               >
                 {" "}
                 Don’t pay high delivery fees or rent a truck to pick up that new
