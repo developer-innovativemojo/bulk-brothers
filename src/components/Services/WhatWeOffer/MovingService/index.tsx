@@ -21,9 +21,9 @@ const MovingService = () => {
               01 <span className="text-[32px]  ml-4">Moving Services</span>
             </Text>
             <Text as="p" className="text-[#E2E1DB] text-[17px] leading-[27px] ">
-              You don't have to pick between affordable rates or quality
+              You dont have to pick between affordable rates or quality
               service. Trust Bulk Brothers to get your items to your new home
-              safely and efficiently at affordable rates.{" "}
+              safely and efficiently at affordable rates.
             </Text>
             <div className="flex mt-4">
               <Image src={star} alt="" width={17} height={17} />
