@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 
 import Drawer from "../ui/Drawer";
 
-import logo from "@/public/images/logo.png";
+import logo from "@/public/images/logowhite.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -85,15 +85,15 @@ const Navbar = () => {
                         href="/"
                         className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  uppercase"
                       >
-                       Home
+                        Home
                       </Link>
                     </li>
                     <li>
                       <Link
-                        href="/aboutus"
+                        href="/about"
                         className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  uppercase"
                       >
-                      Expertise
+                        Expertise
                       </Link>
                     </li>
                     <li>
@@ -106,10 +106,18 @@ const Navbar = () => {
                     </li>
                     <li>
                       <Link
+                        href="/team"
+                        className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  uppercase"
+                      >
+                        Team
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
                         href=""
                         className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  uppercase  "
                       >
-                      Contact
+                        Contact
                       </Link>
                     </li>
 
@@ -120,7 +128,7 @@ const Navbar = () => {
                           className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF] "
                         >
                           <button className=" uppercase tab:hidden px-[23px] h-[44px] rounded-[150px] bg-[#191A05]   border-[#191A05] border text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF] ">
-                          Get Free Estimate
+                            Get Free Estimate
                           </button>
                         </Link>
                       </div>
@@ -128,7 +136,6 @@ const Navbar = () => {
                   </ul>
                 </div>
               </div>
-
 
               {/* tab and mob  menu*/}
               <div className="hidden xl:block ">
@@ -170,18 +177,17 @@ const Navbar = () => {
                           className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
                         >
                           <li className="flex justify-center py-[15px] list-items">
-                          Home
-
+                            Home
                           </li>
                         </Link>
                         <hr className="h-px  bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
 
                         <Link
-                        href="/aboutus"
+                          href="/about"
                           className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
                         >
                           <li className="flex justify-center py-[15px] list-items">
-                          Expertise
+                            Expertise
                           </li>
                         </Link>
                         <hr className="h-px  bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
@@ -191,7 +197,17 @@ const Navbar = () => {
                           className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
                         >
                           <li className="flex justify-center py-[15px] list-items">
-                          Services
+                            Services
+                          </li>
+                        </Link>
+                        <hr className="h-px  bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
+
+                        <Link
+                          href="/team"
+                          className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
+                        >
+                          <li className="flex justify-center py-[15px] list-items">
+                            Team
                           </li>
                         </Link>
                         <hr className="h-px  bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
@@ -201,25 +217,21 @@ const Navbar = () => {
                           className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
                         >
                           <li className="flex justify-center py-[15px] list-items">
-                          Contact
+                            Contact
                           </li>
                         </Link>
-                        <hr className="h-px my- bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
-
-                     
                         <hr className="h-px  bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
-                        <li className="">
-                      <div className=" hidden xl:block mt-5">
+
                         <Link
                           href=""
                           className="flex justify-center  text-[16px] font-dmsans font-normal leading-7 text-[#FFFFFF]"
                         >
-                         <button className=" hidden xl:block  px-[23px] py-[11px] rounded-[150px] bg-[#191A05]   border-[#191A05] border text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF] ">
-                          Get Free Estimate
-                          </button>
+                          <li className="hidden xl:block mt-5 list-items">
+                            <button className=" hidden xl:block  px-[23px] py-[11px] rounded-[150px] bg-[#191A05]   border-[#191A05] border text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF] ">
+                              Get Free Estimate
+                            </button>
+                          </li>
                         </Link>
-                      </div>
-                    </li>
                       </ul>
                     </div>
                   </Drawer>

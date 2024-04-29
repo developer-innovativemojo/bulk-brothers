@@ -10,7 +10,7 @@ import airr from "@/public/images/home/hero/air-r.png";
 
 const Hero = () => {
   return (
-    <div className="bg-[#48422D] min-h-[400px] relative flex justify-center items-end  overflow-hidden">
+    <div className="bg-[#48422D] min-h-[400px] mob:min-h-full mob:pt-16 relative flex justify-center items-end  overflow-hidden">
       <div className="w-full max-w-[1484px] max-h-[785px] h-full relative pt-[0px] pb-[190px]">
         {/* content */}
        
