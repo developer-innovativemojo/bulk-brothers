@@ -10,7 +10,7 @@ import airr from "@/public/images/home/hero/air-r.png";
 
 const Hero = () => {
   return (
-    <div className="bg-[#48422D] min-h-[735px] relative flex justify-center items-center  overflow-hidden">
+    <div className="bg-[#48422D] min-h-[735px] mob:min-h-full mob:pt-10 mob:pb-4 relative flex justify-center items-center  overflow-hidden">
       <div className="w-full max-w-[1484px] max-h-[785px] h-full relative pt-[0px] pb-[190px]">
         {/* content */}
         <div className="flex justify-center  relative z-10 mob:px-5">
@@ -32,14 +32,14 @@ const Hero = () => {
           />
 
             <div className="relative z-[12]">
-              <Text as="h1" className="text-[#FFFFFF] text-center mob:text-[35px] mob:leading-[40px] font-rajdhani ">
+              <Text as="h1" className="text-[#FFFFFF] text-center mob:text-[35px] mob:leading-[40px] font-rajdhani uppercase">
                 {" "}
                 Move with strength, <br /> move with us
               </Text>
              <div className="flex justify-center">
              <Text
                 as="p"
-                className="text-[#E2E1DB] font-inknut text-center max-w-[345px] leading-[27px] mt-2 mob:mt-5 "
+                className="text-[#E2E1DB] text-[14px] text-center max-w-[345px] leading-[27px] mt-2 mob:mt-5 "
               >
                 {" "}
                 Don’t pay high delivery fees or rent a truck to pick up that new
@@ -53,14 +53,14 @@ const Hero = () => {
         {/* imgs */}
         <div className="flex justify-center">
           <Image
-            className="absolute bottom-[130px] mob:bottom-[60px] z-[9]"
+            className="absolute bottom-[130px] mob:bottom-[50px] z-[9]"
             src={backimg}
             alt=""
             width={1484}
             height={555}
           />
           <Image
-            className="absolute bottom-[10px] z-10"
+            className="absolute bottom-[0px] z-10"
             src={bussesimg}
             alt=""
             width={1290.6}

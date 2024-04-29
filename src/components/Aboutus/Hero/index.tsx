@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { FaFacebook, FaInstagram, FaYoutube, FaPhoneAlt } from "react-icons/fa";
 
 import Text from "@/components/ui/Text";
@@ -26,18 +27,36 @@ const Hero = () => {
             <div className="relative z-[12]">
               <Text
                 as="h1"
-                className="text-[#FFFFFF] text-center font-rajdhani mob:text-[35px] mob:leading-[38px] "
+                className="text-[#FFFFFF] text-center font-rajdhani mob:text-[35px] mob:leading-[38px] uppercase "
               >
                 {" "}
                 Veteran owned and <br /> operated company <br /> here to serve you.
               </Text>
               <div className="flex justify-center gap-[30px] mt-10">
+                
                  {/* facebook */}
                  <Image className=" cursor-pointer hover:opacity-75 "  src={facebook} alt="fb" width={26} height={26} />
                   {/* insta */}
-                <Image className=" cursor-pointer hover:opacity-75 " src={youtube} alt="fb" width={26} height={26} />
+                  <Link href="https://www.instagram.com/Seanbulkbrosrideout/">
+                    {" "}
+                    <Image
+                      className=" cursor-pointer hover:opacity-75 "
+                      src={youtube}
+                      alt="fb"
+                      width={26}
+                      height={26}
+                    />
+                  </Link>
                   {/* youtube */}
-                <Image className=" cursor-pointer hover:opacity-75 " src={insta} alt="fb" width={26} height={26} />
+                  <Link href="https://www.youtube.com/channel/UCX7Pav3V76SucI4xclZiYww">
+                    <Image
+                      className=" cursor-pointer hover:opacity-75 "
+                      src={insta}
+                      alt="fb"
+                      width={26}
+                      height={26}
+                    />
+                  </Link>
                 </div>
             </div>
           </div>

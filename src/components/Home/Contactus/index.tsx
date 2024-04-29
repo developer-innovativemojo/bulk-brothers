@@ -110,7 +110,7 @@ const Contactus = () => {
 
           {/* form */}
           <form action="" className="flex flex-wrap justify-center">
-            <div className="flex flex-col  relative w-full max-w-[570px] border-t lg:border-r border-[#FFFFFF]">
+            <div className="flex flex-col  relative w-full max-w-[569px] border-t border-b lg:border-b-0 lg:border-r border-[#FFFFFF]">
               <input
                 className=" flex flex-col  text-[17px] text-[#FFFFFF] leading-[25px] font-medium font-inter  bg-transparent placeholder:font-medium placeholder-white border-l  px-5 w-full max-w-[570px] h-[80px]  outline-none"
                 type="text"
@@ -134,7 +134,7 @@ const Contactus = () => {
               {emailError && <p style={{ color: "red" }}>{emailError}</p>}
             </div>
 
-            <div className="flex flex-col  relative w-full max-w-[570px]  border lg:border-t-0 border-[#FFFFFF]">
+            <div className="flex flex-col  relative w-full max-w-[570px]  border border-t-0 lg:border-t-0 border-[#FFFFFF]">
               <input
                 className=" flex flex-col  text-[17px] text-[#FFFFFF] leading-[25px] font-medium font-inter placeholder-white  bg-transparent px-5 w-full max-w-[570px] h-[80px]  outline-none"
                 type="text"
