@@ -8,6 +8,7 @@ import backimg from "@/public/images/home/hero/herobgnew.png";
 import facebook from "@/public/icons/facebook.svg";
 import youtube from "@/public/icons/insta.svg";
 import insta from "@/public/icons/youtube.svg";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -50,29 +51,35 @@ const Hero = () => {
               </div>
               <div className="flex justify-center gap-[30px] mt-6">
                 {/* facebook */}
-                <Image
-                  className=" cursor-pointer hover:opacity-75 "
-                  src={facebook}
-                  alt="fb"
-                  width={26}
-                  height={26}
-                />
-                {/* insta */}
-                <Image
-                  className=" cursor-pointer hover:opacity-75 "
-                  src={youtube}
-                  alt="fb"
-                  width={26}
-                  height={26}
-                />
-                {/* youtube */}
-                <Image
-                  className=" cursor-pointer hover:opacity-75 "
-                  src={insta}
-                  alt="fb"
-                  width={26}
-                  height={26}
-                />
+                    <Image
+                      className=" cursor-pointer hover:opacity-75 "
+                      src={facebook}
+                      alt="fb"
+                      width={26}
+                      height={26}
+                    />
+                  {/* insta */}
+                  <Link href="https://www.instagram.com/Seanbulkbrosrideout/">
+                    {" "}
+                    <Image
+                      className=" cursor-pointer hover:opacity-75 "
+                      src={youtube}
+                      alt="fb"
+                      width={26}
+                      height={26}
+                    />
+                  </Link>
+                  {/* youtube */}
+                  <Link href="https://www.youtube.com/channel/UCX7Pav3V76SucI4xclZiYww">
+                    <Image
+                      className=" cursor-pointer hover:opacity-75 "
+                      src={insta}
+                      alt="fb"
+                      width={26}
+                      height={26}
+                    />
+                  </Link>
+
               </div>
             </div>
           </div>
