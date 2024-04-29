@@ -114,7 +114,15 @@ const Navbar = () => {
                     </li>
                     <li>
                       <Link
-                        href=""
+                        href="/gallery"
+                        className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  uppercase"
+                      >
+                        Gallery
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/contact"
                         className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  uppercase  "
                       >
                         Contact
@@ -211,9 +219,19 @@ const Navbar = () => {
                           </li>
                         </Link>
                         <hr className="h-px  bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
+                        
+                        <Link
+                          href="/gallery"
+                          className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
+                        >
+                          <li className="flex justify-center py-[15px] list-items">
+                            Gallery
+                          </li>
+                        </Link>
+                        <hr className="h-px  bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
 
                         <Link
-                          href="/"
+                          href="/contact"
                           className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
                         >
                           <li className="flex justify-center py-[15px] list-items">
