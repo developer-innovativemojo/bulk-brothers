@@ -34,29 +34,39 @@ const Hero = () => {
               </Text>
               <div className="flex justify-center gap-[30px] mt-10">
                 
-                 {/* facebook */}
-                 <Image className=" cursor-pointer hover:opacity-75 "  src={facebook} alt="fb" width={26} height={26} />
-                  {/* insta */}
-                  <Link href="https://www.instagram.com/Seanbulkbrosrideout/">
-                    {" "}
-                    <Image
-                      className=" cursor-pointer hover:opacity-75 "
-                      src={youtube}
-                      alt="fb"
-                      width={26}
-                      height={26}
-                    />
-                  </Link>
-                  {/* youtube */}
-                  <Link href="https://www.youtube.com/channel/UCX7Pav3V76SucI4xclZiYww">
-                    <Image
-                      className=" cursor-pointer hover:opacity-75 "
-                      src={insta}
-                      alt="fb"
-                      width={26}
-                      height={26}
-                    />
-                  </Link>
+                   {/* facebook */}
+                   <Link href="https://www.facebook.com/BulkBrosMovingTrashandhauling/">
+                        {" "}
+                      <Image
+                        className=" cursor-pointer hover:opacity-75 "
+                        src={facebook}
+                        alt="fb"
+                        width={26}
+                        height={26}
+                      />
+                      </Link>
+
+                      {/* insta */}
+                      <Link href="https://www.instagram.com/bulkbros_ent/">
+                        {" "}
+                        <Image
+                          className=" cursor-pointer hover:opacity-75 "
+                          src={youtube}
+                          alt="fb"
+                          width={26}
+                          height={26}
+                        />
+                      </Link>
+                      {/* youtube */}
+                      <Link href="https://www.youtube.com/@seanrideout8301">
+                        <Image
+                          className=" cursor-pointer hover:opacity-75 "
+                          src={insta}
+                          alt="fb"
+                          width={26}
+                          height={26}
+                        />
+                      </Link>
                 </div>
             </div>
           </div>
