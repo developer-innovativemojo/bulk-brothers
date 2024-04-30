@@ -1,12 +1,10 @@
 import React from "react";
 import Image from "next/image";
 
-import Text from "@/components/ui/Text";
 
 import bussesimg from "@/public/images/services/sevicebussbg.png";
 import backimg from "@/public/images/home/hero/herobgnew.png";
-import airl from "@/public/images/home/hero/air-l.png";
-import airr from "@/public/images/home/hero/air-r.png";
+
 
 const Hero = () => {
   return (

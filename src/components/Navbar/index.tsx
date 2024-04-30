@@ -120,19 +120,10 @@ const Navbar = () => {
                         Gallery
                       </Link>
                     </li>
-                    <li>
-                      <Link
-                        href="/contact"
-                        className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  uppercase  "
-                      >
-                        Contact
-                      </Link>
-                    </li>
-
                     <li className="">
                       <div className=" xl:hidden">
                         <Link
-                          href=""
+                          href="/contact"
                           className="block  text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF] "
                         >
                           <button className=" uppercase tab:hidden px-[23px] h-[44px] rounded-[150px] bg-[#191A05]   border-[#191A05] border text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF] ">
@@ -219,7 +210,7 @@ const Navbar = () => {
                           </li>
                         </Link>
                         <hr className="h-px  bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
-                        
+
                         <Link
                           href="/gallery"
                           className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
@@ -232,16 +223,6 @@ const Navbar = () => {
 
                         <Link
                           href="/contact"
-                          className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
-                        >
-                          <li className="flex justify-center py-[15px] list-items">
-                            Contact
-                          </li>
-                        </Link>
-                        <hr className="h-px  bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
-
-                        <Link
-                          href=""
                           className="flex justify-center  text-[16px] font-dmsans font-normal leading-7 text-[#FFFFFF]"
                         >
                           <li className="hidden xl:block mt-5 list-items">
