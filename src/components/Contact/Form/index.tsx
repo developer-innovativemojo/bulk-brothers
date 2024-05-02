@@ -179,6 +179,7 @@ const Form: React.FC = () => {
             </Text>
             <form onSubmit={handleSubmit} className="form">
 {/* email */}
+            <div className="mob:px-5">
             <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">Email*</Text>
               <input
                 className="w-full h-[51px] px-5 bg-transparent border text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none mb-2"
@@ -189,6 +190,7 @@ const Form: React.FC = () => {
                 required
               />
 
+            </div>
               {renderFormSection(livingCount, livingData, "living")}
               <div className="w-full flex justify-center mt-5">
                 <button
