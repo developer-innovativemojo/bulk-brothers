@@ -3,9 +3,10 @@ import Image from "next/image";
 
 import Text from "@/components/ui/Text";
 
-import leftimg from "@/public/images/services/trusted.png";
+import leftimg from "@/public/images/services/leftnew.png";
 
 const Trusted = () => {
+
   return (
     <>
       <div className="bg-[#3A3524]  flex justify-center items-center py-16">

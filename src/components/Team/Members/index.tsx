@@ -8,7 +8,7 @@ import bg from "@/public/images/team/teambg2.png";
 const Members = () => {
   return (
     <>
-      <div className="bg-[#2B281B]  flex justify-center items-center pt-16">
+      <div className="bg-[#2B281B]  flex justify-center items-center pt-24">
         <div className="w-full max-w-[1440px]">
           {/* team members */}
        

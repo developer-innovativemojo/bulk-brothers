@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import Text from "@/components/ui/Text";
 
-import bussesimg from "@/public/images/home/hero/busses.png";
+import bussesimg from "@/public/images/home/hero/herobgnew1.png";
 import backimg from "@/public/images/home/hero/herobgnew.png";
 import airl from "@/public/images/home/hero/air-l.png";
 import airr from "@/public/images/home/hero/air-r.png";
@@ -39,7 +39,7 @@ const Hero = () => {
              <div className="flex justify-center">
              <Text
                 as="p"
-                className="text-[#E2E1DB] text-[14px] text-center max-w-[345px] leading-[27px] mt-2 mob:mt-5 "
+                className="text-[#E2E1DB]/70 text-[14px] text-center max-w-[345px] leading-[27px] mt-2 mob:mt-5 "
               >
                 {" "}
                 Don’t pay high delivery fees or rent a truck to pick up that new
@@ -60,11 +60,11 @@ const Hero = () => {
             height={555}
           />
           <Image
-            className="absolute bottom-[0px] z-10"
+            className="absolute bottom-[-70px] mob:bottom-0 z-10"
             src={bussesimg}
             alt=""
-            width={1290.6}
-            height={331}
+            width={1371}
+            height={418}
           />
         </div>
       </div>
