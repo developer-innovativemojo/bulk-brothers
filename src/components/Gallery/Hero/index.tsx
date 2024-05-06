@@ -23,7 +23,9 @@ const Hero = () => {
       <div className="w-full max-w-[1484px] max-h-[386px] h-full relative ">
         {/* content */}
         <div className="flex justify-center  relative z-10 ">
-          <div className="bg-[#191A05] w-full max-w-[860px] min-h-[366px] rounded-[20px] flex justify-center absolute top-[30px]  items-center  z-[11] mb-[-70px] mob:px-5">
+          <div className="bg-[#191A05] w-full max-w-[860px] min-h-[366px] rounded-[20px] flex justify-center absolute top-[30px]  items-center  z-[11] mb-[-70px] mob:px-5"  data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-easing="ease-in-out">
             <div className="relative z-[12]">
               <Text
                 as="h2"
