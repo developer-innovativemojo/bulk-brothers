@@ -9,18 +9,19 @@ import backimg from "@/public/images/home/hero/herobgnew.png";
 const Hero = () => {
   return (
     <div className="bg-[#48422D] min-h-[400px] mob:min-h-full mob:pt-16 relative flex justify-center items-end  overflow-hidden">
-      <div className="w-full max-w-[1484px] max-h-[785px] h-full relative pt-[0px] pb-[190px]">
-        {/* content */}
-       
-        {/* imgs */}
-        <div className="flex justify-center">
-          <Image
-            className="absolute bottom-[-5px] z-[9]"
+       <Image
+            className="absolute w-full bottom-[-5px] z-[9]"
             src={backimg}
             alt=""
             width={1484}
             height={555}
           />
+      <div className="w-full max-w-[1484px] max-h-[785px] h-full relative pt-[0px] pb-[190px]">
+        {/* content */}
+       
+        {/* imgs */}
+        <div className="flex justify-center">
+         
           <Image
             className="absolute bottom-0 z-10"
             src={bussesimg}

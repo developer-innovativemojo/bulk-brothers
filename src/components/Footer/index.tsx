@@ -78,7 +78,7 @@ const Footer = () => {
                     Home
                   </Text>
                 </Link>
-                <Link href="/why-work-with-us">
+                <Link href="/about">
                   <Text
                     as="p"
                     className="text-[15px] xl:text-center text-[#E2E1DB] leading-[40px] font-normal "
@@ -95,7 +95,7 @@ const Footer = () => {
                   </Text>
                 </Link>
 
-                <Link href="/contact-us">
+                <Link href="/contact">
                   <Text
                     as="p"
                     className="text-[15px] xl:text-center text-[#E2E1DB] leading-[40px] font-normal "

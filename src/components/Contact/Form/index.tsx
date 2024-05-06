@@ -251,7 +251,7 @@ const Form: React.FC = () => {
               <hr className="h-px my-5 bg-[#FFFFFF]/30 border-0" />
 
               {/* Submit Button */}
-              <div className="flex justify-center pb-7">
+              <div className="flex justify-center pb-7 mob:px-5">
                 <button disabled={loading} className="bg-[#E2E1DB] text-[17px] text-[#191A05] w-full max-w-[377px] h-[88px] uppercase">
                 {loading ? "Submiting..." : "Submit"}
                 </button>
