@@ -161,12 +161,12 @@ const Footer = () => {
 
                 {/* email */}
                 <a href="mailto:info@bulkbrothersmove.com">
-                  <div className="flex mob:justify-center  items-center gap-[13px] mt-4">
-                    <MdEmail className="text-[#FFFFFF] cursor-pointer text-[37px] mob:text-[30px] hover:opacity-75 " />
+                  <div className="flex mob:justify-center  items-center gap-[7px] mt-4">
+                    <MdEmail className="text-[#FFFFFF] cursor-pointer text-[24px]  hover:opacity-75 " />
 
                     <Text
                       as="p"
-                      className=" xl:text-center text-[#E2E1DB] text-[14px] leading-[20px] font-inter font-normal my-5 p mob:my-4 "
+                      className=" xl:text-center text-[#E2E1DB] text-[14px] leading-[20px] font-inter font-normal my-5  mob:my-4 "
                     >
                       info@bulkbrothersmove.com
                     </Text>

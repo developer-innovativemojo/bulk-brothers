@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 
-import bussesimg from "@/public/images/services/sevicebussbg.png";
+import bussesimg from "@/public/images/services/servicehero1.png";
 import backimg from "@/public/images/home/hero/herobgnew.png";
 
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import Text from "@/components/ui/Text";
 
-import leftimg from "@/public/images/services/leftnew.png";
+import leftimg from "@/public/images/services/service2.png";
 
 const Trusted = () => {
 
