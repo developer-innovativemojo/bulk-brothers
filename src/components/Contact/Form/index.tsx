@@ -25,6 +25,7 @@ const Form: React.FC = () => {
   const [bathroomData, setBathroomData] = useState<FormData>({});
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false)
+  const [successfully, setSuccessfully] = useState("")
   const handleChangemail = (e : any) => {
     setEmail(e.target.value);
   };
@@ -93,12 +94,15 @@ const Form: React.FC = () => {
         },
       });
       console.log("Form data sent successfully:", response.data);
+      setSuccessfully("Form data sent successfully")
       // console.log(allData, "allData");
 
       alert("Form data sent successfully!");
     } catch (error) {
       console.error("Error sending form data:", error);
      alert("Error sending form data. Please try again.");
+     setSuccessfully("Form data failed to send")
+
     } finally {
       setLoading(false); 
     }
@@ -168,7 +172,9 @@ const Form: React.FC = () => {
     <>
       <div className="flex justify-center pb-20">
         <div className="flex justify-center w-full max-w-[953px] bg-[#000000]">
-          <div className="w-full max-w-[710px] min-h-[200px]">
+          <div className="w-full max-w-[710px] min-h-[200px]"     data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-easing="ease-in-out">
             <Text as="h1" className="text-[#FFFFFF] text-center text-[36px] mt-10 mb-5 uppercase">
               Please fill out the form
             </Text>
@@ -256,6 +262,8 @@ const Form: React.FC = () => {
                 {loading ? "Submiting..." : "Submit"}
                 </button>
               </div>
+              {successfully !== "" ? <Text as="h2" className="text-[#409c40] text-[20px] text-center font-bold pb-2">{successfully}</Text> : null}
+
             </form>
           </div>
         </div>

@@ -33,8 +33,8 @@ export async function POST(request: NextRequest) {
       host: "smtp.gmail.com",
       port: 587,
       auth: {
-        user: "salmanamjad902@gmail.com",
-        pass: "cnez szon gozh motb",
+        // user: "salmanamjad902@gmail.com",
+        // pass: "cnez szon gozh motb",
       },
     });
 
@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
     };
 
     const mailOptionToUser = {
-        from: "BULK BROTHERS <salmanamjad902@gmail.com >",
+        // from: "BULK BROTHERS <salmanamjad902@gmail.com >",
   
         to: email,
         subject: "Thank You for Contacting Us",

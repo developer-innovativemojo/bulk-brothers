@@ -9,7 +9,9 @@ import Button from "@/components/ui/Button";
 const CrateRental = () => {
   return (
     <>
-      <div className="bg-[#48422D]  relative flex justify-center items-end  overflow-hidden mob:py-10">
+      <div className="bg-[#48422D]  relative flex justify-center items-end  overflow-hidden mob:py-10" data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-easing="ease-in-out">
         <Image
           className="absolute top-0"
           src={bg}

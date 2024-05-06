@@ -12,7 +12,9 @@ const YearsService = () => {
   return (
     <>
       <div className="">
-        <div className="bg-[#191A05] min-h-[200px] flex justify-center items-center pb-[100px] mob:px-5 relative">
+        <div className="bg-[#191A05] min-h-[200px] flex justify-center items-center pb-[100px] mob:px-5 relative" data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-easing="ease-in-out">
   <Image className="absolute  w-full " src={mask} alt="" width={1440} height={1546}/>
           
           <div className=" w-full max-w-[1440px] flex justify-end">

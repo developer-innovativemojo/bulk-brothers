@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 
 import {
@@ -45,6 +46,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
     <html lang="en">
       <link rel="shortcut icon" href="/favicon.ico" />

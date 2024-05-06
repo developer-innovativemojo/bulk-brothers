@@ -23,7 +23,9 @@ const Hero = () => {
             width={1484}
             height={595}
           />
-          <div className="w-full max-w-[718px]   min-h-[472.28px] mob:min-h-[402.28px] relative  justify-center mob:mt-8 z-10">
+          <div className="w-full max-w-[718px]   min-h-[472.28px] mob:min-h-[402.28px] relative  justify-center mob:mt-8 z-10" data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-easing="ease-in-out">
             <div className="mt-20 mb-16">
               <Text
                 as="p"
@@ -40,7 +42,7 @@ const Hero = () => {
             </div>
 
             <div className="w-full  flex flex-wrap gap-4 justify-center items-center">
-            <ContentMembers name="Sean Rideout" title="Founder / CEO" imgSrc={img1} />
+            <ContentMembers name="Sean Rideout" title="Founder / CEO" imgSrc={img1}  />
             <ContentMembers name="Sean Rideout" title="Founder / CEO" imgSrc={img2} />
           </div>
 

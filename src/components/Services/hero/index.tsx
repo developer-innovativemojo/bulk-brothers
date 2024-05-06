@@ -16,7 +16,9 @@ const Hero = () => {
             width={1484}
             height={555}
           />
-      <div className="w-full max-w-[1484px] max-h-[785px] h-full relative pt-[0px] pb-[190px]">
+      <div className="w-full max-w-[1484px] max-h-[785px] h-full relative pt-[0px] pb-[190px]" data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-easing="ease-in-out">
         {/* content */}
        
         {/* imgs */}

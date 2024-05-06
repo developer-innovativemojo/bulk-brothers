@@ -10,7 +10,7 @@ import airr from "@/public/images/home/hero/air-r.png";
 
 const Hero = () => {
   return (
-    <div className="bg-[#48422D] min-h-[735px] mob:min-h-full mob:pt-10 mob:pb-4 relative flex justify-center items-center  overflow-hidden">
+    <div className="bg-[#48422D] min-h-[735px] mob:min-h-full mob:pt-10 mob:pb-4 relative flex justify-center items-center  overflow-hidden" >
       
       <Image
             className="absolute w-full bottom-[130px] mob:bottom-[50px] z-[9]"
@@ -21,11 +21,17 @@ const Hero = () => {
           />
       <div className="w-full max-w-[1484px] max-h-[785px] h-full relative pt-[0px] pb-[190px]">
         {/* content */}
-        <div className="flex justify-center  relative z-10 mob:px-5">
+        <div className="flex justify-center  relative z-10 mob:px-5"  data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-easing="ease-in-out">
           <div className="bg-[#191A05]/85 w-full max-w-[860px] min-h-[418px] rounded-[20px] flex justify-center  items-center relative z-[11] ">
 
           <Image
             className="absolute left-[-50px] bottom-[170px] z-[10]"
+            data-aos="fade-left"
+            data-aos-delay="1000"
+  data-aos-duration="1000"
+  data-aos-easing="ease-in-out"
             src={airl}
             alt=""
             width={172.57}
@@ -33,6 +39,10 @@ const Hero = () => {
           />
           <Image
             className="absolute right-[-50px] bottom-[170px] z-[10]"
+            data-aos="fade-right"
+            data-aos-delay="1000"
+  data-aos-duration="1000"
+  data-aos-easing="ease-in-out"
             src={airr}
             alt=""
             width={172.57}
@@ -62,6 +72,9 @@ const Hero = () => {
         <div className="flex justify-center">
          
           <Image
+           data-aos="fade-up"
+           data-aos-duration="1000"
+           data-aos-easing="ease-in-out"
             className="absolute bottom-[-70px] mob:bottom-0 z-10"
             src={bussesimg}
             alt=""
