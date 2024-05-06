@@ -80,8 +80,10 @@ const Contactus = () => {
   };
 
   return (
-    <div className=" min-h-[663px] relative flex justify-center items-center mob:px-5 mob:py-5 ">
-      <div className="w-full max-w-[1484px]  h-full  flex justify-center">
+    <div className=" min-h-[663px] relative flex justify-center items-center mob:px-5 mob:py-5 " data-aos="fade-up"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out">
+      <div className="w-full max-w-[1484px]  h-full  flex justify-center" >
         <Image
           className="bg-background-image bg-cover  bg-top bg-no-repeat absolute top-0 left-0 w-full h-full z-0"
           src={formbg}

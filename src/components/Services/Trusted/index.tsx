@@ -3,13 +3,16 @@ import Image from "next/image";
 
 import Text from "@/components/ui/Text";
 
-import leftimg from "@/public/images/services/trusted.png";
+import leftimg from "@/public/images/services/service2.png";
 
 const Trusted = () => {
+
   return (
     <>
       <div className="bg-[#3A3524]  flex justify-center items-center py-16">
-        <div className=" w-full max-w-[1110px] flex flex-wrap items-center justify-between pb-[] mob:px-5">
+        <div className=" w-full max-w-[1110px] flex flex-wrap items-center justify-between pb-[] mob:px-5" data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-easing="ease-in-out">
           <div className="flex flex-col ">
             <Image
               className="  "

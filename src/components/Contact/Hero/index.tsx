@@ -41,7 +41,9 @@ const Hero = () => {
           </div>
 
           {/* desktop */}
-          <div className="flex justify-center w-full absolute tab:hidden z-10 top-[-300px] mob:top-5">
+          <div className="flex justify-center w-full absolute tab:hidden z-10 top-[-300px] mob:top-5" data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-easing="ease-in-out">
             <div className="w-full bg-[#191A05] max-w-[953px] min-h-[604px]  relative flex flex-wrap justify-center items-center ">
               {/* left */}
               <div className="flex flex-col w-full max-w-[508px] mob:py-10">
@@ -111,6 +113,11 @@ const Hero = () => {
               <div className="flex flex-col w-full max-w-[445px] bg-[#48422D] min-h-[604px] ">
                 <Image
                   className="ml-[-80px] mob:ml-0 mt-5"
+                  data-aos="fade-left"
+  data-aos-duration="1000"
+  data-aos-easing="ease-in-out"
+  data-aos-delay="1000"
+
                   src={buss}
                   alt=""
                   width={452.2}

@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 
 import Drawer from "../ui/Drawer";
 
-import logo from "@/public/images/logowhite.png";
+import logo from "@/public/icons/logoupdated.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="relative bg-[#48422D] min-h-[134px] z-50  w-full  ">
+      <nav className="relative bg-[#48422D] min-h-[134px] z-50  w-full pr-5  ">
         <div className="flex justify-center items-center w-full min-h-[134px]">
           <div className="relative max-w-[1340px]  min-h-[134px] w-full flex flex-wrap items-center justify-between mx-auto py-4">
             <div className="flex    justify-between w-full  gap-[35px] items-center pl-[5%] pb-4">

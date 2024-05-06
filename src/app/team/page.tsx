@@ -7,8 +7,10 @@ import Members from "@/components/Team/Members";
 export default function Team() {
   return (
     <main className="bg-[#191A05] min-h-screen">
+     <div className="relative">
      <Hero/>
      <Members/>
+     </div>
      <Contactus/>
     </main>
   );

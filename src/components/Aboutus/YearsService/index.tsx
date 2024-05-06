@@ -3,13 +3,15 @@ import Image from "next/image";
 
 import Text from "@/components/ui/Text";
 
-import leftimg from "@/public/images/aboutus/yearsofservice.png";
+import leftimg from "@/public/images/aboutus/yearsnew.png";
 
 const YearsService = () => {
   return (
     <>
       <div className="bg-[#E2E1DB] min-h-[200px] flex justify-center items-center pt-[130px] mob:px-5">
-        <div className=" w-full max-w-[1188.5px] flex flex-wrap items-center gap-10 pb-[100px]">
+        <div className=" w-full max-w-[1188.5px] flex flex-wrap items-center gap-10 pb-[100px]" data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-easing="ease-in-out">
           <div className="flex flex-col ">
             <Image
               className="  "
