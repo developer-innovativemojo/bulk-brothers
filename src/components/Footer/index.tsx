@@ -6,7 +6,8 @@ import { MdEmail } from "react-icons/md";
 import Text from "../ui/Text";
 import Button from "../ui/Button";
 
-import logo from "@/public/images/logowhite.png";
+import logo from "@/public/icons/logoupdated.svg";
+import phone from "@/public/images/phonefooter.png";
 import facebook from "@/public/icons/facebook.svg";
 import youtube from "@/public/icons/insta.svg";
 import insta from "@/public/icons/youtube.svg";
@@ -46,7 +47,7 @@ const Footer = () => {
               <div className="relative mb-12 max-w-[301px] flex mob:block items-center mob:justify-center mob:max-w-full">
                 <div className="mob:flex mob:justify-center w-full max-w-[301px] mob:max-w-full">
                   <input
-                    className="w-full max-w-[301px] h-[48px] px-5 rounded-[150px] bg-[#E2E1DB] placeholder:text-[#191A05] text-[15px] font-inter font-normal outline-none"
+                    className="w-full max-w-[301px] h-[48px] px-5 rounded-[150px] bg-[#FFFFFF] placeholder:text-[#191A05] text-[15px] font-inter font-normal outline-none"
                     type="text"
                     placeholder="Email Address"
                   />
@@ -174,9 +175,10 @@ const Footer = () => {
 
                 {/* phone number */}
                 <a href="tel:443-636-1824">
-                  <div className="flex mob:justify-center gap-[15px] mt-4">
+                  <div className="flex mob:justify-center items-center gap-[15px] mt-4">
                     {/* phone */}
-                    <FaPhoneAlt className="text-[#FFFFFF] cursor-pointer text-[37px] mob:text-[30px] hover:opacity-75 " />
+                    {/* <FaPhoneAlt className="text-[#FFFFFF] cursor-pointer text-[37px] mob:text-[30px] hover:opacity-75 " /> */}
+                    <Image src={phone} alt="" width={49} height={49} />
                     <Text
                       as="h2"
                       className="text-[24px] xl:text-center text-[#E2E1DB] leading-[40px] font-bold "

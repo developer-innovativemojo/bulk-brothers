@@ -11,6 +11,14 @@ import airr from "@/public/images/home/hero/air-r.png";
 const Hero = () => {
   return (
     <div className="bg-[#48422D] min-h-[735px] mob:min-h-full mob:pt-10 mob:pb-4 relative flex justify-center items-center  overflow-hidden">
+      
+      <Image
+            className="absolute w-full bottom-[130px] mob:bottom-[50px] z-[9]"
+            src={backimg}
+            alt=""
+            width={1484}
+            height={555}
+          />
       <div className="w-full max-w-[1484px] max-h-[785px] h-full relative pt-[0px] pb-[190px]">
         {/* content */}
         <div className="flex justify-center  relative z-10 mob:px-5">
@@ -52,13 +60,7 @@ const Hero = () => {
         </div>
         {/* imgs */}
         <div className="flex justify-center">
-          <Image
-            className="absolute bottom-[130px] mob:bottom-[50px] z-[9]"
-            src={backimg}
-            alt=""
-            width={1484}
-            height={555}
-          />
+         
           <Image
             className="absolute bottom-[-70px] mob:bottom-0 z-10"
             src={bussesimg}
