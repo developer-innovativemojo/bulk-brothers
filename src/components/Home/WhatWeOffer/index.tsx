@@ -42,7 +42,7 @@ const WhatWeOffer = () => {
 
           {/* cards */}
           <div className="flex flex-wrap justify-center gap-6 ">
-            <Link href="/services">
+          <Link href="/services?id=moving-service">
               <Content
                 imageSrc={first}
                 iconSrc={firsticon}
@@ -51,14 +51,14 @@ const WhatWeOffer = () => {
               />
             </Link>
 
-            <Link href="/services">
+            <Link href="/services?id=delivery-service">
               <Content
                 imageSrc={second}
                 heading="Delivery Services"
                 text="Don’t pay high delivery fees or rent a truck to pick up that new item you love. Let Bulk Brothers take care of your delivery needs."
               />
             </Link>
-            <Link href="/services">
+            <Link href="/services?id=trash-service">
               <Content
                 imageSrc={third}
                 iconSrc={thirdicon}
@@ -66,7 +66,7 @@ const WhatWeOffer = () => {
                 text="Whether large or small, Bulk Brothers can take care of all of your clutter, trash, and junk removal needs. "
               />
             </Link>
-            <Link href="/services">
+            <Link href="/services?id=labor-service">
               <Content
                 imageSrc={four}
                 heading="Labor Only Services"

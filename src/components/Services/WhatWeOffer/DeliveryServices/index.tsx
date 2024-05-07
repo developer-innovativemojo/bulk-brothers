@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 
 import movingimg from "@/public/images/services/deliveryservice.png";
 import star from "@/public/icons/star.svg";
 
 import Text from "@/components/ui/Text";
-const DeliveryServices = () => {
+
+interface WhatWeOfferProps {
+  id: any; // Define id prop
+}
+
+const DeliveryServices: React.FC<WhatWeOfferProps> = ({ id }) => {
+
+ 
   return (
     <>
-    <div className="w-full bg-[#48422D] flex justify-center min-h-[400px] mob:px-5 mob:py-5">
+     <div id="delivery-service" className={id === 'delivery-service' ? 'scroll-to-id' : ''}>
+    <div id={id} className="w-full bg-[#48422D] flex justify-center min-h-[400px] mob:px-5 mob:py-5">
       <div className="w-full max-w-[937px]   flex flex-wrap justify-between items-center py-4">
 
 
@@ -73,6 +81,7 @@ const DeliveryServices = () => {
         <div className="flex flex-col mob:justify-center mob:mt-[5rem] mob:hidden">
           <Image src={movingimg} alt="" width={339} height={281} />
         </div>
+      </div>
       </div>
       </div>
     </>
