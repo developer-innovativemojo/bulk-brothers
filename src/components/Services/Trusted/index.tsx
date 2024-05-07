@@ -4,6 +4,8 @@ import Image from "next/image";
 import Text from "@/components/ui/Text";
 
 import leftimg from "@/public/images/services/service2.png";
+import Button from "@/components/ui/Button";
+import Link from "next/link";
 
 const Trusted = () => {
 
@@ -15,7 +17,7 @@ const Trusted = () => {
   data-aos-easing="ease-in-out">
           <div className="flex flex-col ">
             <Image
-              className="  "
+              className="mob:hidden"
               src={leftimg}
               alt=""
               width={554.82}
@@ -39,8 +41,21 @@ const Trusted = () => {
                 {" "}
                 to provide moving, trash removal, and hauling services for residents and commercial businesses. We provide free estimates for all of our services. All of our services are priced competitively and customized to meet each customer’s needs to allow you to save money without sacrificing quality and efficiency.  We have crates available for rent and delivery, provide assembly and disassembly, and provide wrapping services upon request. Serving Maryland and surrounding states!
               </Text>
-
+              <Link className="w-full mob:flex mob:justify-center" href="/contact">
+                <Button className="uppercase max-w-[253px] h-[58px] tracking-[1px] mt-[30px]">Get Free Estimate</Button>
+                </Link>
             </div>
+          </div>
+
+          <div className="flex flex-col ">
+            <Image
+              className="mob:block hidden mt-10"
+              src={leftimg}
+              alt=""
+              width={554.82}
+              height={423}
+            />
+           
           </div>
         </div>
       </div>

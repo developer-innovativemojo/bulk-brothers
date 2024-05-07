@@ -13,6 +13,7 @@ import mask from "@/public/images/home/Mask group.png";
 
 import Content from "./Content";
 import Button from "@/components/ui/Button";
+import Link from "next/link";
 
 const WhatWeOffer = () => {
   return (
@@ -58,9 +59,11 @@ const WhatWeOffer = () => {
 
           {/* button */}
           <div className="flex justify-center mt-5">
+            <Link className="flex justify-center w-full" href="/services">
             <Button className="uppercase bg-[#E2E1DB] text-[#191A05] max-w-[253px] h-[58px] tracking-[1px] mt-[30px]">
               View All Services
             </Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -40,7 +40,7 @@ const DeliveryServices = () => {
             </Text>
 
             {/* stars */}
-            <div className="flex mob:justify-center">
+            <div className="flex ">
               <Image src={star} alt="" width={17} height={17} />
               <Text
                 as="p"
@@ -49,7 +49,7 @@ const DeliveryServices = () => {
                 Furniture
               </Text>
             </div>
-            <div className="flex mt-1 mob:justify-center">
+            <div className="flex mt-1 ">
               <Image src={star} alt="" width={17} height={17} />
               <Text
                 as="p"
@@ -58,7 +58,7 @@ const DeliveryServices = () => {
                 Appliances
               </Text>
             </div>
-            <div className="flex mt-1 mob:justify-center">
+            <div className="flex mt-1 ">
               <Image src={star} alt="" width={17} height={17} />
               <Text
                 as="p"

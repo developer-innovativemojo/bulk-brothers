@@ -25,7 +25,7 @@ const MovingService = () => {
               service. Trust Bulk Brothers to get your items to your new home
               safely and efficiently at affordable rates.
             </Text>
-            <div className="flex mob:justify-center mt-4">
+            <div className="flex  mt-4">
               <Image src={star} alt="" width={17} height={17} />
               <Text
                 as="p"
@@ -34,7 +34,7 @@ const MovingService = () => {
                 Residential Business
               </Text>
             </div>
-            <div className="flex mob:justify-center mt-1">
+            <div className="flex  mt-1">
               <Image src={star} alt="" width={17} height={17} />
               <Text
                 as="p"

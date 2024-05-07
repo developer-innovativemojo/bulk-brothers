@@ -6,6 +6,7 @@ import Text from "@/components/ui/Text";
 import bg from "@/public/images/services/craterentalbg.png";
 import crate from "@/public/images/services/crateimg.png";
 import Button from "@/components/ui/Button";
+import Link from "next/link";
 const CrateRental = () => {
   return (
     <>
@@ -24,7 +25,7 @@ const CrateRental = () => {
             <div className="w-full max-w-[388px]">
               <Text
                 as="h1"
-                className="text-[#E2E1DB] text-[64px] leading-[71.66px] mob:text-center"
+                className="text-[#E2E1DB] text-[64px]  leading-[71.66px] mob:text-[40px] mob:leading-[50px] mob:text-center"
               >
                 Crate Rental and Delivery
               </Text>
@@ -35,11 +36,12 @@ const CrateRental = () => {
                 We deliver our strong durable crates for you to pack your items.
                 You can transport them yourself or we can do it for you!
               </Text>
-              <div className="mob:flex mob:justify-center">
-                <Button className="mt-8 max-w-[253px] min-h-[58px] text-[#FFFFFF] text-[15px] bg-transparent font-inter font-medium border border-[#FFFFFF] uppercase ">
+              <Link className="w-full mob:flex mob:justify-center" href="/contact">
+              <Button className="mt-8 max-w-[253px] min-h-[58px] text-[#FFFFFF] text-[15px] bg-transparent font-inter font-medium border border-[#FFFFFF] uppercase ">
                   Get Free Estimate
                 </Button>
-              </div>
+                </Link>
+            
             </div>
           </div>
           <div className="flex flex-col mob:jus mob:mt-[4rem]">

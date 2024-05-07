@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import { useState, MouseEvent, FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -14,6 +15,43 @@ import insta from "@/public/icons/youtube.svg";
 // import Subscribe from "./Subscribe";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [successMessage, setSuccessMessage] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [emailError, setEmailError] = useState<string>("");
+
+
+  const sendMail = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const response = await fetch("/api/sendSuscribe", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccessMessage("Subscribed Successfully!");
+        alert("Subscribed successfully!");
+        setEmail("");
+      } else {
+        throw new Error(data.message || "Failed to send email");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert("Failed to send email. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <div className="min-h-[430px] bg-[#191A05]">
@@ -44,20 +82,26 @@ const Footer = () => {
                 Subscribe to our newsletter
               </Text>
 
-              <div className="relative mb-12 max-w-[301px] flex mob:block items-center mob:justify-center mob:max-w-full">
+              <form  onSubmit={sendMail} className="relative mb-12 max-w-[301px] flex mob:block items-center mob:justify-center mob:max-w-full">
                 <div className="mob:flex mob:justify-center w-full max-w-[301px] mob:max-w-full">
                   <input
                     className="w-full max-w-[301px] h-[48px] px-5 rounded-[150px] bg-[#FFFFFF] placeholder:text-[#191A05] text-[15px] font-inter font-normal outline-none"
-                    type="text"
+                    type="email"
                     placeholder="Email Address"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      setEmailError("");
+                    }}
+                    required
                   />
                 </div>
                 <div className="mob:flex mob:justify-center mob:w-full mob:mt-3 ">
                   <Button className="absolute mob:bg-[#48422D] mob:relative top-2 right-3 mob:right-0 h-[32px] mob:h-[48px] max-w-[114px] mob:max-w-[301px] font-medium uppercase tracking-[1px] text-[13px] leading-[15.73px] ">
-                    Subscribe
+                    {loading ? "Subscribing..." : "Subscribe"}
                   </Button>
                 </div>
-              </div>
+              </form>
             </div>
 
             {/* second col */}
