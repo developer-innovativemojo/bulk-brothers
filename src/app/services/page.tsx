@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Hero from "@/components/Services/hero";
 import Contactus from "@/components/Home/Contactus";
 import Trusted from "@/components/Services/Trusted";
@@ -10,7 +11,9 @@ export default function services() {
     <main className="bg-[#191A05] min-h-screen">
       <Hero />
       <Trusted  />
+      <Suspense fallback={<div>Loading...</div>}>
       <WhatWeOffer  />
+    </Suspense>
       <CrateRental/>
       <Contactus/>
     </main>
