@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 
 import movingimg from "@/public/images/services/movingservice.png";
 import star from "@/public/icons/star.svg";
 
 import Text from "@/components/ui/Text";
-const MovingService = () => {
+interface WhatWeOfferProps {
+  id: any; // Define id prop
+}
+
+const MovingService: React.FC<WhatWeOfferProps> = ({ id }) => {
+
   return (
     <>
-      <div className="w-full bg-[#191A05] min-h-[400px] flex flex-wrap gap-20 mob:gap-[3rem] justify-center items-center py-4 mob:px-5 mob:py-10">
+
+    <div id="moving-service" className={id === 'moving-service' ? 'scroll-to-id' : ''}>
+      <div  className="w-full bg-[#191A05] min-h-[400px] flex flex-wrap gap-20 mob:gap-[3rem] justify-center items-center py-4 mob:px-5 mob:py-10">
         <div className="flex flex-col mob:justify-center">
           <Image className="mob:w-full" src={movingimg} alt="" width={339} height={281} />
         </div>
@@ -34,7 +41,7 @@ const MovingService = () => {
                 Residential Business
               </Text>
             </div>
-            <div className="flex  mt-1">
+            <div  className="flex  mt-1">
               <Image src={star} alt="" width={17} height={17} />
               <Text
                 as="p"
@@ -45,6 +52,7 @@ const MovingService = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
