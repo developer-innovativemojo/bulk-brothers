@@ -30,7 +30,7 @@ const MovingService = () => {
             Whether large or small, Bulk Brothers can take care of all of your clutter, trash, and junk removal needs. 
             </Text>
             {/* stars */}
-            <div className="flex mob:justify-center mt-4">
+            <div className="flex  mt-4">
               <Image src={star} alt="" width={17} height={17} />
               <Text
                 as="p"
@@ -39,7 +39,7 @@ const MovingService = () => {
                 Residential
               </Text>
             </div>
-            <div className="flex mob:justify-center mt-1">
+            <div className="flex  mt-1">
               <Image src={star} alt="" width={17} height={17} />
               <Text
                 as="p"
@@ -49,7 +49,7 @@ const MovingService = () => {
               </Text>
             </div>
 
-            <div className="flex mob:justify-center mt-1">
+            <div className="flex  mt-1">
               <Image src={star} alt="" width={17} height={17} />
               <Text
                 as="p"
@@ -59,7 +59,7 @@ const MovingService = () => {
 Large and small jobs
               </Text>
             </div>
-            <div className="flex mob:justify-center mt-1">
+            <div className="flex  mt-1">
               <Image src={star} alt="" width={17} height={17} />
               <Text
                 as="p"
@@ -69,7 +69,7 @@ Large and small jobs
 House renovation and clean outs
               </Text>
             </div>
-            <div className="flex mob:justify-center mt-1">
+            <div className="flex  mt-1">
               <Image src={star} alt="" width={17} height={17} />
               <Text
                 as="p"
@@ -78,7 +78,7 @@ House renovation and clean outs
             Household items
               </Text>
             </div>
-            <div className="flex mob:justify-center mt-1">
+            <div className="flex  mt-1">
               <Image src={star} alt="" width={17} height={17} />
               <Text
                 as="p"

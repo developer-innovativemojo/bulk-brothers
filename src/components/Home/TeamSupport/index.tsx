@@ -5,6 +5,7 @@ import Text from "@/components/ui/Text";
 
 import leftimg from "@/public/images/home/teamsupportnew.png";
 import Button from "@/components/ui/Button";
+import Link from "next/link";
 const TeamSupport = () => {
   return (
     <>
@@ -45,9 +46,11 @@ const TeamSupport = () => {
                 disassembly, and provide wrapping services upon
               </Text>
               <div className="mob:flex mob:justify-center">
+                <Link className="w-full mob:flex mob:justify-center" href="/contact">
                 <Button className="uppercase max-w-[253px] h-[58px] tracking-[1px] mt-[30px]">
                   Get Free Estimate
                 </Button>
+                </Link>
               </div>
             </div>
           </div>

@@ -19,15 +19,15 @@ const Hero = () => {
             width={1484}
             height={555}
           />
-      <div className="w-full max-w-[1484px] max-h-[785px] h-full relative pt-[0px] pb-[190px]">
+      <div className="w-full max-w-[1484px] max-h-[785px] h-full relative pt-[0px] pb-[190px] mob:pb-[250px]">
         {/* content */}
         <div className="flex justify-center  relative z-10 mob:px-5"  data-aos="fade-up"
   data-aos-duration="1000"
   data-aos-easing="ease-in-out">
-          <div className="bg-[#191A05]/85 w-full max-w-[860px] min-h-[418px] rounded-[20px] flex justify-center  items-center relative z-[11] ">
+          <div className="bg-[#191A05]/85 w-full max-w-[860px] min-h-[418px] mob:min-h-[315px] rounded-[20px] flex justify-center  items-center relative z-[11] ">
 
           <Image
-            className="absolute left-[-50px] bottom-[170px] z-[10]"
+            className="absolute left-[-50px] mob:left-[-10px] bottom-[170px] mob:bottom-[-106px] z-[10]"
             data-aos="fade-left"
             data-aos-delay="1000"
   data-aos-duration="1000"
@@ -38,7 +38,7 @@ const Hero = () => {
             height={89.85}
           />
           <Image
-            className="absolute right-[-50px] bottom-[170px] z-[10]"
+            className="absolute right-[-50px] mob:right-[-10px] bottom-[170px] mob:bottom-[-106px] z-[10]"
             data-aos="fade-right"
             data-aos-delay="1000"
   data-aos-duration="1000"

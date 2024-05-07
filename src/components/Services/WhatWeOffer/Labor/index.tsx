@@ -39,7 +39,7 @@ const Labor = () => {
 
 
             {/* stars */}
-            <div className="flex mob:justify-center  mt-6">
+            <div className="flex   mt-6">
               <Image src={star} alt="" width={17} height={17} />
               <Text
                 as="p"
@@ -48,7 +48,7 @@ const Labor = () => {
                 Storage unit clean out
               </Text>
             </div>
-            <div className="flex mob:justify-center mt-1">
+            <div className="flex mt-1">
               <Image src={star} alt="" width={17} height={17} />
               <Text
                 as="p"
@@ -57,11 +57,11 @@ const Labor = () => {
                 Furniture moving
               </Text>
             </div>
-            <div className="flex mob:justify-center mob:items-start mt-1">
+            <div className="flex  mob:items-start mt-1">
               <Image className="mob:mt-1" src={star} alt="" width={17} height={17} />
               <Text
                 as="p"
-                className="text-[#FFFFFF]/70 text-[17px] mob:text-center leading-[27px] ml-3 "
+                className="text-[#FFFFFF]/70 text-[17px]  leading-[27px] ml-3 "
               >
                Furniture and item assembly and disassembly
               </Text>

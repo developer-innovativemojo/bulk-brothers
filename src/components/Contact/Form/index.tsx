@@ -185,7 +185,7 @@ const Form: React.FC = () => {
             </Text>
             <form onSubmit={handleSubmit} className="form">
 {/* email */}
-            <div className="mob:px-5">
+            <div className="mob:px-10">
             <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">Email*</Text>
               <input
                 className="w-full h-[51px] px-5 bg-transparent border text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none mb-2"
@@ -258,7 +258,7 @@ const Form: React.FC = () => {
 
               {/* Submit Button */}
               <div className="flex justify-center pb-7 mob:px-5">
-                <button disabled={loading} className="bg-[#E2E1DB] text-[17px] text-[#191A05] w-full max-w-[377px] h-[88px] uppercase">
+                <button disabled={loading} className="bg-[#E2E1DB] text-[17px] text-[#191A05] w-full max-w-[307px] h-[58px] uppercase rounded-[150px]">
                 {loading ? "Submiting..." : "Submit"}
                 </button>
               </div>

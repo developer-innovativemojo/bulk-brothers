@@ -6,6 +6,7 @@ import Text from "@/components/ui/Text";
 import Button from "@/components/ui/Button";
 
 import mask from "@/public/images/home/Mask group.png";
+import Link from "next/link";
 
 
 const YearsService = () => {
@@ -44,7 +45,9 @@ const YearsService = () => {
                 >
                  If you are moving to a new home trust Bulk Brothers to make sure all your items make it to their new destination safely.
                 </Text>
+                <Link className="w-full " href="/contact">
                 <Button className="uppercase max-w-[253px] h-[58px] tracking-[1px] mt-[30px]">Get Free Estimate</Button>
+                </Link>
               </div>
             </div>
           </div>

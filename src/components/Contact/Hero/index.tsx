@@ -19,20 +19,21 @@ const Hero = () => {
   return (
     <div className="pb-16 mob:pb-10">
       <div className="bg-[#48422D] min-h-[400px]  mob:min-h-full mob:pt-16 relative flex justify-center items-end  mb-[300px] mob:mb-0 ">
-        <div className="w-full max-w-[1484px]  h-full  relative pt-[0px] ">
-          {/* content */}
-
-          {/* imgs */}
-          <div className="flex justify-center">
-            <Image
-              className="absolute bottom-[-5px] z-[9]"
+      <Image
+              className="absolute w-full bottom-[-5px] z-[9] mob:hidden"
               src={backimg}
               alt=""
               width={1484}
               height={555}
             />
+        <div className="w-full max-w-[1484px]  h-full  relative pt-[0px] ">
+          {/* content */}
+
+          {/* imgs */}
+          <div className="flex justify-center">
+           
             <Image
-              className="absolute bottom-0 z-10"
+              className="absolute bottom-0 z-10 mob:hidden"
               src={bussesimg}
               alt=""
               width={1274.8}
@@ -193,7 +194,7 @@ const Hero = () => {
                       />
                       <Text
                         as="p"
-                        className="text-[#FFFFFF]/70  text-[15px]  leading-[27px] max-w-[269.04px] "
+                        className="text-[#FFFFFF]/70  text-[15px]  leading-[27px] max-w-[289.04px] "
                       >
                         <span className="font-semibold">
                           {" "}
@@ -205,7 +206,7 @@ const Hero = () => {
                           Friday - Saturday:{" "}
                         </span>
                         7:00 AM – 4:30 PM
-                        <span className="font-semibold">Sunday: </span> 7:00 AM
+                        <span className="font-semibold"> Sunday: </span> 7:00 AM
                         – 1:00 PM
                       </Text>
                     </div>

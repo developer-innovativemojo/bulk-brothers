@@ -171,66 +171,66 @@ const Navbar = () => {
                   <Drawer isOpen={isOpen} onClose={onClose}>
                     <div className="flex items-center h-full w-full ">
                       <ul className="font-normal  w-full  mob:left-0 mob:w-full z-50 flex flex-col py-4 md:p-0 mt-4 gap-[0px]  rtl:space-x-reverse md:mt-0 ">
-                        <Link
+                        <a
                           href="/"
-                          className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
+                          className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  " 
                         >
                           <li className="flex justify-center py-[15px] list-items">
                             Home
                           </li>
-                        </Link>
+                        </a>
                         <hr className="h-px  bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
 
-                        <Link
+                        <a
                           href="/about"
                           className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
                         >
                           <li className="flex justify-center py-[15px] list-items">
                             Expertise
                           </li>
-                        </Link>
+                        </a>
                         <hr className="h-px  bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
 
-                        <Link
+                        <a
                           href="/services"
                           className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
                         >
                           <li className="flex justify-center py-[15px] list-items">
                             Services
                           </li>
-                        </Link>
+                        </a>
                         <hr className="h-px  bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
 
-                        <Link
+                        <a
                           href="/team"
                           className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
                         >
                           <li className="flex justify-center py-[15px] list-items">
                             Team
                           </li>
-                        </Link>
+                        </a>
                         <hr className="h-px  bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
 
-                        <Link
+                        <a
                           href="/gallery"
                           className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  "
                         >
                           <li className="flex justify-center py-[15px] list-items">
                             Gallery
                           </li>
-                        </Link>
+                        </a>
                         <hr className="h-px  bg-[#C0C0C0] border-0 dark:bg-[#C0C0C0]"></hr>
 
-                        <Link
+                        <a
                           href="/contact"
                           className="flex justify-center  text-[16px] font-dmsans font-normal leading-7 text-[#FFFFFF]"
                         >
                           <li className="hidden xl:block mt-5 list-items">
-                            <button className=" hidden xl:block  px-[23px] py-[11px] rounded-[150px] bg-[#191A05]   border-[#191A05] border text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF] ">
+                            <button className=" hidden xl:block  px-[23px] py-[11px] rounded-[150px] bg-[#FFFFFF]   border-[#FFFFFF] border text-[15px] font-inter font-medium leading-[25.5px] text-[#191A05] ">
                               Get Free Estimate
                             </button>
                           </li>
-                        </Link>
+                        </a>
                       </ul>
                     </div>
                   </Drawer>

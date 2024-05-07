@@ -85,11 +85,10 @@ const Contactus = () => {
     data-aos-easing="ease-in-out">
       <div className="w-full max-w-[1484px]  h-full  flex justify-center" >
         <Image
-          className="bg-background-image bg-cover  bg-top bg-no-repeat absolute top-0 left-0 w-full h-full z-0"
+           className="absolute top-0 left-0 w-full h-full object-cover object-center"
           src={formbg}
           alt=""
-          width={1440}
-          height={830}
+          layout="fill"
         />
 
         <div className="max-w-[1140px] w-full relative z-10 ">
@@ -165,7 +164,7 @@ const Contactus = () => {
                 type="button"
                 className="absolute top-0 right-0 bg-[#E2E1DB] w-full max-w-[217px] h-[80px] mob:max-w-[150px] uppercase font-inter font-medium text-[17px] leading-[20.57px] tracking-[1px]"
               >
-                {loading ? "Submiting..." : "Submit"}
+                {loading ? "Submiting.." : "Submit"}
               </button>
             </div>
           </form>

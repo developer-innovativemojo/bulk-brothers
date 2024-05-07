@@ -111,7 +111,7 @@ const Photos = () => {
           <div className="w-full bg-[#E9E9E9] flex flex-wrap justify-start mob:justify-center mob:px-5 gap-3 ">
             {images.map((image, index) => (
               <div key={index} className="flex flex-col relative mt-1 cursor-pointer" onClick={() => openPopup(index)}>
-                <Image src={image} alt="" width={index === 0 ? 567 : 278.49} height={279.47} />
+                <Image className="mob:w-full min-w-[335px]" src={image} alt="" width={index === 0 ? 567 : 278.49} height={279.47} />
               </div>
             ))}
           </div>
@@ -127,7 +127,7 @@ const Photos = () => {
           <div className="flex items-center gap-5">
           <div>  <button onClick={prevImage}><IoChevronBackCircle className="text-[30px] text-[white]" /></button></div>
             <div>
-              <Image src={images[currentImageIndex]} alt="" width={currentImageIndex === 0 ? 567 : 478.49}  height={279.47} />
+              <Image  src={images[currentImageIndex]} alt="" width={currentImageIndex === 0 ? 567 : 478.49}  height={279.47} />
             </div>
             <div>
               <button onClick={nextImage}><IoChevronForwardCircle className="text-[30px] text-[white]" /></button>
