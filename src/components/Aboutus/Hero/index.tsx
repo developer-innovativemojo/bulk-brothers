@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <div className="bg-[#48422D] min-h-[366px] relative flex justify-center  mob:px-5  " >
       <Image
-        className="absolute w-full bottom-[0px] mob:bottom-[60px] z-[9] "
+        className="absolute w-full bottom-[0px] mob:bottom-[60px] z-[9] mob:hidden"
         src={backimg}
         alt=""
         width={1484}

@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import axios from 'axios';
-
+import axios from "axios";
 
 import Text from "@/components/ui/Text";
 
@@ -24,12 +23,11 @@ const Form: React.FC = () => {
   const [kitchenData, setKitchenData] = useState<FormData>({});
   const [bathroomData, setBathroomData] = useState<FormData>({});
   const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false)
-  const [successfully, setSuccessfully] = useState("")
-  const handleChangemail = (e : any) => {
+  const [loading, setLoading] = useState(false);
+  const [successfully, setSuccessfully] = useState("");
+  const handleChangemail = (e: any) => {
     setEmail(e.target.value);
   };
-
 
   const handleAddMore = (section: string) => {
     switch (section) {
@@ -74,7 +72,6 @@ const Form: React.FC = () => {
     }));
   };
 
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
@@ -94,20 +91,18 @@ const Form: React.FC = () => {
         },
       });
       console.log("Form data sent successfully:", response.data);
-      setSuccessfully("Form data sent successfully")
+      setSuccessfully("Form data sent successfully");
       // console.log(allData, "allData");
 
       alert("Form data sent successfully!");
     } catch (error) {
       console.error("Error sending form data:", error);
-     alert("Error sending form data. Please try again.");
-     setSuccessfully("Form data failed to send")
-
+      alert("Error sending form data. Please try again.");
+      setSuccessfully("Form data failed to send");
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
-
 
   const renderFormSection = (
     count: number,
@@ -115,50 +110,81 @@ const Form: React.FC = () => {
     section: string
   ) => {
     return [...Array(count)].map((_, index) => (
-      <div key={index} className="flex flex-wrap items-start justify-center gap-[20px] mb-5">
+      <div
+        key={index}
+        className="flex flex-wrap items-start justify-center gap-[20px] mb-5"
+      >
         <div className="flex flex-col w-full max-w-[345px]">
-          <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">Item</Text>
+          <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">
+            Item
+          </Text>
           <input
             className="w-full h-[51px] px-5 bg-transparent border text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none"
             type="text"
             placeholder="Insert Description"
             onChange={(e) =>
-              handleChange(index.toString(), "description", e.target.value, section)
+              handleChange(
+                index.toString(),
+                "description",
+                e.target.value,
+                section
+              )
             }
           />
         </div>
         <div className="flex flex-col w-full max-w-[345px]">
           <div className="flex gap-[20px]">
             <div>
-          <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">Number</Text>
+              <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">
+                Number
+              </Text>
               <input
                 className="w-[102px] h-[51px] px-5 bg-transparent border text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none"
                 type="number"
                 placeholder="-"
                 onChange={(e) =>
-                  handleChange(index.toString(), "number", e.target.value, section)
+                  handleChange(
+                    index.toString(),
+                    "number",
+                    e.target.value,
+                    section
+                  )
                 }
               />
             </div>
             <div>
-          <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">Packed</Text>
+              <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">
+                Packed
+              </Text>
               <input
                 className="w-[102px] h-[51px] px-5 bg-transparent border text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none"
                 type="number"
                 placeholder="-"
                 onChange={(e) =>
-                  handleChange(index.toString(), "packed", e.target.value, section)
+                  handleChange(
+                    index.toString(),
+                    "packed",
+                    e.target.value,
+                    section
+                  )
                 }
               />
             </div>
             <div>
-          <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">Unpacked</Text>
+              <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">
+                Unpacked
+              </Text>
               <input
                 className="w-[102px] h-[51px] px-5 bg-transparent border text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none"
                 type="number"
                 placeholder="-"
                 onChange={(e) =>
-                  handleChange(index.toString(), "unpacked", e.target.value, section)
+                  handleChange(
+                    index.toString(),
+                    "unpacked",
+                    e.target.value,
+                    section
+                  )
                 }
               />
             </div>
@@ -172,31 +198,44 @@ const Form: React.FC = () => {
     <>
       <div className="flex justify-center pb-20">
         <div className="flex justify-center w-full max-w-[953px] bg-[#000000]">
-          <div className="w-full max-w-[710px] min-h-[200px]"     data-aos="fade-up"
-  data-aos-duration="1000"
-  data-aos-easing="ease-in-out">
-            <Text as="h1" className="text-[#FFFFFF] text-center text-[36px] mt-10 mb-5 uppercase">
+          <div
+            className="w-full max-w-[710px] min-h-[200px]"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-out"
+          >
+            <Text
+              as="h1"
+              className="text-[#FFFFFF] text-center text-[36px] mt-10 mb-5 uppercase"
+            >
               Please fill out the form
             </Text>
             <hr className="h-px my-5 bg-[#FFFFFF]/30 border-0" />
             {/* Living Section */}
-            <Text as="h2" className="text-[#FFFFFF]/70 mob:text-center text-[16px] font-bold pt-1 uppercase mb-4">
+            <Text
+              as="h2"
+              className="text-[#FFFFFF]/70 mob:text-center text-[16px] font-bold pt-1 uppercase mb-4"
+            >
               Living, Dining Family Rooms and Offices
             </Text>
             <form onSubmit={handleSubmit} className="form">
-{/* email */}
-            <div className="mob:px-10">
-            <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">Email*</Text>
-              <input
-                className="w-full h-[51px] px-5 bg-transparent border text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none mb-2"
-                type="email"
-                placeholder="Enter Email"
-                value={email}
-                onChange={handleChangemail}
-                required
-              />
+              {/* email */}
+              <div className="mob:flex mob:justify-center mob:w-full ">
+              <div className="w-full mob:max-w-[345px]">
+              <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">
+                  Email*
+                </Text>
+                <input
+                  className="w-full h-[51px] px-5 bg-transparent border text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none mb-2"
+                  type="email"
+                  placeholder="Enter Email"
+                  value={email}
+                  onChange={handleChangemail}
+                  required
+                />
+              </div>
+              </div>
 
-            </div>
               {renderFormSection(livingCount, livingData, "living")}
               <div className="w-full flex justify-center mt-5">
                 <button
@@ -206,13 +245,15 @@ const Form: React.FC = () => {
                   + Add more
                 </button>
               </div>
-            <hr className="h-px my-5 bg-[#FFFFFF]/30 border-0" />
+              <hr className="h-px my-5 bg-[#FFFFFF]/30 border-0" />
 
-         
-            <Text as="h2" className="text-[#FFFFFF]/70 mob:text-center text-[16px] font-bold pt-1 uppercase mb-4">
-            Bedrooms and Closets
-            </Text>
-             {/* bedroom Section */}
+              <Text
+                as="h2"
+                className="text-[#FFFFFF]/70 mob:text-center text-[16px] font-bold pt-1 uppercase mb-4"
+              >
+                Bedrooms and Closets
+              </Text>
+              {/* bedroom Section */}
               {renderFormSection(bedroomCount, bedroomData, "bedroom")}
               <div className="w-full flex justify-center mt-5">
                 <button
@@ -222,13 +263,15 @@ const Form: React.FC = () => {
                   + Add more
                 </button>
               </div>
-            <hr className="h-px my-5 bg-[#FFFFFF]/30 border-0" />
+              <hr className="h-px my-5 bg-[#FFFFFF]/30 border-0" />
 
-            
-             {/* kitchenCount Section */}
-             <Text as="h2" className="text-[#FFFFFF]/70 mob:text-center text-[16px] font-bold pt-1 uppercase mb-4">
-            Kitchen
-            </Text>
+              {/* kitchenCount Section */}
+              <Text
+                as="h2"
+                className="text-[#FFFFFF]/70 mob:text-center text-[16px] font-bold pt-1 uppercase mb-4"
+              >
+                Kitchen
+              </Text>
               {renderFormSection(kitchenCount, kitchenData, "kitchen")}
               <div className="w-full flex justify-center mt-5">
                 <button
@@ -238,12 +281,15 @@ const Form: React.FC = () => {
                   + Add more
                 </button>
               </div>
-            <hr className="h-px my-5 bg-[#FFFFFF]/30 border-0" />
+              <hr className="h-px my-5 bg-[#FFFFFF]/30 border-0" />
 
-             {/* bathroomCount Section */}
-             <Text as="h2" className="text-[#FFFFFF]/70 mob:text-center text-[16px] font-bold pt-1 uppercase mb-4">
-             Bathrooms and Halfways
-            </Text>
+              {/* bathroomCount Section */}
+              <Text
+                as="h2"
+                className="text-[#FFFFFF]/70 mob:text-center text-[16px] font-bold pt-1 uppercase mb-4"
+              >
+                Bathrooms and Halfways
+              </Text>
               {renderFormSection(bathroomCount, bathroomData, "bathroom")}
               <div className="w-full flex justify-center mt-5">
                 <button
@@ -258,12 +304,21 @@ const Form: React.FC = () => {
 
               {/* Submit Button */}
               <div className="flex justify-center pb-7 mob:px-5">
-                <button disabled={loading} className="bg-[#E2E1DB] text-[17px] text-[#191A05] w-full max-w-[307px] h-[58px] uppercase rounded-[150px]">
-                {loading ? "Submiting..." : "Submit"}
+                <button
+                  disabled={loading}
+                  className="bg-[#E2E1DB] text-[17px] text-[#191A05] w-full max-w-[307px] h-[58px] uppercase rounded-[150px]"
+                >
+                  {loading ? "Submiting..." : "Submit"}
                 </button>
               </div>
-              {successfully !== "" ? <Text as="h2" className="text-[#409c40] text-[20px] text-center font-bold pb-2">{successfully}</Text> : null}
-
+              {successfully !== "" ? (
+                <Text
+                  as="h2"
+                  className="text-[#409c40] text-[20px] text-center font-bold pb-2"
+                >
+                  {successfully}
+                </Text>
+              ) : null}
             </form>
           </div>
         </div>

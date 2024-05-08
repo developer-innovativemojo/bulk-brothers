@@ -43,7 +43,7 @@ const Hero = () => {
 
             <div className="w-full  flex flex-wrap gap-4 justify-center items-center">
             <ContentMembers name="Sean Rideout" title="Founder / CEO" imgSrc={img1}  />
-            <ContentMembers name="Sean Rideout" title="Founder / CEO" imgSrc={img2} />
+            <ContentMembers name="Donte Snipes" title="COO" imgSrc={img2} />
           </div>
 
           </div>
