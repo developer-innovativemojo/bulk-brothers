@@ -4,7 +4,7 @@ import Link from "next/link";
 import Text from "@/components/ui/Text";
 
 import bussesimg from "@/public/images/contact/contactbghero.png";
-import buss from "@/public/images/contact/buss.png";
+import buss from "@/public/images/contact/formbuss.png";
 import backimg from "@/public/images/home/hero/herobgnew.png";
 
 import facebook from "@/public/icons/facebook.svg";
@@ -42,7 +42,7 @@ const Hero = () => {
           </div>
 
           {/* desktop */}
-          <div className="flex justify-center w-full absolute tab:hidden z-10 top-[-300px] mob:top-5" data-aos="fade-up"
+          <div className="flex justify-center w-full absolute mob:hidden z-10 top-[-300px] mob:top-5" data-aos="fade-up"
   data-aos-duration="1000"
   data-aos-easing="ease-in-out">
             <div className="w-full bg-[#191A05] max-w-[953px] min-h-[604px]  relative flex flex-wrap justify-center items-center ">
@@ -111,9 +111,9 @@ const Hero = () => {
                 </div>
               </div>
               {/* right */}
-              <div className="flex flex-col w-full max-w-[445px] bg-[#48422D] min-h-[604px] ">
+              <div className="flex flex-col w-full max-w-[445px] bg-[#48422D] min-h-[604px] pb-5">
                 <Image
-                  className="ml-[-80px] mob:ml-0 mt-5"
+                  className="ml-[-70px] mob:ml-0 mt-5 "
                   data-aos="fade-left"
   data-aos-duration="1000"
   data-aos-easing="ease-in-out"
@@ -219,10 +219,10 @@ const Hero = () => {
       </div>
 
       {/* mob */}
-      <div className="hidden tab:block">
+      <div className="hidden mob:block">
         <div className="w-full bg-[#191A05] max-w-[953px] min-h-[604px]   relative flex flex-wrap justify-center items-center mob:mt-[-50px] z-20">
           {/* left */}
-          <div className="flex flex-col w-full max-w-[508px] mob:py-10">
+          <div className="flex flex-col w-full max-w-[508px] mob:py-10 mob:px-5">
             <div className="flex justify-center w-full">
               <div className="max-w-[362px]">
                 <Text
@@ -282,7 +282,7 @@ const Hero = () => {
             </div>
           </div>
           {/* right */}
-          <div className="flex flex-col w-full max-w-[445px] bg-[#48422D] min-h-[604px] ">
+          <div className="flex flex-col w-full max-w-[445px] bg-[#48422D] min-h-[604px] mob:px-5">
             <Image
               className="ml-[-80px] mob:ml-0 mt-5"
               src={buss}
@@ -295,7 +295,7 @@ const Hero = () => {
             <div className="flex justify-center w-full">
               <div className="max-w-[359.8px]">
                 {/* LOCATION         */}
-                <div className="flex items-start gap-5 mt-5">
+                <div className="flex items-start gap-2 mt-5">
                   <Image
                     className=" "
                     src={location}
@@ -313,7 +313,7 @@ const Hero = () => {
 
                 {/* email */}
                 <a href="mailto:info@bulkbrothersmove.com">
-                  <div className="flex items-start gap-5 mt-4">
+                  <div className="flex items-start gap-2 mt-4">
                     <Image
                       className=" "
                       src={email}
@@ -331,7 +331,7 @@ const Hero = () => {
                 </a>
                 {/* phone */}
                 <a href="tel:443-636-1824">
-                  <div className="flex items-start gap-5 mt-5">
+                  <div className="flex items-start gap-2 mt-5">
                     <Image
                       className=" "
                       src={phone}
@@ -348,7 +348,7 @@ const Hero = () => {
                   </div>
                 </a>
                 {/* clock */}
-                <div className="flex items-start gap-5 mt-5">
+                <div className="flex items-start gap-2 mt-5">
                   <Image
                     className=" "
                     src={clock}
@@ -358,13 +358,13 @@ const Hero = () => {
                   />
                   <Text
                     as="p"
-                    className="text-[#FFFFFF]/70  text-[15px]  leading-[27px] max-w-[269.04px] "
+                    className="text-[#FFFFFF]/70  text-[15px]  leading-[27px]  "
                   >
                     <span className="font-semibold"> Monday - Thursday: </span>{" "}
                     5:00 AM – 7:00 PM{" "}
                     <span className="font-semibold"> Friday - Saturday: </span>
                     7:00 AM – 4:30 PM
-                    <span className="font-semibold">Sunday: </span> 7:00 AM –
+                    <span className="font-semibold"> Sunday: </span> 7:00 AM –
                     1:00 PM
                   </Text>
                 </div>

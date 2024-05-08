@@ -4,7 +4,8 @@ import { FaFacebook, FaInstagram, FaYoutube, FaPhoneAlt } from "react-icons/fa";
 
 import Text from "@/components/ui/Text";
 
-import backimg from "@/public/images/home/hero/herobgnew.png";
+import backimg from "@/public/images/gallery/herobgnew.png";
+import backimg2 from "@/public/images/gallery/background 2.png";
 import facebook from "@/public/icons/facebook.svg";
 import youtube from "@/public/icons/insta.svg";
 import insta from "@/public/icons/youtube.svg";
@@ -12,17 +13,27 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="bg-[#48422D] min-h-[366px] relative flex justify-center  mob:px-5  ">
-      <Image
-        className="absolute w-full bottom-[0px] mob:bottom-[60px] z-[9] "
-        src={backimg}
+   <>
+   {/* <Image
+        className="absolute w-full top-[90px]  z-[100] mob:hidden opacity-20 bg-[#3a3525]"
+        src={backimg2}
         alt=""
         width={1484}
         height={555}
       />
+       */}
+    <div className="bg-[#48422D] min-h-[366px] relative flex justify-center  mob:px-5  ">
+      <Image
+        className="absolute w-full bottom-[0px] mob:bottom-[60px] z-[9] mob:hidden "  
+        src={backimg}
+        alt=""
+        width={1484}
+        height={355}
+      />
+      
       <div className="w-full max-w-[1484px] max-h-[386px] h-full relative ">
         {/* content */}
-        <div className="flex justify-center  relative z-10 ">
+        <div className="flex justify-center  relative z-[10] ">
           <div
             className="bg-[#191A05] w-full max-w-[860px] min-h-[366px] rounded-[20px] flex justify-center absolute top-[30px]  items-center  z-[11] mb-[-70px] mob:px-5"
             data-aos="fade-up"
@@ -94,6 +105,7 @@ const Hero = () => {
         </div>
       </div>
     </div>
+   </>
   );
 };
 

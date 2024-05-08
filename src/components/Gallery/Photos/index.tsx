@@ -110,8 +110,8 @@ const Photos = () => {
         <div className="w-full max-w-[1150px]">
           <div className="w-full bg-[#E9E9E9] flex flex-wrap justify-start mob:justify-center mob:px-5 gap-3 ">
             {images.map((image, index) => (
-              <div key={index} className="flex flex-col relative mt-1 cursor-pointer" onClick={() => openPopup(index)}>
-                <Image className="mob:w-full min-w-[335px]" src={image} alt="" width={index === 0 ? 567 : 278.49} height={279.47} />
+              <div key={index} className="flex flex-col mob:w-full relative mt-1 cursor-pointer" onClick={() => openPopup(index)}>
+                <Image className="mob:w-full " src={image} alt="" width={index === 0 ? 567 : 278.49} height={279.47} />
               </div>
             ))}
           </div>
