@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(request: NextRequest) {
   try {
-    const { fname, email, phone, date } = await request.json();
+    const { fname, email, phone, startDate } = await request.json();
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -26,14 +26,14 @@ export async function POST(request: NextRequest) {
           <li>First Name: ${fname}</li>
           <li>Email: ${email}</li> 
           <li>Number: ${phone}</li> 
-          <li>Message: ${date}</li> 
+          <li>Date: ${startDate}</li> 
         </ul>
       `,
     };
 
     // Email options for sending thank you email to the user
     const mailOptionToUser = {
-      // from: "BULK BROTHERS <salmanamjad902@gmail.com>",
+      from: "BULK BROTHERS <salmanamjad902@gmail.com>",
 
       to: email,
       subject: "Thank You for Contacting Us",

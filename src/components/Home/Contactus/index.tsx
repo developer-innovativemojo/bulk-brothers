@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 import Text from "@/components/ui/Text";
 
@@ -9,11 +11,18 @@ const Contactus = () => {
   const [fname, setFname] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [date, setDate] = useState("");
+  // const [date, setDate] = useState("");
   const [successMessage, setSuccessMessage] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [emailError, setEmailError] = useState<string>("");
 
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [showPlaceholder, setShowPlaceholder] = useState(true);
+
+  const handleDateChange = (date: Date | null) => {
+    setStartDate(date);
+    setShowPlaceholder(!date); 
+  };
   const validateEmail = (email: string): boolean => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
@@ -23,9 +32,9 @@ const Contactus = () => {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
+// console.log(startDate,"startDate")
 
-    // Validation: Check if any required field is empty
-    if (!fname || !email || !phone || !date) {
+    if (!fname || !email || !phone || !startDate) {
       alert("Please fill in all fields");
       return;
     }
@@ -48,7 +57,7 @@ const Contactus = () => {
           // lname,
           email,
           phone,
-          date,
+          startDate: startDate.toISOString(),
         }),
       });
 
@@ -62,20 +71,20 @@ const Contactus = () => {
 
         // Reset input fields
         setFname("");
-        // setLname("");
+        setStartDate(null);
         setEmail("");
         setPhone("");
-        setDate("");
+        // setDate("");
       } else {
         // If response is not successful
         throw new Error(data.message || "Failed to send email");
       }
     } catch (error) {
-      // If there's an error during the fetch
+      
       console.error("Error sending email:", error);
       alert("Failed to send email. Please try again later.");
     } finally {
-      setLoading(false); // Set loading state to false when request is completed
+      setLoading(false); 
     }
   };
 
@@ -138,7 +147,7 @@ const Contactus = () => {
             <div className="flex flex-col  relative w-full max-w-[570px]  border border-t-0 lg:border-t-0 border-[#FFFFFF]">
               <input
                 className=" flex flex-col  text-[17px] text-[#FFFFFF] leading-[25px] font-medium font-inter placeholder-white  bg-transparent px-5 w-full max-w-[570px] h-[80px]  outline-none"
-                type="text"
+                type="number"
                 placeholder="Phone"
                 value={phone}
                 onChange={(e) => {
@@ -148,7 +157,7 @@ const Contactus = () => {
             </div>
 
             <div className="flex flex-col  relative w-full max-w-[570px] border-r border-b lg:border-l border-[#FFFFFF]">
-              <input
+              {/* <input
                 className="  text-[17px] text-[#FFFFFF] leading-[25px] font-medium font-inter  bg-transparent placeholder-white  px-5 w-full max-w-[570px] h-[80px]  outline-none"
                 type="text"
                 placeholder="Date"
@@ -156,8 +165,15 @@ const Contactus = () => {
                 onChange={(e) => {
                   setDate(e.target.value);
                 }}
-              />
+              /> */}
 
+<DatePicker
+              placeholderText={showPlaceholder ? "Date" : "Date"}
+              className="  text-[17px] text-[#FFFFFF] leading-[25px] font-medium font-inter  bg-transparent placeholder-white  px-5 w-full max-w-[570px] h-[80px]  outline-none"
+              selected={startDate}
+              onChange={(date) => handleDateChange(date)}
+              isClearable={true}
+            />
               <button
                 onClick={sendMail}
                 disabled={loading}
