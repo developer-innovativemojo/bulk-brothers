@@ -20,7 +20,7 @@ const CardContent: React.FC<CardContentProps> = ({
   return (
     <>
       <div className="w-full flex justify-center ">
-        <div className="w-full bg-[#FFFFFF] max-w-[397px] rounded-[4px] p-[30px] mt-[50px]">
+        <div className="w-full bg-[#FFFFFF] max-w-[397px] h-[320px] rounded-[4px] p-[30px] mt-[50px]">
           <div className="flex justify-between">
             <Image src={stars} alt="" width={148} height={29.04} />
             <Text as="p" className="text-[#191A05] text-[15px] leading-[27px]">
