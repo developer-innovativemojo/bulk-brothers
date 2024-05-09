@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import Text from "@/components/ui/Text";
 
-import leftimg from "@/public/images/home/whowearenew1.png";
+import leftimg from "@/public/images/home/whowe2.png";
 
 const WhoWeAre = () => {
   return (

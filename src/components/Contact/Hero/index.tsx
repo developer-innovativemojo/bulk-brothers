@@ -17,8 +17,8 @@ import clock from "@/public/icons/clock.svg";
 
 const Hero = () => {
   return (
-    <div className="pb-16 mob:pb-10">
-      <div className="bg-[#48422D] min-h-[400px]  mob:min-h-full mob:pt-16 relative flex justify-center items-end  mb-[300px] mob:mb-0 ">
+    <div className="pb-16 mob:pb-0">
+      <div className="bg-[#48422D] min-h-[400px]  mob:min-h-full mob:pt-16 relative flex justify-center items-end  mb-[300px] mob:mb-0 mob:hidden">
       <Image
               className="absolute w-full bottom-[-5px] z-[9] mob:hidden"
               src={backimg}
@@ -220,7 +220,7 @@ const Hero = () => {
 
       {/* mob */}
       <div className="hidden mob:block">
-        <div className="w-full bg-[#191A05] max-w-[953px] min-h-[604px]   relative flex flex-wrap justify-center items-center mob:mt-[-50px] z-20">
+        <div className="w-full bg-[#191A05] max-w-[953px] min-h-[604px]   relative flex flex-wrap justify-center items-center  z-20">
           {/* left */}
           <div className="flex flex-col w-full max-w-[508px] mob:py-10 mob:px-5">
             <div className="flex justify-center w-full">
