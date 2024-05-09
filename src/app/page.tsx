@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <main className="bg-[#191A05] min-h-screen">
       <Hero />
-      <Estimate />
+      {/* <Estimate /> */}
       <WhoWeAre />
       <YearsService />
       <WhatWeOffer />

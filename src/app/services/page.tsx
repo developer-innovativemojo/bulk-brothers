@@ -8,7 +8,7 @@ import CrateRental from "@/components/Services/CrateRental";
 export default function services() {
  
   return (
-    <main className="bg-[#191A05] min-h-screen">
+    <main className="bg-[#48422D] min-h-screen">
       <Hero />
       <Trusted  />
       <Suspense fallback={<div>Loading...</div>}>
