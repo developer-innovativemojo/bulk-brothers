@@ -29,8 +29,8 @@ const Slider = () => {
     const nextButton = document.querySelector<HTMLDivElement>(".custom-next");
     const prevButton = document.querySelector<HTMLDivElement>(".custom-prev");
     if (prevButton && nextButton) {
-        prevButton.style.zIndex = "0";
-        nextButton.style.zIndex = "0";
+        prevButton.style.zIndex = "10";
+        nextButton.style.zIndex = "10";
         setTimeout(() => {
             swiper?.slidePrev();
             console.log("prev button clicked");
@@ -44,8 +44,8 @@ const handleNextvbtn = () => {
     const nextButton = document.querySelector<HTMLDivElement>(".custom-next");
     const prevButton = document.querySelector<HTMLDivElement>(".custom-prev");
     if (prevButton && nextButton) {
-        prevButton.style.zIndex = "0";
-        nextButton.style.zIndex = "0";
+        prevButton.style.zIndex = "10";
+        nextButton.style.zIndex = "10";
         setTimeout(() => {
             swiper?.slideNext();
             console.log("next button clicked");
@@ -90,7 +90,7 @@ const handleNextvbtn = () => {
           nextEl: ".custom-next",
           prevEl: ".custom-prev",
         }}
-        spaceBetween={0}
+        spaceBetween={2}
         slidesPerView={1}
         // pagination={{ clickable: true }}
         breakpoints={{
@@ -107,7 +107,7 @@ const handleNextvbtn = () => {
           <CardContent
             heading="Quick and reliable"
             time="4 days ago"
-            name="David Narrator"
+            name="Natasha - Baltimore, MD"
             review="I can't thank Bulk Brothers enough for their moving services. After another company scammed me, I contacted Dante who quickly scheduled for me an emergency move they very next morning."
           />
         </SwiperSlide>
@@ -116,7 +116,24 @@ const handleNextvbtn = () => {
           <CardContent
             heading="Quick and reliable"
             time="4 days ago"
-            name="David Narrator"
+            name="Paula - Baltimore, MD"
+            review="I have to highly recommend Bulk Brothers!! I called, I got instant information, a quick call back to schedule, fast service!! The price was very fair, the best customer service I have ever experienced!! Thank you so much, I will be calling again soon!!"
+          />
+        </SwiperSlide>
+
+        <SwiperSlide className="mob:px-[20px]">
+          <CardContent
+            heading="Quick and reliable"
+            time="4 days ago"
+            name="Chanel - Baltimore, MD"
+            review="Service was completely outstanding! Kenneth and Tim were phenomenal. We'll definitely be using them again!"
+          />
+        </SwiperSlide>
+        <SwiperSlide className="mob:px-[20px]">
+          <CardContent
+            heading="Quick and reliable"
+            time="4 days ago"
+            name="Natasha - Baltimore, MD"
             review="I can't thank Bulk Brothers enough for their moving services. After another company scammed me, I contacted Dante who quickly scheduled for me an emergency move they very next morning."
           />
         </SwiperSlide>
@@ -125,8 +142,8 @@ const handleNextvbtn = () => {
           <CardContent
             heading="Quick and reliable"
             time="4 days ago"
-            name="David Narrator"
-            review="I can't thank Bulk Brothers enough for their moving services. After another company scammed me, I contacted Dante who quickly scheduled for me an emergency move they very next morning."
+            name="Paula - Baltimore, MD"
+            review="I have to highly recommend Bulk Brothers!! I called, I got instant information, a quick call back to schedule, fast service!! The price was very fair, the best customer service I have ever experienced!! Thank you so much, I will be calling again soon!!"
           />
         </SwiperSlide>
 
@@ -134,19 +151,12 @@ const handleNextvbtn = () => {
           <CardContent
             heading="Quick and reliable"
             time="4 days ago"
-            name="David Narrator"
-            review="I can't thank Bulk Brothers enough for their moving services. After another company scammed me, I contacted Dante who quickly scheduled for me an emergency move they very next morning."
+            name="Chanel - Baltimore, MD"
+            review="Service was completely outstanding! Kenneth and Tim were phenomenal. We'll definitely be using them again!"
           />
         </SwiperSlide>
 
-        <SwiperSlide className="mob:px-[20px] ">
-          <CardContent
-            heading="Quick and reliable"
-            time="4 days ago"
-            name="David Narrator"
-            review="I can't thank Bulk Brothers enough for their moving services. After another company scammed me, I contacted Dante who quickly scheduled for me an emergency move they very next morning."
-          />
-        </SwiperSlide>
+        
       </Swiper>
     </div>
   );
