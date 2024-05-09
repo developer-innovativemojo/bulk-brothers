@@ -85,7 +85,7 @@ const Footer = () => {
               <form  onSubmit={sendMail} className="relative mb-12 max-w-[301px] flex mob:block items-center mob:justify-center mob:max-w-full">
                 <div className="mob:flex mob:justify-center w-full max-w-[301px] mob:max-w-full">
                   <input
-                    className="w-full max-w-[301px] h-[48px] px-5 rounded-[150px] bg-[#FFFFFF] placeholder:text-[#191A05] text-[15px] font-inter font-normal outline-none"
+                    className="w-full max-w-[301px] h-[48px] pl-5 pr-32 mob:pr-5 rounded-[150px] bg-[#FFFFFF] placeholder:text-[#191A05] text-[15px] font-inter font-normal outline-none"
                     type="email"
                     placeholder="Email Address"
                     value={email}
@@ -242,15 +242,15 @@ const Footer = () => {
           <div className="max-w-[1127px] w-full xl:px-[5%]">
             <hr className="h-px mt-[0px] mb-3 bg-[#FFFFFF33]/20 border-0 "></hr>
 
-            <div className="flex justify-between mob:block">
+            <div className="flex justify-center mob:block">
               <Text
                 as="p"
-                className=" mob:max-w-full xl:flex xl:justify-center xl:text-center text-[#E2E1DB] text-[15px] leading-[20px] font-inter font-normal my-5 mob:my-4 "
+                className=" mob:max-w-full xl:flex xl:justify-center text-center text-[#E2E1DB] text-[15px] leading-[20px] font-inter font-normal my-5 mob:my-4 "
               >
                 © 2024 Bulk Brothers. All Rights Reserved.
               </Text>
 
-              <div className="flex mob:justify-center gap-[40px]">
+              {/* <div className="flex mob:justify-center gap-[40px]">
                 <Text
                   as="p"
                   className=" mob:max-w-full cursor-pointer xl:flex xl:justify-center xl:text-center text-[#E2E1DB] text-[15px] leading-[20px] font-inter font-normal my-5 mob:my-4 "
@@ -263,7 +263,7 @@ const Footer = () => {
                 >
                   Terms & Conditions
                 </Text>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
