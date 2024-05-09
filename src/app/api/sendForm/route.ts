@@ -33,15 +33,15 @@ export async function POST(request: NextRequest) {
       host: "smtp.gmail.com",
       port: 587,
       auth: {
-        user: "developer@innovativemojo.com",
-        pass: "tcgs lsyg hakt frzx",
+        user: "Info@bulkbrothersmove.com",
+        pass: "dwrk yott pprm lzuh",
       },
     });
 
     // Email options for sending to your own inbox
     const mailOptionToYou = {
       from: email, // Use the user's email address directly
-      to: "developer@innovativemojo.com",
+      to: "Info@bulkbrothersmove.com",
       subject: " Form Submission",
       html: `
         <h3>New Contact Form Submission</h3>
@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
     };
 
     const mailOptionToUser = {
-        from: "BULK BROTHERS <developer@innovativemojo.com>",
+        from: "BULK BROTHERS <Info@bulkbrothersmove.com>",
   
         to: email,
         subject: "Thank You for Contacting Us",

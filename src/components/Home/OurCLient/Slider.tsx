@@ -29,8 +29,8 @@ const Slider = () => {
     const nextButton = document.querySelector<HTMLDivElement>(".custom-next");
     const prevButton = document.querySelector<HTMLDivElement>(".custom-prev");
     if (prevButton && nextButton) {
-        prevButton.style.zIndex = "0";
-        nextButton.style.zIndex = "0";
+        prevButton.style.zIndex = "10";
+        nextButton.style.zIndex = "10";
         setTimeout(() => {
             swiper?.slidePrev();
             console.log("prev button clicked");
@@ -44,8 +44,8 @@ const handleNextvbtn = () => {
     const nextButton = document.querySelector<HTMLDivElement>(".custom-next");
     const prevButton = document.querySelector<HTMLDivElement>(".custom-prev");
     if (prevButton && nextButton) {
-        prevButton.style.zIndex = "0";
-        nextButton.style.zIndex = "0";
+        prevButton.style.zIndex = "10";
+        nextButton.style.zIndex = "10";
         setTimeout(() => {
             swiper?.slideNext();
             console.log("next button clicked");
