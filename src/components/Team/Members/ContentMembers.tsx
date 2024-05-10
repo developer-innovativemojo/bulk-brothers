@@ -23,29 +23,29 @@ const ContentMembers: React.FC<MemberProps> = ({
   return (
     <div>
       {/* member 1 */}
-      <div className="flex flex-col relative min-h-[483px] mt-6">
-        <Image
+      <div className="flex flex-col relative min-h-[390px] mt-6 bg-[#D9D9D9]">
+        {/* <Image
           className="absolute top-0 z-0"
           src={bgw}
           alt=""
           width={349}
           height={483}
-        />
+        /> */}
 
         <div className="w-full max-w-[349px] relative z-10 ">
           <Image className="" src={imgSrc} alt="" width={349} height={276} />
-          <div className="bottom px-[40px] pt-[0px]">
+          <div className="bottom px-[40px] pt-[20px]">
             {/* name */}
             <Text
               as="h2"
-              className="text-[22px] text-[#2B281B] font-bold uppercase"
+              className="text-[22px] text-[#2B281B] text-center font-bold uppercase"
             >
               {name}
             </Text>
             {/* title */}
             <Text
               as="p"
-              className="text-[17px] text-[#2B281B] leading-[27px]  mb-5"
+              className="text-[17px] text-[#2B281B] text-center leading-[27px]  mb-5"
             >
               {title}
             </Text>
