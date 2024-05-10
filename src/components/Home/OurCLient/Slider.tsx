@@ -129,30 +129,32 @@ const handleNextvbtn = () => {
             review="Service was completely outstanding! Kenneth and Tim were phenomenal. We'll definitely be using them again!"
           />
         </SwiperSlide>
+
+
         <SwiperSlide className="mob:px-[20px]">
           <CardContent
-            heading="Quick and reliable"
+            heading="Positive Experience"
             time="4 days ago"
-            name="Natasha - Baltimore, MD"
-            review="I can't thank Bulk Brothers enough for their moving services. After another company scammed me, I contacted Dante who quickly scheduled for me an emergency move they very next morning."
+            name="Evelyn M. Ashburn, VA"
+            review="They were awesome. I would definitely recommend this team of respectful, professional and friendly movers. They are very reasonably priced and took great care in moving my storage items."
           />
         </SwiperSlide>
 
         <SwiperSlide className="mob:px-[20px]">
           <CardContent
-            heading="Grateful for Bulk Brothers"
+            heading="Professional Movers"
             time="4 days ago"
-            name="Paula - Baltimore, MD"
-            review="I have to highly recommend Bulk Brothers!! I called, I got instant information, a quick call back to schedule, fast service!! The price was very fair, the best customer service I have ever experienced!! Thank you so much, I will be calling again soon!!"
+            name="Chris R. MD, MD"
+            review="We were referred to Bulk Brothers from a hauling company in Bel Air. We called them, and they picked up our sleeper sofa within about 90 minutes of our request (and this is on a Sunday!). Courteous, quick, and careful. A great experience, we would use them again, and highly recommend them without reservation!"
           />
         </SwiperSlide>
 
         <SwiperSlide className="mob:px-[20px]">
           <CardContent
-            heading="Outstanding Service Experience"
+            heading="Exceptional Experience"
             time="4 days ago"
-            name="Chanel - Baltimore, MD"
-            review="Service was completely outstanding! Kenneth and Tim were phenomenal. We'll definitely be using them again!"
+            name="Shah J Towson, MD"
+            review="Great customer service, timely responses. Guys came in and got right started on work. Very friendly and professional! Definitely will use this company again!!!"
           />
         </SwiperSlide>
 
