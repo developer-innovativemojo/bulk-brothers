@@ -34,7 +34,7 @@ const ContentMembers: React.FC<MemberProps> = ({
 
         <div className="w-full max-w-[349px] relative z-10 ">
           <Image className="" src={imgSrc} alt="" width={349} height={276} />
-          <div className="bottom px-[40px] pt-[20px]">
+          <div className="bottom px-[40px] pt-[0px]">
             {/* name */}
             <Text
               as="h2"
@@ -49,17 +49,17 @@ const ContentMembers: React.FC<MemberProps> = ({
             >
               {title}
             </Text>
-            <div className="flex gap-[15px] ">
+            {/* <div className="flex gap-[15px] ">
               <Image className="" src={fb} alt="" width={26} height={26} />
               <Image className="" src={insta} alt="" width={26} height={26} />
-            </div>
+            </div> */}
 
             {/* button */}
-            <div className="flex justify-center mt-5">
+            {/* <div className="flex justify-center mt-5">
               <Button className="w-full max-w-[200px] h-[58px] uppercase">
                 view details
               </Button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

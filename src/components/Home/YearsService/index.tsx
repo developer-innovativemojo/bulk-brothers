@@ -27,7 +27,7 @@ const YearsService = () => {
                   as="h1"
                   className="text-[65px] text-[#E2E1DB] font-bold leading-[82.94px]"
                 >
-                  10
+                  20
                 </Text>
                 <Text
                   as="h2"
