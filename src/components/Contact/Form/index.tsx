@@ -239,6 +239,7 @@ const Form: React.FC = () => {
               {renderFormSection(livingCount, livingData, "living")}
               <div className="w-full flex justify-center mt-5">
                 <button
+                type="button"
                   className="bg-transparent border-b border-[#E2E1DB] text-[17px] text-[#E2E1DB] font-inter font-medium"
                   onClick={() => handleAddMore("living")}
                 >
@@ -257,6 +258,7 @@ const Form: React.FC = () => {
               {renderFormSection(bedroomCount, bedroomData, "bedroom")}
               <div className="w-full flex justify-center mt-5">
                 <button
+                type="button"
                   className="bg-transparent border-b border-[#E2E1DB] text-[17px] text-[#E2E1DB] font-inter font-medium"
                   onClick={() => handleAddMore("bedroom")}
                 >
@@ -275,6 +277,7 @@ const Form: React.FC = () => {
               {renderFormSection(kitchenCount, kitchenData, "kitchen")}
               <div className="w-full flex justify-center mt-5">
                 <button
+                type="button"
                   className="bg-transparent border-b border-[#E2E1DB] text-[17px] text-[#E2E1DB] font-inter font-medium"
                   onClick={() => handleAddMore("kitchen")}
                 >
@@ -293,6 +296,7 @@ const Form: React.FC = () => {
               {renderFormSection(bathroomCount, bathroomData, "bathroom")}
               <div className="w-full flex justify-center mt-5">
                 <button
+                type="button"
                   className="bg-transparent border-b border-[#E2E1DB] text-[17px] text-[#E2E1DB] font-inter font-medium"
                   onClick={() => handleAddMore("bathroom")}
                 >

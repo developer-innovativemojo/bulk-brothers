@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 import Text from "@/components/ui/Text";
@@ -17,10 +17,19 @@ const CardContent: React.FC<CardContentProps> = ({
   review,
   name,
 }) => {
+
+  const [showFullReview, setShowFullReview] = useState(false);
+
+  const toggleReview = () => {
+    setShowFullReview(!showFullReview);
+  };
+
+  const reviewToShow = showFullReview ? review : `${review.slice(0, 200)}`;
+
   return (
     <>
       <div className="w-full flex justify-center ">
-        <div className="w-full bg-[#FFFFFF] max-w-[397px] h-[320px] mob:h-full mob:min-h-[340px] rounded-[4px] p-[30px] mt-[50px]">
+        <div className="w-full bg-[#FFFFFF] max-w-[397px] min-h-[335px] mob:h-full mob:min-h-[340px] rounded-[4px] p-[30px] mt-[50px]">
           <div className="flex justify-between">
             <Image src={stars} alt="" width={148} height={29.04} />
             {/* <Text as="p" className="text-[#191A05] text-[15px] leading-[27px]">
@@ -39,8 +48,17 @@ const CardContent: React.FC<CardContentProps> = ({
             as="p"
             className="text-[15px]  text-[#191A05] leading-[25px] font-inter "
           >
-            {review}
+            {reviewToShow}
           </Text>
+
+          {review.length > 200 && (
+            <button
+              className="text-[16px]  text-[#191A05] leading-[22px] font-inter mt-3 cursor-pointer"
+              onClick={toggleReview}
+            >
+              {showFullReview ? "See less" : "See more"}
+            </button>
+          )}
           <Text
             as="p"
             className="text-[16px]  text-[#191A05] leading-[22px] font-inter mt-3"
