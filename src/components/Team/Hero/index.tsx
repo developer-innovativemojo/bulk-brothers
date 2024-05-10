@@ -4,7 +4,7 @@ import Image from "next/image";
 import Text from "@/components/ui/Text";
 
 import backimg from "@/public/images/home/hero/herobgnew.png";
-import img1 from "@/public/images/team/members/Rectangle 34628818.png";
+import img1 from "@/public/images/team/members/ceo.png";
 import img2 from "@/public/images/team/members/2.png";
 import ContentMembers from "../Members/ContentMembers";
 
