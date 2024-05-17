@@ -15,7 +15,7 @@ interface FormData {
 
 const Form: React.FC = () => {
   const [livingCount, setLivingCount] = useState<number>(13);
-  const [bedroomCount, setBedroomCount] = useState<number>(11);
+  const [bedroomCount, setBedroomCount] = useState<number>(10);
   const [kitchenCount, setKitchenCount] = useState<number>(7);
   const [bathroomCount, setBathroomCount] = useState<number>(3);
   const [livingData, setLivingData] = useState<FormData>({
@@ -38,13 +38,12 @@ const Form: React.FC = () => {
     1: { description: "Bureaus", number: "" },
     2: { description: "Night tables", number: "" },
     3: { description: "Clothing", number: "" },
-    4: { description: "Bedrooms and Closets", number: "" },
-    5: { description: "Shoes", number: "" },
-    6: { description: "Wall decorations", number: "" },
-    7: { description: "Crib / bassinet", number: "" },
-    8: { description: "Clothes hamper", number: "" },
-    9: { description: "Mirrors", number: "" },
-    10: { description: "Furs, jewelry and accessories", number: "" },
+    4: { description: "Shoes", number: "" },
+    5: { description: "Wall decorations", number: "" },
+    6: { description: "Crib / bassinet", number: "" },
+    7: { description: "Clothes hamper", number: "" },
+    8: { description: "Mirrors", number: "" },
+    9: { description: "Furs, jewelry and accessories", number: "" },
   });
   const [kitchenData, setKitchenData] = useState<FormData>({
     0: { description: "Pots and pans", number: "", },
@@ -180,7 +179,7 @@ const Form: React.FC = () => {
                 section
               )
             }
-            readOnly={(section === 'living' && index < 13) || (section === 'bedroom' && index < 11) || (section === 'kitchen' && index < 7) || (section === 'bathroom' && index < 3)}
+            readOnly={(section === 'living' && index < 13) || (section === 'bedroom' && index < 10) || (section === 'kitchen' && index < 7) || (section === 'bathroom' && index < 3)}
 
           />
         </div>
