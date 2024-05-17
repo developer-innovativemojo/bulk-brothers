@@ -13,7 +13,8 @@ interface FormData {
   };
 }
 
-const Form: React.FC = () => {const [livingCount, setLivingCount] = useState<number>(13);
+const Form: React.FC = () => {
+  const [livingCount, setLivingCount] = useState<number>(13);
   const [bedroomCount, setBedroomCount] = useState<number>(11);
   const [kitchenCount, setKitchenCount] = useState<number>(7);
   const [bathroomCount, setBathroomCount] = useState<number>(3);
@@ -46,7 +47,7 @@ const Form: React.FC = () => {const [livingCount, setLivingCount] = useState<num
     10: { description: "Furs, jewelry and accessories", number: "" },
   });
   const [kitchenData, setKitchenData] = useState<FormData>({
-    0: { description: "Pots and pans", number: "" },
+    0: { description: "Pots and pans", number: "", },
     1: { description: "Dishes", number: "" },
     2: { description: "Glasses and cups", number: "" },
     3: { description: "Silverware", number: "" },
@@ -179,6 +180,8 @@ const Form: React.FC = () => {const [livingCount, setLivingCount] = useState<num
                 section
               )
             }
+            readOnly={(section === 'living' && index < 13) || (section === 'bedroom' && index < 11) || (section === 'kitchen' && index < 7) || (section === 'bathroom' && index < 3)}
+
           />
         </div>
         <div className="flex flex-col w-full max-w-[345px]">
@@ -202,44 +205,7 @@ const Form: React.FC = () => {const [livingCount, setLivingCount] = useState<num
                 }
               />
             </div>
-            {/* <div>
-              <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">
-                Packed
-              </Text>
-              <input
-                className="w-[102px] h-[51px] px-5 bg-transparent border text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none"
-                type="number"
-                placeholder="-"
-                value={data[index]?.packed || ""}
-                onChange={(e) =>
-                  handleChange(
-                    index.toString(),
-                    "packed",
-                    e.target.value,
-                    section
-                  )
-                }
-              />
-            </div>
-            <div>
-              <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">
-                Unpacked
-              </Text>
-              <input
-                className="w-[102px] h-[51px] px-5 bg-transparent border text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none"
-                type="number"
-                placeholder="-"
-                value={data[index]?.unpacked || ""}
-                onChange={(e) =>
-                  handleChange(
-                    index.toString(),
-                    "unpacked",
-                    e.target.value,
-                    section
-                  )
-                }
-              />
-            </div> */}
+           
              <div className="flex flex-col w-full max-w-[345px]">
           <div className="flex gap-[20px] ">
             <div>
