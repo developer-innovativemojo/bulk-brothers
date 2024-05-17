@@ -100,7 +100,7 @@ const Form: React.FC = () => {
         : section === "kitchen"
         ? setKitchenData
         : setBathroomData;
-
+  
     setData((prevData) => {
       const updatedData = {
         ...prevData,
@@ -109,17 +109,18 @@ const Form: React.FC = () => {
           [field]: value,
         },
       };
-
+  
       // Ensure only one of "packed" or "unpacked" can be set
-      if (field === "packed" && value) {
-        updatedData[index]["unpacked"] = "";
-      } else if (field === "unpacked" && value) {
-        updatedData[index]["packed"] = "";
+      if (field === "packed") {
+        updatedData[index]["unpacked"] = value === "" ? "" : "";
+      } else if (field === "unpacked") {
+        updatedData[index]["packed"] = value === "" ? "" : "";
       }
-
+  
       return updatedData;
     });
   };
+  
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
