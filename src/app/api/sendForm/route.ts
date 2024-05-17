@@ -12,7 +12,6 @@ interface FormData {
 export async function POST(request: NextRequest) {
   try {
     const formData: FormData = await request.json();
-
     const { living, bedroom, kitchen, bathroom, email } = formData;
 
     // Convert objects to arrays
@@ -21,13 +20,63 @@ export async function POST(request: NextRequest) {
     const kitchenArray = Object.values(kitchen);
     const bathroomArray = Object.values(bathroom);
 
-    // Map values in HTML
-    const livingHTML = livingArray.map(item => `<li>Description: ${item.description}, Number: ${item.number}, Packed: ${item.packed}, Unpacked: ${item.unpacked}</li>`).join("");
-    const bedroomHTML = bedroomArray.map(item => `<li>Description: ${item.description}, Number: ${item.number}, Packed: ${item.packed}, Unpacked: ${item.unpacked}</li>`).join("");
-    const kitchenHTML = kitchenArray.map(item => `<li>Description: ${item.description}, Number: ${item.number}, Packed: ${item.packed}, Unpacked: ${item.unpacked}</li>`).join("");
-    const bathroomHTML = bathroomArray.map(item => `<li>Description: ${item.description}, Number: ${item.number}, Packed: ${item.packed}, Unpacked: ${item.unpacked}</li>`).join("");
-
-    // Continue with your nodemailer code
+    // Filter out items where number is null or empty and map values in HTML
+    const livingHTML = livingArray
+    .filter(item => item.number)
+    .map(item => {
+      let displayValues = "";
+      if (item.packed) {
+        displayValues += ` ${item.packed}, `;
+      }
+      if (item.unpacked) {
+        displayValues += ` ${item.unpacked}, `;
+      }
+      return `<li>Description: ${item.description}, Number: ${item.number}, ${displayValues}</li>`;
+    })
+    .join("");
+  
+  const bedroomHTML = bedroomArray
+    .filter(item => item.number)
+    .map(item => {
+      let displayValues = "";
+      if (item.packed) {
+        displayValues += ` ${item.packed}, `;
+      }
+      if (item.unpacked) {
+        displayValues += ` ${item.unpacked}, `;
+      }
+      return `<li>Description: ${item.description}, Number: ${item.number}, ${displayValues}</li>`;
+    })
+    .join("");
+  
+  const kitchenHTML = kitchenArray
+    .filter(item => item.number)
+    .map(item => {
+      let displayValues = "";
+      if (item.packed) {
+        displayValues += ` ${item.packed}, `;
+      }
+      if (item.unpacked) {
+        displayValues += ` ${item.unpacked}, `;
+      }
+      return `<li>Description: ${item.description}, Number: ${item.number}, ${displayValues}</li>`;
+    })
+    .join("");
+  
+  const bathroomHTML = bathroomArray
+    .filter(item => item.number)
+    .map(item => {
+      let displayValues = "";
+      if (item.packed) {
+        displayValues += ` ${item.packed}, `;
+      }
+      if (item.unpacked) {
+        displayValues += ` ${item.unpacked}, `;
+      }
+      return `<li>Description: ${item.description}, Number: ${item.number}, ${displayValues}</li>`;
+    })
+    .join("");
+  
     const transporter = nodemailer.createTransport({
       service: "gmail",
       host: "smtp.gmail.com",
@@ -35,13 +84,14 @@ export async function POST(request: NextRequest) {
       auth: {
         user: "Info@bulkbrothersmove.com",
         pass: "dwrk yott pprm lzuh",
+       
       },
     });
 
     // Email options for sending to your own inbox
     const mailOptionToYou = {
       from: email, // Use the user's email address directly
-      to: "Info@bulkbrothersmove.com",
+      to: "Info@bulkbrothersmove.com,developer@innovativemojo.com",
       subject: " Form Submission",
       html: `
         <h3>New Contact Form Submission</h3>
