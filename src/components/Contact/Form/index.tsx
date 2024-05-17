@@ -202,7 +202,7 @@ const Form: React.FC = () => {const [livingCount, setLivingCount] = useState<num
                 }
               />
             </div>
-            <div>
+            {/* <div>
               <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">
                 Packed
               </Text>
@@ -239,9 +239,59 @@ const Form: React.FC = () => {const [livingCount, setLivingCount] = useState<num
                   )
                 }
               />
+            </div> */}
+             <div className="flex flex-col w-full max-w-[345px]">
+          <div className="flex gap-[20px] ">
+            <div>
+              <Text as="p" className="text-[12px] text-center text-[#fff]/50 mb-1">
+                Packed
+              </Text>
+             <div className="flex  justify-center w-[102px] h-[51px] ">
+             <input
+              className="scale-150 mt-4 " 
+
+                type="radio"
+                name={`packed_${section}_${index}`}
+                value="packed"
+                checked={data[index]?.packed === 'packed'}
+                onChange={(e) =>
+                  handleChange(
+                    index.toString(),
+                    'packed',
+                    e.target.value,
+                    section
+                  )
+                }
+              />
+             </div>
+            </div>
+            <div>
+              <Text as="p" className="text-[12px] text-center text-[#fff]/50 mb-1">
+                Unpacked
+              </Text>
+              <div className="flex  justify-center w-[102px] h-[51px] ">
+              <input
+              className="scale-150 mt-4 "
+                type="radio"
+                name={`unpacked_${section}_${index}`}
+                value="unpacked"
+                checked={data[index]?.unpacked === 'unpacked'}
+                onChange={(e) =>
+                  handleChange(
+                    index.toString(),
+                    'unpacked',
+                    e.target.value,
+                    section
+                  )
+                }
+              />
+              </div>
             </div>
           </div>
         </div>
+          </div>
+        </div>
+       
       </div>
     ));
   };
