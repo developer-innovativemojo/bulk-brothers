@@ -3,10 +3,10 @@ import Image from "next/image";
 
 import Text from "@/components/ui/Text";
 
-import first from "@/public/images/home/whatweoffer/1st.png";
-import second from "@/public/images/home/whatweoffer/2.png";
-import third from "@/public/images/home/whatweoffer/3.png";
-import four from "@/public/images/home/whatweoffer/4.png";
+import first from "@/public/images/home/whatweoffer/s1.png";
+import second from "@/public/images/home/whatweoffer/s2.png";
+import third from "@/public/images/home/whatweoffer/s3.png";
+import four from "@/public/images/home/whatweoffer/s4.png";
 import firsticon from "@/public/images/home/whatweoffer/serviceicon.png";
 import thirdicon from "@/public/images/home/whatweoffer/3icon.png";
 import mask from "@/public/images/home/Mask group.png";

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 
-import bg from "@/public/images/team/teambg2.png";
+import bg from "@/public/images/team/Mask team.png";
 
 
 const Members = () => {

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 
-import trashimg from "@/public/images/services/trashremoval.png";
+import trashimg from "@/public/images/services/s3.png";
 import star from "@/public/icons/star.svg";
 
 import Text from "@/components/ui/Text";
