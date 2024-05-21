@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 
-import laborimg from "@/public/images/services/laboeservice.png";
+import laborimg from "@/public/images/services/s4.png";
 import star from "@/public/icons/star.svg";
 
 import Text from "@/components/ui/Text";

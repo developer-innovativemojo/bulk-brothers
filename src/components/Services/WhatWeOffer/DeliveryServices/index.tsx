@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 
-import movingimg from "@/public/images/services/deliveryservice.png";
+import movingimg from "@/public/images/services/s2.png";
 import star from "@/public/icons/star.svg";
 
 import Text from "@/components/ui/Text";
