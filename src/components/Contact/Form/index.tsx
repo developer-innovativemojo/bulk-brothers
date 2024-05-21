@@ -267,7 +267,7 @@ const Form: React.FC = () => {
   return (
     <>
       <div className="flex justify-center pb-20 mob:pb-0">
-        <div className="flex justify-center w-full max-w-[953px] bg-[#000000]">
+        <div className="flex justify-center w-full max-w-[953px] bg-[#191A05]">
           <div
             className="w-full max-w-[710px] min-h-[200px]"
             data-aos="fade-up"
