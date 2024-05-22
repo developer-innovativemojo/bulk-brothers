@@ -79,6 +79,10 @@ import img8 from "@/public/images/gallery/8.png";
 import img9 from "@/public/images/gallery/9.png";
 import img10 from "@/public/images/gallery/10.png";
 import img11 from "@/public/images/gallery/11.png";
+// import img12 from "@/public/images/gallery/12.jpg";
+// import img13 from "@/public/images/gallery/13.jpg";
+// import img14 from "@/public/images/gallery/14.jpg";
+// import img15 from "@/public/images/gallery/15.webp";
 // Import other images as needed
 
 const Photos = () => {
@@ -102,7 +106,7 @@ const Photos = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
   };
 
-  const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11,]; // Add other images here
+  const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, ]; // Add other images here
 
   return (
     <>
