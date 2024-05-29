@@ -33,7 +33,7 @@ const ContentMembers: React.FC<MemberProps> = ({
         /> */}
 
         <div className="w-full max-w-[349px] relative z-10 ">
-          <Image className="" src={imgSrc} alt="" width={349} height={276} />
+          <Image className="max-h-[276px]" src={imgSrc} alt="" width={349} height={276} />
           <div className="bottom px-[40px] pt-[20px]">
             {/* name */}
             <Text

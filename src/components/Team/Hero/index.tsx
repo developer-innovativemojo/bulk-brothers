@@ -5,7 +5,7 @@ import Text from "@/components/ui/Text";
 
 import backimg from "@/public/images/home/hero/herobgnew.png";
 import img1 from "@/public/images/team/members/ceo.png";
-import img2 from "@/public/images/team/members/2.png";
+import img2 from "@/public/images/team/members/member2.png";
 import ContentMembers from "../Members/ContentMembers";
 
 const Hero = () => {
