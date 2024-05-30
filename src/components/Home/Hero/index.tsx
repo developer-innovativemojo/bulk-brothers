@@ -58,7 +58,7 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
             <div className="relative z-[12]">
               <Text
                 as="h1"
-                className="text-[#FFFFFF] text-center text-[50px] font-Bodoni mob:text-[35px] mob:leading-[40px] uppercase mb-[10px]"
+                className="text-[#FFFFFF] text-center text-[48px] mob:text-[26px] font-Bodoni mob:leading-[40px] uppercase mb-[10px]"
               >
                 {" "}
                 Bulk brothers
@@ -88,32 +88,37 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
 
               <div className="flex items-center justify-between gap-4 mt-[35px] mob:mb-1 mob:flex-col z-[50] ">
                 <div className=" flex justify-center gap-4">
-                  <button
-                    onClick={scrollCallback}
-                    className=" bg-primary-dark text-center min-w-[133px] text-white px-4 py-2 rounded-md cursor-pointer"
-                  >
-                    Moving
-                  </button>
-
                   <Link href="/contact">
-                    <button className=" bg-primary-dark text-center min-w-[133px] text-white px-4 py-2 rounded-md cursor-pointer">
-                      Delivery
+                    <button
+                      onClick={scrollCallback}
+                      className=" bg-primary-dark text-center min-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase"
+                    >
+                      Moving
                     </button>
                   </Link>
+
+                  <button
+                    className=" bg-primary-dark text-center min-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase"
+                    onClick={scrollCallback}
+                  >
+                    Delivery
+                  </button>
                 </div>
 
                 <div className=" flex justify-center gap-4">
-                  <button
-                    onClick={scrollCallback}
-                    className=" bg-primary-dark text-center min-w-[133px] text-white px-4 py-2 rounded-md cursor-pointer"
-                  >
-                    Trash Removal
-                  </button>
                   <Link href="/contact">
-                    <button className=" bg-primary-dark text-center min-w-[133px] text-white px-4 py-2 rounded-md cursor-pointer">
-                      Labor Only
+                    {/* onClick={scrollCallback} */}
+                    <button className=" bg-primary-dark text-center min-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase">
+                      Trash Removal
                     </button>
                   </Link>
+
+                  <button
+                    className=" bg-primary-dark text-center min-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase"
+                    onClick={scrollCallback}
+                  >
+                    Labor Only
+                  </button>
                 </div>
               </div>
             </div>

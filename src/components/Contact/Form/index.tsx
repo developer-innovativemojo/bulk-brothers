@@ -73,12 +73,17 @@ const Form: React.FC = () => {
   const [successfully, setSuccessfully] = useState("");
 
   // selected value
-  const [selectedService, setselectedService] = useState("test");
+  const [selectedValue, setSelectedValue] = useState<string>("Select Service");
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const handleSelectChange = (e: any) => {
-    const newValue = e.target.value;
-    setselectedService(newValue);
-    console.log("this is selected value", newValue);
+  const handleSelection = (value: string) => {
+    setSelectedValue(value);
+    setIsOpen(false);
+    console.log("this is selected value", selectedValue);
+  };
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
   };
 
   const handleChangemail = (e: any) => {
@@ -150,7 +155,7 @@ const Form: React.FC = () => {
       kitchen: kitchenData,
       bathroom: bathroomData,
       email: email,
-      selectedService:selectedService,
+      selectedService: selectedValue,
     };
 
     try {
@@ -318,29 +323,56 @@ const Form: React.FC = () => {
                   >
                     Our Services
                   </Text>
-                  <div className="flex justify-center flex-col mb-[20px]">
-                    <div className="">
-                      <select
-                        name="selectedValue"
-                        // value={selectedService}
-                        onChange={handleSelectChange}
-                        className="test w-full h-[51px] px-5 border bg-[#191A05] text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none mb-2"
+                  <div className="flex justify-center flex-col mb-[10px]">
+                    <div>
+                      <button
+                        type="button"
+                        className="flex items-center gap-[0px] justify-between w-full h-[51px] px-5 bg-transparent border text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff] outline-none"
+                        id="menu-button"
+                        aria-expanded={isOpen}
+                        aria-haspopup="true"
+                        onClick={toggleDropdown}
                       >
-
-
-
-                        <option value="" disabled selected hidden>
-                          Select Service
-                        </option>
-                        <option className=" text-[#fff]/50">
-                          Moving Service
-                        </option>
-                        <option className=" text-[#fff]/50">
-                          Trash Removal Service
-
-                        </option>
-                      </select>
+                        {selectedValue}
+                        <Image src={dropdownsvg} alt="DROPDOWNSVG"></Image>
+                      </button>
                     </div>
+
+                    {isOpen && (
+                      <div
+                        className="w-full px-5 bg-transparent border text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff] outline-none mb-2"
+                        role="menu"
+                        aria-orientation="vertical"
+                        aria-labelledby="menu-button"
+                        tabIndex={-1}
+                      >
+                        <div className="py-1" role="none">
+                          <a
+                            // href="#"
+                            className="text-white block px-4 py-2 text-sm cursor-pointer"
+                            role="menuitem"
+                            tabIndex={-1}
+                            id="menu-item-1"
+                            onClick={() => handleSelection("Moving Service")}
+                          >
+                            Moving Service
+                          </a>
+                          <hr className="h-px w-full my-1 bg-[#FFFFFF]/30 border-0" />
+                          <a
+                            // href="#"
+                            className="text-white block px-4 py-2 text-sm cursor-pointer"
+                            role="menuitem"
+                            tabIndex={-1}
+                            id="menu-item-2"
+                            onClick={() =>
+                              handleSelection("Trash Removal Service")
+                            }
+                          >
+                            Trash Removal Service
+                          </a>
+                        </div>
+                      </div>
+                    )}
                   </div>
                   <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">
                     Email*
