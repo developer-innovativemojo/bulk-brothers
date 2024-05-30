@@ -7,7 +7,11 @@ import "react-datepicker/dist/react-datepicker.css";
 import Text from "@/components/ui/Text";
 
 import formbg from "@/public/images/home/formbg.png";
-const Contactus = () => {
+
+interface ContactusProps {
+  refProps?: React.RefObject<HTMLDivElement>;
+}
+const Contactus: React.FC<ContactusProps> = ({ refProps }) => {
   const [fname, setFname] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -21,7 +25,7 @@ const Contactus = () => {
 
   const handleDateChange = (date: Date | null) => {
     setStartDate(date);
-    setShowPlaceholder(!date); 
+    setShowPlaceholder(!date);
   };
   const validateEmail = (email: string): boolean => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -32,7 +36,7 @@ const Contactus = () => {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-// console.log(startDate,"startDate")
+    // console.log(startDate,"startDate")
 
     if (!fname || !email || !phone || !startDate) {
       alert("Please fill in all fields");
@@ -80,21 +84,24 @@ const Contactus = () => {
         throw new Error(data.message || "Failed to send email");
       }
     } catch (error) {
-      
       console.error("Error sending email:", error);
       alert("Failed to send email. Please try again later.");
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
   return (
-    <div className=" min-h-[663px] relative flex justify-center items-center mob:px-5 mob:py-5 " data-aos="fade-up"
-    data-aos-duration="1000"
-    data-aos-easing="ease-in-out">
-      <div className="w-full max-w-[1484px]  h-full  flex justify-center" >
+    <div
+      className=" min-h-[663px] relative flex justify-center items-center mob:px-5 mob:py-5 "
+      data-aos="fade-up"
+      ref={refProps}
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out"
+    >
+      <div className="w-full max-w-[1484px]  h-full  flex justify-center">
         <Image
-           className="absolute top-0 left-0 w-full h-full object-cover object-center"
+          className="absolute top-0 left-0 w-full h-full object-cover object-center"
           src={formbg}
           alt=""
           layout="fill"
@@ -167,13 +174,13 @@ const Contactus = () => {
                 }}
               /> */}
 
-<DatePicker
-              placeholderText={showPlaceholder ? "Date" : "Date"}
-              className="  text-[17px] text-[#FFFFFF] leading-[25px] font-medium font-inter  bg-transparent placeholder-white  px-5 w-full max-w-[570px] h-[80px]  outline-none"
-              selected={startDate}
-              onChange={(date) => handleDateChange(date)}
-              isClearable={true}
-            />
+              <DatePicker
+                placeholderText={showPlaceholder ? "Date" : "Date"}
+                className="  text-[17px] text-[#FFFFFF] leading-[25px] font-medium font-inter  bg-transparent placeholder-white  px-5 w-full max-w-[570px] h-[80px]  outline-none"
+                selected={startDate}
+                onChange={(date) => handleDateChange(date)}
+                isClearable={true}
+              />
               <button
                 onClick={sendMail}
                 disabled={loading}

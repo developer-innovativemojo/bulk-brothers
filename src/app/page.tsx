@@ -1,8 +1,10 @@
-"use client"
+"use client";
 
 import { useEffect } from "react";
-import 'aos/dist/aos.css'; // Import AOS CSS
-import AOS from 'aos'; 
+import { useRef } from "react";
+
+import "aos/dist/aos.css"; // Import AOS CSS
+import AOS from "aos";
 
 import Contactus from "@/components/Home/Contactus";
 import Estimate from "@/components/Home/Estimate";
@@ -14,20 +16,25 @@ import WhoWeAre from "@/components/Home/WhoWeAre";
 import YearsService from "@/components/Home/YearsService";
 
 export default function Home() {
+  const contactRef = useRef<HTMLDivElement>(null);
+  const scrollCallback = () => {
+    contactRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   useEffect(() => {
-    AOS.init({ once: true,});
-}, [])
+    AOS.init({ once: true });
+  }, []);
 
   return (
     <main className="bg-[#191A05] min-h-screen">
-      <Hero />
+      <Hero scrollCallback={scrollCallback} />
       {/* <Estimate /> */}
-      <WhoWeAre />
+      <WhoWeAre scrollCallback={scrollCallback} />
       <YearsService />
       <WhatWeOffer />
       <OurCLient />
       <TeamSupport />
-      <Contactus />
+      <Contactus refProps={contactRef} />
     </main>
   );
 }

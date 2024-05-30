@@ -1,16 +1,22 @@
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import Text from "@/components/ui/Text";
 
 import leftimg from "@/public/images/home/whoweare2.png";
+import Link from "next/link";
 
-const WhoWeAre = () => {
+interface WhoWeAreProps {
+  scrollCallback: () => void;
+}
+
+const WhoWeAre: React.FC<WhoWeAreProps> = ({ scrollCallback }) => {
   return (
     <>
-      <div className="bg-[#E2E1DB] min-h-[200px] flex justify-center items-center py-16">
+      <div className="bg-[#E2E1DB] min-h-[200px] flex justify-center items-center py-16 ">
         <div
-          className=" w-full max-w-[1188.5px] flex flex-wrap items-center gap-10 pb-[100px] mob:px-5"
+          className=" w-full max-w-[1240.5px] flex flex-wrap items-center gap-10 pb-[100px] mob:px-5"
           data-aos="fade-up"
           data-aos-duration="1000"
           data-aos-easing="ease-in-out"
@@ -52,6 +58,40 @@ const WhoWeAre = () => {
                 they ensure client safety and protection. For reliable service,
                 choose Bulk Brothers.
               </Text>
+            </div>
+
+            {/* CTA buttons */}
+
+            <div className="flex items-center justify-between gap-4 mt-[35px] mob:mb-7 mob:flex-col ">
+              <div className=" flex justify-center gap-4">
+                <button
+                  onClick={scrollCallback}
+                  className=" bg-primary-dark text-center min-w-[133px] text-white px-4 py-2 rounded-md cursor-pointer"
+                >
+                  Moving
+                </button>
+                <Link
+                  href="/contact"
+                  className=" bg-primary-dark text-center min-w-[133px] text-white px-4 py-2 rounded-md cursor-pointer"
+                >
+                  Delivery
+                </Link>
+              </div>
+
+              <div className=" flex justify-center gap-4">
+                <button
+                  onClick={scrollCallback}
+                  className=" bg-primary-dark text-center min-w-[133px] text-white px-4 py-2 rounded-md cursor-pointer"
+                >
+                  Trash Removal
+                </button>
+                <Link
+                  href="/contact"
+                  className=" bg-primary-dark text-center min-w-[133px] text-white px-4 py-2 rounded-md cursor-pointer"
+                >
+                  Labor Only
+                </Link>
+              </div>
             </div>
           </div>
         </div>
