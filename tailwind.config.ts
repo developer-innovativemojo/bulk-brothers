@@ -13,6 +13,7 @@ const config: Config = {
         monts: ["var(--font-monts)"],
         rajdhani: ["var(--font-rajdhani)"],
         inknut: ["var(--font-inknut)"],
+        Bodoni:["var(--font-Bodoni)"]
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

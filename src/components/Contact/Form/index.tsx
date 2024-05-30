@@ -322,15 +322,17 @@ const Form: React.FC = () => {
                         name="selectedValue"
                         // value={selectedService}
                         onChange={handleSelectChange}
-                        className="test w-full h-[51px] px-5 border bg-[#191A05] text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none mb-2"
+                        className="test w-full h-[51px] gap-8 px-5 border bg-[#191A05] text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none mb-2"
                       >
-                        <option value="" disabled selected hidden>
+                        <option className="mb-6" value="" disabled selected hidden>
                           Select Services
                         </option>
-                        <option className=" text-[#fff]/50">
-                          Moving Services
+                    
+                        <option className=" text-[#fff]/50 leading-[100px] text-red-500">          
+                          Moving Services                       
                         </option>
-                        <option className=" text-[#fff]/50">
+                       
+                        <option className=" text-[#fff]/50 pb-6">
                           Trash Removal Services
                         </option>
                       </select>

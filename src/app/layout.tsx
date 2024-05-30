@@ -1,13 +1,12 @@
-
 import type { Metadata } from "next";
 
 import {
   Inter,
-
   Plus_Jakarta_Sans,
   Montserrat,
   Rajdhani,
   Inknut_Antiqua,
+  Bodoni_Moda,
 } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -23,17 +22,22 @@ const monts = Montserrat({
 });
 
 const rajdhani = Rajdhani({
-  weight: ["300", "400", "500", "600", "700"], 
-  subsets: ["latin"], 
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
   variable: "--font-rajdhani",
 });
 
 const inknut = Inknut_Antiqua({
-  weight: ["300", "400", "500", "600", "700"], 
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-inknut",
 });
 
+const Bodoni = Bodoni_Moda({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-Bodoni",
+});
 
 
 export const metadata: Metadata = {
@@ -46,18 +50,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-
   return (
     <html lang="en">
       <link rel="shortcut icon" href="/favicon.ico" />
-     <body
-        className={` ${inter.variable}  ${monts.variable} ${rajdhani.variable} ${inknut.variable} `}
+      <body
+        className={` ${inter.variable}  ${monts.variable} ${rajdhani.variable} ${inknut.variable} ${Bodoni.variable} `}
       >
-        <Navbar/>
+        <Navbar />
         {children}
-        <Footer/>
-        </body>
+        <Footer />
+      </body>
     </html>
   );
 }

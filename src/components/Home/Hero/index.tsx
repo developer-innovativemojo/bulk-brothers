@@ -58,7 +58,7 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
             <div className="relative z-[12]">
               <Text
                 as="h1"
-                className="text-[#FFFFFF] text-center mob:text-[35px] mob:leading-[40px] font-rajdhani uppercase mb-[30px]"
+                className="text-[#FFFFFF] text-center text-[50px] font-Bodoni mob:text-[35px] mob:leading-[40px] uppercase mb-[30px]"
               >
                 {" "}
                 Bulk brothers
