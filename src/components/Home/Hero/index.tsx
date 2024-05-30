@@ -23,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
         width={1484}
         height={555}
       />
-      <div className="w-full max-w-[1484px] max-h-[785px] h-full relative pt-[0px] pb-[816px] mob:pb-[250px]">
+      <div className="w-full max-w-[1484px] max-h-[835px] h-full relative pt-[0px] pb-[816px] mob:pb-[250px]">
         {/* content */}
         <div
           className="flex justify-center  relative z-10 mob:px-5"
@@ -31,7 +31,7 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
           data-aos-duration="1000"
           data-aos-easing="ease-in-out"
         >
-          <div className="bg-[#191A05]/85 w-full max-w-[860px] min-h-[535px] mob:min-h-[500px] rounded-[20px] flex justify-center  items-center relative z-[11] ">
+          <div className="bg-[#191A05]/85  w-full max-w-[860px] min-h-[535px] mob:min-h-[500px] rounded-[20px] flex justify-center  items-center relative z-[11] ">
             <Image
               className="absolute left-[-50px] mob:left-[-10px] bottom-[170px] mob:bottom-[-106px] z-[10]"
               data-aos="fade-left"
@@ -58,7 +58,7 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
             <div className="relative z-[12]">
               <Text
                 as="h1"
-                className="text-[#FFFFFF] text-center text-[50px] font-Bodoni mob:text-[35px] mob:leading-[40px] uppercase mb-[30px]"
+                className="text-[#FFFFFF] text-center text-[50px] font-Bodoni mob:text-[35px] mob:leading-[40px] uppercase mb-[10px]"
               >
                 {" "}
                 Bulk brothers
@@ -86,7 +86,7 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
 
               {/* CTA Buttons */}
 
-              <div className="flex items-center justify-between gap-4 mt-[35px] mob:mb-1 mob:flex-col ">
+              <div className="flex items-center justify-between gap-4 mt-[35px] mob:mb-1 mob:flex-col z-[50] ">
                 <div className=" flex justify-center gap-4">
                   <button
                     onClick={scrollCallback}
@@ -94,11 +94,11 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
                   >
                     Moving
                   </button>
-                  <Link
-                    href="/contact"
-                    className=" bg-primary-dark text-center min-w-[133px] text-white px-4 py-2 rounded-md cursor-pointer"
-                  >
-                    Delivery
+
+                  <Link href="/contact">
+                    <button className=" bg-primary-dark text-center min-w-[133px] text-white px-4 py-2 rounded-md cursor-pointer">
+                      Delivery
+                    </button>
                   </Link>
                 </div>
 
@@ -109,11 +109,10 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
                   >
                     Trash Removal
                   </button>
-                  <Link
-                    href="/contact"
-                    className=" bg-primary-dark text-center min-w-[133px] text-white px-4 py-2 rounded-md cursor-pointer"
-                  >
-                    Labor Only
+                  <Link href="/contact">
+                    <button className=" bg-primary-dark text-center min-w-[133px] text-white px-4 py-2 rounded-md cursor-pointer">
+                      Labor Only
+                    </button>
                   </Link>
                 </div>
               </div>
