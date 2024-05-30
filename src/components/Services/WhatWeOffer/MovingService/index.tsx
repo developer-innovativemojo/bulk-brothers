@@ -38,7 +38,7 @@ const MovingService: React.FC<WhatWeOfferProps> = ({ id }) => {
                 as="p"
                 className="text-[#FFFFFF]/70 text-[17px] leading-[27px] ml-3 "
               >
-                Residential Business
+                Residential 
               </Text>
             </div>
             <div  className="flex  mt-1">

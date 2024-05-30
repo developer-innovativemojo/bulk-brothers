@@ -73,7 +73,7 @@ const Form: React.FC = () => {
   const [successfully, setSuccessfully] = useState("");
 
   // selected value
-  const [selectedValue, setSelectedValue] = useState<string>("Select Service");
+  const [selectedValue, setSelectedValue] = useState<string>("Select Services");
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleSelection = (value: string) => {
