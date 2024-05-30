@@ -7,12 +7,13 @@ interface FormData {
   kitchen: { [key: string]: string }[];
   bathroom: { [key: string]: string }[];
   email: string;
+  selectedService: string;
 }
 
 export async function POST(request: NextRequest) {
   try {
     const formData: FormData = await request.json();
-    const { living, bedroom, kitchen, bathroom, email } = formData;
+    const { living, bedroom, kitchen, bathroom, email, selectedService } = formData;
 
     // Convert objects to arrays
     const livingArray = Object.values(living);
@@ -96,6 +97,7 @@ export async function POST(request: NextRequest) {
       html: `
         <h3>New Contact Form Submission</h3>
         <h3>${email}</h3>
+        <h3>${selectedService}</h3>
         <h4>Living Room Data:</h4>
         <ul>${livingHTML}</ul>
         <h4>Bedroom Data:</h4>
