@@ -82,6 +82,7 @@ const Form: React.FC = () => {
   };
 
   const handleChangemail = (e: any) => {
+    e.preventDefault();
     setEmail(e.target.value);
   };
 
@@ -149,6 +150,7 @@ const Form: React.FC = () => {
       kitchen: kitchenData,
       bathroom: bathroomData,
       email: email,
+      selectedService:selectedService,
     };
 
     try {
@@ -324,16 +326,18 @@ const Form: React.FC = () => {
                         onChange={handleSelectChange}
                         className="test w-full h-[51px] px-5 border bg-[#191A05] text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none mb-2"
                       >
-                        <option className="mb-6 text-[#fff]/70" value="" disabled selected hidden>
-                          Select Services
+
+
+
+                        <option value="" disabled selected hidden>
+                          Select Service
                         </option>
-                    
-                        <option className=" text-[#fff]/50">          
-                          Moving Services                       
+                        <option className=" text-[#fff]/50">
+                          Moving Service
                         </option>
-                       
-                        <option className=" text-[#fff]/50 ">
-                          Trash Removal Services
+                        <option className=" text-[#fff]/50">
+                          Trash Removal Service
+
                         </option>
                       </select>
                     </div>
