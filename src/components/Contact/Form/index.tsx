@@ -1,8 +1,11 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import axios from "axios";
 
 import Text from "@/components/ui/Text";
+
+import dropdownsvg from "@/public/icons/dropdown.svg";
 
 interface FormData {
   [key: string]: {
@@ -29,9 +32,15 @@ const Form: React.FC = () => {
     7: { description: "Rugs", number: "" },
     8: { description: "Pictures", number: "" },
     9: { description: "Books", number: "" },
-    10: { description: "Entertainment supplies (CDs, DVDs, video games, etc.)", number: "" },
+    10: {
+      description: "Entertainment supplies (CDs, DVDs, video games, etc.)",
+      number: "",
+    },
     11: { description: "Computer software/programs", number: "" },
-    12: { description: "Memorabilia (photo albums, souveniers, etc.)", number: "" },
+    12: {
+      description: "Memorabilia (photo albums, souveniers, etc.)",
+      number: "",
+    },
   });
   const [bedroomData, setBedroomData] = useState<FormData>({
     0: { description: "Beds", number: "" },
@@ -46,7 +55,7 @@ const Form: React.FC = () => {
     9: { description: "Furs, jewelry and accessories", number: "" },
   });
   const [kitchenData, setKitchenData] = useState<FormData>({
-    0: { description: "Pots and pans", number: "", },
+    0: { description: "Pots and pans", number: "" },
     1: { description: "Dishes", number: "" },
     2: { description: "Glasses and cups", number: "" },
     3: { description: "Silverware", number: "" },
@@ -62,6 +71,15 @@ const Form: React.FC = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [successfully, setSuccessfully] = useState("");
+
+  // selected value
+  const [selectedService, setselectedService] = useState("test");
+
+  const handleSelectChange = (e: any) => {
+    const newValue = e.target.value;
+    setselectedService(newValue);
+    console.log("this is selected value", newValue);
+  };
 
   const handleChangemail = (e: any) => {
     setEmail(e.target.value);
@@ -100,7 +118,7 @@ const Form: React.FC = () => {
         : section === "kitchen"
         ? setKitchenData
         : setBathroomData;
-  
+
     setData((prevData) => {
       const updatedData = {
         ...prevData,
@@ -109,18 +127,17 @@ const Form: React.FC = () => {
           [field]: value,
         },
       };
-  
+
       // Ensure only one of "packed" or "unpacked" can be set
       if (field === "packed") {
         updatedData[index]["unpacked"] = value === "" ? "" : "";
       } else if (field === "unpacked") {
         updatedData[index]["packed"] = value === "" ? "" : "";
       }
-  
+
       return updatedData;
     });
   };
-  
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -180,8 +197,12 @@ const Form: React.FC = () => {
                 section
               )
             }
-            readOnly={(section === 'living' && index < 13) || (section === 'bedroom' && index < 10) || (section === 'kitchen' && index < 7) || (section === 'bathroom' && index < 3)}
-
+            readOnly={
+              (section === "living" && index < 13) ||
+              (section === "bedroom" && index < 10) ||
+              (section === "kitchen" && index < 7) ||
+              (section === "bathroom" && index < 3)
+            }
           />
         </div>
         <div className="flex flex-col w-full max-w-[345px]">
@@ -205,64 +226,66 @@ const Form: React.FC = () => {
                 }
               />
             </div>
-           
-             <div className="flex flex-col w-full max-w-[345px]">
-          <div className="flex gap-[20px] ">
-            <div>
-              <Text as="p" className="text-[12px] text-center text-[#fff]/50 mb-1">
-                Packed
-              </Text>
-             <div className="flex  justify-center w-[102px] h-[51px] ">
-             <input
-              className="scale-150 mt-4 " 
 
-                type="radio"
-                name={`packed_${section}_${index}`}
-                value="packed"
-                checked={data[index]?.packed === 'packed'}
-                onChange={(e) =>
-                  handleChange(
-                    index.toString(),
-                    'packed',
-                    e.target.value,
-                    section
-                  )
-                }
-              />
-             </div>
-            </div>
-            <div>
-              <Text as="p" className="text-[12px] text-center text-[#fff]/50 mb-1">
-                Unpacked
-              </Text>
-              <div className="flex  justify-center w-[102px] h-[51px] ">
-              <input
-              className="scale-150 mt-4 "
-                type="radio"
-                name={`unpacked_${section}_${index}`}
-                value="unpacked"
-                checked={data[index]?.unpacked === 'unpacked'}
-                onChange={(e) =>
-                  handleChange(
-                    index.toString(),
-                    'unpacked',
-                    e.target.value,
-                    section
-                  )
-                }
-              />
+            <div className="flex flex-col w-full max-w-[345px]">
+              <div className="flex gap-[20px] ">
+                <div>
+                  <Text
+                    as="p"
+                    className="text-[12px] text-center text-[#fff]/50 mb-1"
+                  >
+                    Packed
+                  </Text>
+                  <div className="flex  justify-center w-[102px] h-[51px] ">
+                    <input
+                      className="scale-150 mt-4 "
+                      type="radio"
+                      name={`packed_${section}_${index}`}
+                      value="packed"
+                      checked={data[index]?.packed === "packed"}
+                      onChange={(e) =>
+                        handleChange(
+                          index.toString(),
+                          "packed",
+                          e.target.value,
+                          section
+                        )
+                      }
+                    />
+                  </div>
+                </div>
+                <div>
+                  <Text
+                    as="p"
+                    className="text-[12px] text-center text-[#fff]/50 mb-1"
+                  >
+                    Unpacked
+                  </Text>
+                  <div className="flex  justify-center w-[102px] h-[51px] ">
+                    <input
+                      className="scale-150 mt-4 "
+                      type="radio"
+                      name={`unpacked_${section}_${index}`}
+                      value="unpacked"
+                      checked={data[index]?.unpacked === "unpacked"}
+                      onChange={(e) =>
+                        handleChange(
+                          index.toString(),
+                          "unpacked",
+                          e.target.value,
+                          section
+                        )
+                      }
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-          </div>
-        </div>
-       
       </div>
     ));
   };
-
-
 
   return (
     <>
@@ -281,38 +304,64 @@ const Form: React.FC = () => {
               Please fill out the form
             </Text>
             <hr className="h-px my-5 bg-[#FFFFFF]/30 border-0" />
-           
+
             <form onSubmit={handleSubmit} className="form">
               {/* email */}
-              <div className="mob:flex mob:justify-center mob:w-full ">
-              <div className="w-full mob:max-w-[345px]">
-              <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">
-                  Email*
-                </Text>
-                <input
-                  className="w-full h-[51px] px-5 bg-transparent border text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none mb-2"
-                  type="email"
-                  placeholder="Enter Email"
-                  value={email}
-                  onChange={handleChangemail}
-                  required
-                />
-              </div>
+              <div className="mob:flex mob:justify-center mob:w-full flex-col  ">
+                <div className="w-full mob:max-w-[345px]">
+                  {/* drop down div */}
+                  <Text
+                    as="h2"
+                    className="text-[#FFFFFF]/70 mob:text-center text-[16px] font-bold pt-1 uppercase mb-2"
+                  >
+                    Our Services
+                  </Text>
+                  <div className="flex justify-center flex-col mb-[20px]">
+                    <div className="">
+                      <select
+                        name="selectedValue"
+                        // value={selectedService}
+                        onChange={handleSelectChange}
+                        className="test w-full h-[51px] px-5 border bg-[#191A05] text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none mb-2"
+                      >
+                        <option value="" disabled selected hidden>
+                          Select Services
+                        </option>
+                        <option className=" text-[#fff]/50">
+                          Moving Services
+                        </option>
+                        <option className=" text-[#fff]/50">
+                          Trash Removal Services
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <Text as="p" className="text-[12px] text-[#fff]/50 mb-1">
+                    Email*
+                  </Text>
+                  <input
+                    className="w-full h-[51px] px-5 bg-transparent border text-[15px] text-[#fff] font-inter font-normal border-[#fff]/70 placeholder:text-[#fff]/70 outline-none mb-2"
+                    type="email"
+                    placeholder="Enter Email"
+                    value={email}
+                    onChange={handleChangemail}
+                    required
+                  />
+                </div>
               </div>
 
-               {/* Living Section */}
-            <Text
-              as="h2"
-              className="text-[#FFFFFF]/70 mob:text-center text-[16px] font-bold pt-1 uppercase mb-4"
-            >
-              Living, Dining Family Rooms and Offices
-            </Text>
-              
+              {/* Living Section */}
+              <Text
+                as="h2"
+                className="text-[#FFFFFF]/70 mob:text-center text-[16px] font-bold pt-1 uppercase mb-4"
+              >
+                Living, Dining Family Rooms and Offices
+              </Text>
 
               {renderFormSection(livingCount, livingData, "living")}
               <div className="w-full flex justify-center mt-5">
                 <button
-                type="button"
+                  type="button"
                   className="bg-transparent border-b border-[#E2E1DB] text-[17px] text-[#E2E1DB] font-inter font-medium"
                   onClick={() => handleAddMore("living")}
                 >
@@ -331,7 +380,7 @@ const Form: React.FC = () => {
               {renderFormSection(bedroomCount, bedroomData, "bedroom")}
               <div className="w-full flex justify-center mt-5">
                 <button
-                type="button"
+                  type="button"
                   className="bg-transparent border-b border-[#E2E1DB] text-[17px] text-[#E2E1DB] font-inter font-medium"
                   onClick={() => handleAddMore("bedroom")}
                 >
@@ -350,7 +399,7 @@ const Form: React.FC = () => {
               {renderFormSection(kitchenCount, kitchenData, "kitchen")}
               <div className="w-full flex justify-center mt-5">
                 <button
-                type="button"
+                  type="button"
                   className="bg-transparent border-b border-[#E2E1DB] text-[17px] text-[#E2E1DB] font-inter font-medium"
                   onClick={() => handleAddMore("kitchen")}
                 >
@@ -369,7 +418,7 @@ const Form: React.FC = () => {
               {renderFormSection(bathroomCount, bathroomData, "bathroom")}
               <div className="w-full flex justify-center mt-5">
                 <button
-                type="button"
+                  type="button"
                   className="bg-transparent border-b border-[#E2E1DB] text-[17px] text-[#E2E1DB] font-inter font-medium"
                   onClick={() => handleAddMore("bathroom")}
                 >
