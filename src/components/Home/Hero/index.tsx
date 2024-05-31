@@ -98,14 +98,14 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
                 <div className=" flex justify-center gap-4">
                   <Link href="/contact">
                     <button
-                      className=" bg-primary-dark text-center w-[166px] mob:max-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase"
+                      className=" bg-primary-dark text-center w-[166px] mob:max-w-[154px] mob:px-0 font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase"
                     >
                       Moving
                     </button>
                   </Link>
 
                   <button
-                    className=" bg-primary-dark text-center w-[166px] mob:max-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase"
+                    className=" bg-primary-dark text-center w-[166px] mob:max-w-[154px] mob:px-0 font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase"
                     onClick={scrollCallback}
                   >
                     Delivery
@@ -114,13 +114,13 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
 
                 <div className=" flex justify-center gap-4">
                   <Link href="/contact">
-                    <button className=" bg-primary-dark text-center w-[166px] mob:max-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase">
+                    <button className=" bg-primary-dark text-center w-[166px] mob:max-w-[154px] mob:px-0 font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase">
                       Trash Removal
                     </button>
                   </Link>
 
                   <button
-                    className=" bg-primary-dark text-center w-[166px] mob:max-w-[133px] font-inter text-white px-4 rounded-md py-2 cursor-pointer uppercase"
+                    className=" bg-primary-dark text-center w-[166px] mob:max-w-[154px] mob:px-0 font-inter text-white px-4 rounded-md py-2 cursor-pointer uppercase"
                     onClick={scrollCallback}
                   >
                     Labor Only
