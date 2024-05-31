@@ -16,7 +16,7 @@ const WhoWeAre: React.FC<WhoWeAreProps> = ({ scrollCallback }) => {
     <>
       <div className="bg-[#E2E1DB] min-h-[200px] flex justify-center items-center py-16 ">
         <div
-          className=" w-full max-w-[1253.5px] flex flex-wrap items-center gap-10 pb-[100px] mob:px-5"
+          className=" w-full max-w-[1383.5px] flex flex-wrap items-center gap-10 pb-[100px] mob:px-5"
           data-aos="fade-up"
           data-aos-duration="1000"
           data-aos-easing="ease-in-out"
@@ -62,19 +62,18 @@ const WhoWeAre: React.FC<WhoWeAreProps> = ({ scrollCallback }) => {
 
             {/* CTA buttons */}
 
-            <div className="flex items-baseline mob:items-center flex-col justify-between gap-4 mt-[35px] mob:flex-col z-[50] mob:mb-5 ">
+            <div className="flex items-baseline mob:items-center justify-between gap-4 mt-[35px] mob:flex-col z-[50] mob:mb-5 ">
                 <div className=" flex justify-center gap-4">
                   <Link href="/contact">
                     <button
-                      onClick={scrollCallback}
-                      className=" bg-primary-dark text-center w-[173px] mob:max-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase"
+                      className=" bg-primary-dark text-center w-[166px] mob:max-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase"
                     >
                       Moving
                     </button>
                   </Link>
 
                   <button
-                    className=" bg-primary-dark text-center w-[173px] mob:max-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase"
+                    className=" bg-primary-dark text-center w-[166px] mob:max-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase"
                     onClick={scrollCallback}
                   >
                     Delivery
@@ -83,14 +82,13 @@ const WhoWeAre: React.FC<WhoWeAreProps> = ({ scrollCallback }) => {
 
                 <div className=" flex justify-center gap-4">
                   <Link href="/contact">
-                    {/* onClick={scrollCallback} */}
-                    <button className=" bg-primary-dark text-center w-[173px] mob:max-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase">
+                    <button className=" bg-primary-dark text-center w-[166px] mob:max-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase">
                       Trash Removal
                     </button>
                   </Link>
 
                   <button
-                    className=" bg-primary-dark text-center w-[173px] mob:max-w-[133px] font-inter text-white px-4 rounded-md py-2 cursor-pointer uppercase"
+                    className=" bg-primary-dark text-center w-[166px] mob:max-w-[133px] font-inter text-white px-4 rounded-md py-2 cursor-pointer uppercase"
                     onClick={scrollCallback}
                   >
                     Labor Only

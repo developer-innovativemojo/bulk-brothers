@@ -73,13 +73,13 @@ const Form: React.FC = () => {
   const [successfully, setSuccessfully] = useState("");
 
   // selected value
-  const [selectedValue, setSelectedValue] = useState<string>("Select Services");
+  const [selectedValue, setSelectedValue] = useState<string>("Select Service");
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleSelection = (value: string) => {
     setSelectedValue(value);
     setIsOpen(false);
-    console.log("this is selected value", selectedValue);
+    // console.log("this is selected value", selectedValue);
   };
 
   const toggleDropdown = () => {
