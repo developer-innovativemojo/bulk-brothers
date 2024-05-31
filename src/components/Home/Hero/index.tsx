@@ -15,7 +15,21 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
   return (
+
+    <>
+     <Text
+                as="h1"
+                className="text-[#FFFFFF] bg-[#48422D] text-center text-[48px] mob:text-[26px] font-Bodoni mob:leading-[40px] uppercase pb-4"
+              >
+                {" "}
+                Bulk brothers
+                
+              </Text>
+   
+
     <div className="bg-[#48422D] min-h-[735px] mob:min-h-full mob:pt-10 mob:pb-4 relative flex justify-center items-center  overflow-hidden">
+      
+      
       <Image
         className="absolute w-full bottom-[130px] mob:bottom-[50px] z-[9]"
         src={backimg}
@@ -23,7 +37,7 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
         width={1484}
         height={555}
       />
-      <div className="w-full max-w-[1484px] max-h-[840px] h-full relative pt-[0px] pb-[816px] mob:pb-[250px]">
+      <div className="w-full max-w-[1484px] max-h-[731px] h-full relative pt-[0px] pb-[816px] mob:pb-[250px]">
         {/* content */}
         <div
           className="flex justify-center  relative z-10 mob:px-5"
@@ -54,16 +68,10 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
               width={172.57}
               height={89.85}
             />
+               
 
             <div className="relative z-[12]">
-              <Text
-                as="h1"
-                className="text-[#FFFFFF] text-center text-[48px] mob:text-[26px] font-Bodoni mob:leading-[40px] uppercase mb-[10px]"
-              >
-                {" "}
-                Bulk brothers
-                {/* Move with strength, <br /> move with us */}
-              </Text>
+              
               <Text
                 as="h1"
                 className="text-[#FFFFFF] text-center mob:text-[35px] mob:leading-[40px] font-rajdhani uppercase"
@@ -86,19 +94,18 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
 
               {/* CTA Buttons */}
 
-              <div className="flex items-center flex-col justify-between gap-4 mt-[35px] mob:mb-1 mob:flex-col z-[50] ">
+              <div className="flex items-center justify-between gap-4 mt-[35px] mob:mb-1 mob:flex-col z-[50] ">
                 <div className=" flex justify-center gap-4">
                   <Link href="/contact">
                     <button
-                      onClick={scrollCallback}
-                      className=" bg-primary-dark text-center w-[173px] mob:max-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase"
+                      className=" bg-primary-dark text-center w-[166px] mob:max-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase"
                     >
                       Moving
                     </button>
                   </Link>
 
                   <button
-                    className=" bg-primary-dark text-center w-[173px] mob:max-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase"
+                    className=" bg-primary-dark text-center w-[166px] mob:max-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase"
                     onClick={scrollCallback}
                   >
                     Delivery
@@ -107,14 +114,13 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
 
                 <div className=" flex justify-center gap-4">
                   <Link href="/contact">
-                    {/* onClick={scrollCallback} */}
-                    <button className=" bg-primary-dark text-center w-[173px] mob:max-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase">
+                    <button className=" bg-primary-dark text-center w-[166px] mob:max-w-[133px] font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase">
                       Trash Removal
                     </button>
                   </Link>
 
                   <button
-                    className=" bg-primary-dark text-center w-[173px] mob:max-w-[133px] font-inter text-white px-4 rounded-md py-2 cursor-pointer uppercase"
+                    className=" bg-primary-dark text-center w-[166px] mob:max-w-[133px] font-inter text-white px-4 rounded-md py-2 cursor-pointer uppercase"
                     onClick={scrollCallback}
                   >
                     Labor Only
@@ -139,6 +145,7 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
