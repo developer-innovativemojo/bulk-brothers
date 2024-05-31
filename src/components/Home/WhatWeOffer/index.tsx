@@ -45,7 +45,7 @@ const WhatWeOffer = () => {
           <Link href="/services?id=moving-service">
               <Content
                 imageSrc={first}
-                iconSrc={firsticon}
+                // iconSrc={firsticon}
                 heading="Moving Services"
                 text="You don't have to pick between affordable rates or quality service. Trust Bulk Brothers to get your items to your new home safely and efficiently at affordable rates."
               />
@@ -61,7 +61,7 @@ const WhatWeOffer = () => {
             <Link href="/services?id=trash-service">
               <Content
                 imageSrc={third}
-                iconSrc={thirdicon}
+                // iconSrc={thirdicon}
                 heading="Trash Removal Services"
                 text="Whether large or small, Bulk Brothers can take care of all of your clutter, trash, and junk removal needs. "
               />

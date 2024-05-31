@@ -37,9 +37,9 @@ const Labor: React.FC<WhatWeOfferProps> = ({ id }) => {
               <div className="w-full max-w-[561px]">
                 <Text
                   as="h1"
-                  className="text-[#E2E1DB] text-[65px] leading-[54.6px] flex items-center mob:items-start mob:justify-center mob:text-center uppercase"
+                  className="text-[#E2E1DB] text-[65px] leading-[54.6px] flex mob:block items-center mob:items-start mob:justify-center mob:text-center uppercase"
                 >
-                  04{" "}
+                  04{" "} <br className="hidden mob:block" />
                   <span className="text-[32px] text-[#FFFFFF] mob:hidden ml-4">
                     Labor Only Services
                   </span>

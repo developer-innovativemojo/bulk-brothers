@@ -249,6 +249,7 @@ const Hero = () => {
                 {/* social icons */}
                 <div className="flex justify-center gap-[30px] mt-10">
                   {/* facebook */}
+                  <Link href="https://www.facebook.com/BulkBrosMovingTrashandhauling/">
                   <Image
                     className=" cursor-pointer hover:opacity-75 "
                     src={facebook}
@@ -256,6 +257,7 @@ const Hero = () => {
                     width={26}
                     height={26}
                   />
+                  </Link>
                   {/* insta */}
                   <Link href="https://www.instagram.com/Seanbulkbrosrideout/">
                     {" "}

@@ -23,9 +23,9 @@ const MovingService: React.FC<WhatWeOfferProps> = ({ id }) => {
           <div className="w-full max-w-[515px] mob:max-w-full">
             <Text
               as="h1"
-              className=" text-[#E2E1DB] text-[65px] leading-[54.6px] flex items-center uppercase mob:justify-center mob:text-center"
+              className=" text-[#E2E1DB] text-[65px] leading-[54.6px] flex mob:block items-center uppercase mob:justify-center mob:text-center"
             >
-              01 <span className="text-[32px] text-[#FFFFFF]  ml-4">Moving Services</span>
+              01 <br className="hidden mob:block" /> <span className="text-[32px] text-[#FFFFFF]  ml-4">Moving Services</span>
             </Text>
             <Text as="p" className="text-[#FFFFFF]/70 text-[17px] leading-[27px] mob:text-center">
               You dont have to pick between affordable rates or quality
