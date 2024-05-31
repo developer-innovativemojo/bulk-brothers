@@ -31,18 +31,18 @@ const MovingService: React.FC<WhatWeOfferProps> = ({ id }) => {
             <div className="w-full max-w-[515px]">
               <Text
                 as="h1"
-                className="text-[#E2E1DB] text-[65px] leading-[54.6px] flex items-center mob:items-start mob:justify-center mob:text-center uppercase"
+                className="text-[#E2E1DB] text-[65px] leading-[54.6px] flex mob:block items-center mob:items-start mob:justify-center mob:text-center uppercase"
               >
-                03{" "}
+                03{" "} <br className="hidden mob:block" />
                 <span className="text-[32px] text-[#FFFFFF] mob:hidden ml-4">
                   Trash Removal Services
                 </span>
               </Text>
               <Text
                 as="h1"
-                className="text-[#E2E1DB] text-[65px] leading-[54.6px] mob:text-center uppercase hidden mob:block "
+                className="text-[#E2E1DB] text-[65px] leading-[34.6px] py-3  mob:text-center uppercase hidden mob:block "
               >
-                <span className="text-[32px] text-[#FFFFFF] ">
+                <span className="text-[32px] text-[#FFFFFF]  ">
                   Trash Removal Services
                 </span>
               </Text>

@@ -147,6 +147,13 @@ const Form: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!selectedValue || selectedValue === "Select Service") {
+      alert("Please select a service before submitting the form.");
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
     // Combine all data into one object
     const allData = {
@@ -157,6 +164,8 @@ const Form: React.FC = () => {
       email: email,
       selectedService: selectedValue,
     };
+
+   
 
     try {
       const response = await axios.post("/api/sendForm", allData, {
@@ -314,7 +323,7 @@ const Form: React.FC = () => {
 
             <form onSubmit={handleSubmit} className="form">
               {/* email */}
-              <div className="mob:flex mob:justify-center mob:w-full flex-col  ">
+              <div className="mob:flex mob:justify-center mob:w-full flex-col items-center  ">
                 <div className="w-full mob:max-w-[345px]">
                   {/* drop down div */}
                   <Text
