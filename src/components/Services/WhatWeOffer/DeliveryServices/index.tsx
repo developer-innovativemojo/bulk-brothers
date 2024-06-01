@@ -42,7 +42,7 @@ const DeliveryServices: React.FC<WhatWeOfferProps> = ({ id }) => {
 
             <Text
               as="p"
-              className="text-[#FFFFFF]/70  text-[17px] leading-[27px] mt-6 mob:text-center" 
+              className="text-[#FFFFFF]/70  text-[17px] leading-[27px] mt-5 mb-1 mob:text-left" 
             >
               Pickup and delivery service for
             </Text>

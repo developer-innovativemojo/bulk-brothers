@@ -18,7 +18,7 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
     <>
       <Text
         as="h1"
-        className="text-[#FFFFFF] bg-[#48422D] text-center text-[48px] mob:text-[26px] font-Bodoni mob:leading-[40px] uppercase pb-4 mob:py-2"
+        className="text-[#FFFFFF] bg-[#48422D] text-center text-[48px] mob:text-[26px] font-Bodoni mob:leading-[40px] uppercase pb-4 mob:py-2 mob:mt-[-1px]"
       >
         {" "}
         Bulk brothers
@@ -35,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
         <div className="w-full max-w-[1484px] max-h-[731px] h-full relative pt-[0px] pb-[816px] mob:pb-[250px]">
           {/* content */}
           <div
-            className="flex justify-center  relative z-10 mob:px-5"
+            className="flex justify-center  relative z-10 mob:px-2"
             data-aos="fade-up"
             data-aos-duration="1000"
             data-aos-easing="ease-in-out"
