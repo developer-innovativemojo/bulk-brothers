@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, MouseEvent, FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,7 +19,6 @@ const Footer = () => {
   const [successMessage, setSuccessMessage] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [emailError, setEmailError] = useState<string>("");
-
 
   const sendMail = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -82,7 +81,10 @@ const Footer = () => {
                 Subscribe to our newsletter
               </Text>
 
-              <form  onSubmit={sendMail} className="relative mb-12 max-w-[301px] flex mob:block items-center mob:justify-center mob:max-w-full">
+              <form
+                onSubmit={sendMail}
+                className="relative mb-12 max-w-[301px] flex mob:block items-center mob:justify-center mob:max-w-full"
+              >
                 <div className="mob:flex mob:justify-center w-full max-w-[301px] mob:max-w-full">
                   <input
                     className="w-full max-w-[301px] h-[48px] pl-5 pr-32 mob:pr-5 rounded-[150px] bg-[#FFFFFF] placeholder:text-[#191A05] text-[15px] font-inter font-normal outline-none"
@@ -150,39 +152,39 @@ const Footer = () => {
 
                 {/* social icons */}
                 <div className="flex gap-[15px] mt-4">
-                     {/* facebook */}
-                     <Link href="https://www.facebook.com/BulkBrosMovingTrashandhauling/">
-                        {" "}
-                      <Image
-                        className=" cursor-pointer hover:opacity-75 "
-                        src={facebook}
-                        alt="fb"
-                        width={26}
-                        height={26}
-                      />
-                      </Link>
+                  {/* facebook */}
+                  <Link href="https://www.facebook.com/BulkBrosMovingTrashandhauling/">
+                    {" "}
+                    <Image
+                      className=" cursor-pointer hover:opacity-75 "
+                      src={facebook}
+                      alt="fb"
+                      width={26}
+                      height={26}
+                    />
+                  </Link>
 
-                      {/* insta */}
-                      <Link href="https://www.instagram.com/bulkbros_ent/">
-                        {" "}
-                        <Image
-                          className=" cursor-pointer hover:opacity-75 "
-                          src={youtube}
-                          alt="fb"
-                          width={26}
-                          height={26}
-                        />
-                      </Link>
-                      {/* youtube */}
-                      <Link href="https://www.youtube.com/@seanrideout8301">
-                        <Image
-                          className=" cursor-pointer hover:opacity-75 "
-                          src={insta}
-                          alt="fb"
-                          width={26}
-                          height={26}
-                        />
-                      </Link>
+                  {/* insta */}
+                  <Link href="https://www.instagram.com/bulkbros_ent/">
+                    {" "}
+                    <Image
+                      className=" cursor-pointer hover:opacity-75 "
+                      src={youtube}
+                      alt="fb"
+                      width={26}
+                      height={26}
+                    />
+                  </Link>
+                  {/* youtube */}
+                  <Link href="https://www.youtube.com/@seanrideout8301">
+                    <Image
+                      className=" cursor-pointer hover:opacity-75 "
+                      src={insta}
+                      alt="fb"
+                      width={26}
+                      height={26}
+                    />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -198,7 +200,7 @@ const Footer = () => {
                 </Text>
                 <Text
                   as="p"
-                  className=" w-[229px] xl:w-full mob:max-w-full xl:flex xl:justify-center xl:text-center text-[#E2E1DB] text-[14px] leading-[20px] font-inter font-normal my-5 mob:my-4 "
+                  className=" w-[229px] xl:w-full mob:max-w-full xl:flex xl:justify-center xl:text-center text-[#E2E1DB] text-[14px] leading-[20px] font-inter font-normal my-5 mb-0 mob:my-4 "
                 >
                   Bulk Brothers services Maryland and surrounding states.
                 </Text>
@@ -210,12 +212,13 @@ const Footer = () => {
 
                     <Text
                       as="p"
-                      className=" xl:text-center text-[#E2E1DB] text-[14px] leading-[20px] font-inter font-normal my-5  mob:my-4 "
+                      className=" xl:text-center text-[#E2E1DB] text-[14px] leading-[20px] font-inter font-normal my-0  mob:my-4 "
                     >
                       info@bulkbrothersmove.com
                     </Text>
                   </div>
                 </a>
+
 
                 {/* phone number */}
                 <a href="tel:443-636-1824">
@@ -231,6 +234,17 @@ const Footer = () => {
                     </Text>
                   </div>
                 </a>
+                
+                <button className="bg-white px-3 rounded-[150px] w-full mt-4">
+                  <div className="flex gap-4 justify-center items-center">
+                    <Text
+                      as="h2"
+                      className="text-[20px] xl:text-center text-black leading-[40px] font-bold "
+                    >
+                      Virtual Quote
+                    </Text>
+                  </div>
+                </button>
               </div>
             </div>
           </div>
