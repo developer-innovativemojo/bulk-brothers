@@ -16,7 +16,7 @@ function Topbar() {
         <button
           className=" uppercase px-[43px] mob:px-2 h-[64px] rounded-[150px] bg-[#191A05]   border-[#191A05] border text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF] "
           onClick={(event) => {
-            window.location.href = "tel:+1213.838.0155";
+            window.location.href = "tel:+443.636.1824";
             console.log("call");
           }}
         >
@@ -39,7 +39,7 @@ function Topbar() {
           </div>
         </button>
 
-        <div className="flex justify-center items-center gap-3 mob:ml-5">
+        <div className="flex justify-center items-center gap-3 mob:ml-5 animate-bounce">
           {/* <Image src={virtualicon} alt="" width={39} height={39} className="" /> */}
           <IconContext.Provider
               value={{ color: "white" , className: "global-class-name" }}
