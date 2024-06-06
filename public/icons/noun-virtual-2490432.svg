@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
+  <!-- Background -->
+  <rect x="0" y="0" width="300" height="200" fill="#000000"/>
+
+  <!-- Laptop body -->
+  <rect x="50" y="50" width="200" height="120" rx="20" fill="#FFFFFF"/>
+  
+  <!-- Screen -->
+  <rect x="60" y="60" width="180" height="100" rx="10" fill="#FFFFFF"/>
+  
+  <!-- Webcam -->
+  <circle cx="150" cy="110" r="10" fill="#000000"/>
+  
+  <!-- Speaker -->
+  <rect x="120" y="150" width="60" height="5" fill="#000000"/>
+  <rect x="120" y="160" width="60" height="5" fill="#000000"/>
+  <rect x="120" y="170" width="60" height="5" fill="#000000"/>
+  
+  <!-- Person 1 -->
+  <circle cx="90" cy="100" r="10" fill="#FFFFFF"/>
+  <circle cx="90" cy="100" r="6" fill="#000000"/>
+  
+  <!-- Person 2 -->
+  <circle cx="110" cy="120" r="10" fill="#FFFFFF"/>
+  <circle cx="110" cy="120" r="6" fill="#000000"/>
+  
+  <!-- Person 3 -->
+  <circle cx="130" cy="140" r="10" fill="#FFFFFF"/>
+  <circle cx="130" cy="140" r="6" fill="#000000"/>
+</svg>

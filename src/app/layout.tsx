@@ -12,6 +12,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Topbar from "@/components/Topbar";
 import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -56,6 +57,7 @@ export default function RootLayout({
       <body
         className={` ${inter.variable}  ${monts.variable} ${rajdhani.variable} ${inknut.variable} ${Bodoni.variable} `}
       >
+        <Topbar />
         <Navbar />
         {children}
         <Footer />
