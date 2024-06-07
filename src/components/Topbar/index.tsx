@@ -11,7 +11,7 @@ import Text from "../ui/Text";
 function Topbar() {
   return (
     <div className="w-full bg-[#191A05] p-1 ">
-      <div className="max-w-[1340px] flex justify-end items-center ml-[74px] tab:ml-[0px] tab:justify-center mob:ml-0 mob:justify-between mob:flex-row-reverse mob:gap-[0px] mob:px-5">
+      <div className="max-w-[1340px] flex justify-end items-center ml-[74px] tab:ml-[0px] tab:justify-center mob:ml-0 mob:justify-center mob:flex-row-reverse mob:gap-[10px] mob:px-5">
         <button
           className=" uppercase px-[43px] mob:px-2  mob:h-auto rounded-[150px] bg-[#191A05]   border-[#191A05] border text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF] "
           onClick={(event) => {
@@ -38,7 +38,7 @@ function Topbar() {
           </div>
         </button>
 
-        <div className="flex justify-center items-center gap-3 mob:ml-5 animate-bounce mob:gap-1">
+        <div className="flex justify-center items-center gap-3 mob:ml-0 animate-bounce mob:gap-1 mob:px-2">
          
           <IconContext.Provider
               value={{ color: "white" , className: "global-class-name" }}
