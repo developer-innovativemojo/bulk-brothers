@@ -19,7 +19,7 @@ function Topbar() {
             console.log("call");
           }}
         >
-          <div className="flex gap-4 justify-center items-center mob:gap-1">
+          <div className="flex gap-4 justify-center items-center mob:gap-1 mob:pl-[30px]">
             
             <IconContext.Provider
               value={{ color: "white" , className: "global-class-name" }}
@@ -31,7 +31,7 @@ function Topbar() {
             
             <Text
               as="h2"
-              className="text-[20px] xl:text-center text-[#E2E1DB] leading-[40px] font-bold mob:text-[18px] mob:leading-[26px] "
+              className="text-[20px] xl:text-center text-[#E2E1DB] leading-[40px] font-bold mob:text-[15px] mob:leading-[26px] "
             >
               443-636-1824
             </Text>
@@ -49,7 +49,7 @@ function Topbar() {
             </IconContext.Provider>
             
 
-          <Text className="text-[20px] xl:text-center text-[#E2E1DB] leading-[40px] font-bold mob:text-[18px] mob:leading-[26px]">
+          <Text className="text-[20px] xl:text-center text-[#E2E1DB] leading-[40px] font-bold mob:text-[15px] mob:leading-[26px]">
             Virtual Quote
           </Text>
         </div>
