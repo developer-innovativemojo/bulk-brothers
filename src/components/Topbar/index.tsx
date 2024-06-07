@@ -5,8 +5,7 @@ import { IconContext } from "react-icons";
 import { HiOutlineArrowPathRoundedSquare } from "react-icons/hi2";
 import { IoCallOutline } from "react-icons/io5";
 
-import callicon from "@/public/icons/phone-call-svgrepo-com.svg";
-import virtualicon from "@/public/icons/noun-virtual-2490432.svg";
+
 import Text from "../ui/Text";
 
 function Topbar() {
@@ -14,7 +13,7 @@ function Topbar() {
     <div className="w-full bg-[#191A05] p-3 ">
       <div className="max-w-[1340px] flex justify-end items-center ml-[74px] mob:ml-0 mob:justify-center">
         <button
-          className=" uppercase px-[43px] mob:px-2 h-[64px] rounded-[150px] bg-[#191A05]   border-[#191A05] border text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF] "
+          className=" uppercase px-[43px] mob:px-2 h-[64px] mob:h-auto rounded-[150px] bg-[#191A05]   border-[#191A05] border text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF] "
           onClick={(event) => {
             window.location.href = "tel:+443.636.1824";
             console.log("call");
@@ -26,7 +25,7 @@ function Topbar() {
               value={{ color: "white" , className: "global-class-name" }}
             >
               <div className="">
-              <IoCallOutline style={{ width: "28px", height: "28px" }} />
+              <IoCallOutline className="mob:w-[20px] mob:h-[20px] w-[28px] h-[28px]"  />
               </div>
             </IconContext.Provider>
             
@@ -39,13 +38,13 @@ function Topbar() {
           </div>
         </button>
 
-        <div className="flex justify-center items-center gap-3 mob:ml-5 animate-bounce">
-          {/* <Image src={virtualicon} alt="" width={39} height={39} className="" /> */}
+        <div className="flex justify-center items-center gap-3 mob:ml-5 animate-bounce mob:gap-1">
+         
           <IconContext.Provider
               value={{ color: "white" , className: "global-class-name" }}
             >
               <div className="">
-              <HiOutlineArrowPathRoundedSquare style={{ width: "30px", height: "30px" }} />
+              <HiOutlineArrowPathRoundedSquare className="mob:w-[22px] mob:h-[22px] w-[30px] h-[30px]" />
               </div>
             </IconContext.Provider>
             
