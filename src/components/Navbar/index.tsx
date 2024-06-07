@@ -36,10 +36,10 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="relative bg-[#48422D] min-h-[134px] z-50  w-full pr-5  ">
+      <nav className="relative bg-[#48422D] min-h-[134px] z-50  w-full">
         <div className="flex justify-center items-center w-full min-h-[134px]">
           <div className="relative max-w-[1340px]  min-h-[134px] w-full flex flex-wrap items-center justify-between mx-auto py-4">
-            <div className="flex    justify-between w-full  gap-[35px] items-center pl-[5%] pb-4">
+            <div className="flex    justify-between w-full  gap-[35px] pl-[5%] pb-4">
               <Link
                 href="/"
                 className="flex  mob:justify-start space-x-3 rtl:space-x-reverse"
@@ -137,9 +137,9 @@ const Navbar = () => {
               </div>
 
               {/* tab and mob  menu*/}
-              <div className="hidden xl:block ">
+              <div className="hidden xl:block pr-[5%] ">
                 <div
-                  className="relative cursor-pointer flex pr-6"
+                  className="relative cursor-pointer flex pr-2 pt-[5px]"
                   onClick={onOpen}
                 >
                   <button
