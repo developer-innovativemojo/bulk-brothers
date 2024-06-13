@@ -28,7 +28,7 @@ const DeliveryServices: React.FC<WhatWeOfferProps> = ({ id }) => {
         </div>
 
         <div className="flex flex-col ">
-          <div className="w-full max-w-[561px]">
+          <div className="w-full max-w-[561px] mt-7 mob:mt-0">
             <Text
               as="h1"
               className="text-[#E2E1DB] text-[65px] leading-[54.6px]  flex mob:text-center mob:block items-center uppercase mob:justify-center "
@@ -73,6 +73,47 @@ const DeliveryServices: React.FC<WhatWeOfferProps> = ({ id }) => {
                 className="text-[#FFFFFF]/70  text-[17px] leading-[27px] ml-3 "
               >
                 Other large items
+              </Text>
+            </div>
+
+
+            {/*  */}
+
+
+            <div className="flex mt-1 ">
+              <Image src={star} alt="" width={17} height={17} />
+              <Text
+                as="p"
+                className="text-[#FFFFFF]/70  text-[17px] leading-[27px] ml-3 "
+              >
+                Office Equipment
+              </Text>
+            </div>
+            <div className="flex mt-1 ">
+              <Image src={star} alt="" width={17} height={17} />
+              <Text
+                as="p"
+                className="text-[#FFFFFF]/70  text-[17px] leading-[27px] ml-3 "
+              >
+                Fundraiser Donations
+              </Text>
+            </div>
+            <div className="flex mt-1 ">
+              <Image src={star} alt="" width={17} height={17} />
+              <Text
+                as="p"
+                className="text-[#FFFFFF]/70  text-[17px] leading-[27px] ml-3 "
+              >
+                Clothes
+              </Text>
+            </div>
+            <div className="flex mt-1 mb-7 mob:mb-0">
+              <Image src={star} alt="" width={17} height={17} />
+              <Text
+                as="p"
+                className="text-[#FFFFFF]/70  text-[17px] leading-[27px] ml-3 "
+              >
+                Delivery contacts available upon request
               </Text>
             </div>
           </div>
