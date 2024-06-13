@@ -92,6 +92,36 @@ const Labor: React.FC<WhatWeOfferProps> = ({ id }) => {
                     Furniture and item assembly and disassembly
                   </Text>
                 </div>
+                <div className="flex  mob:items-start mt-1">
+                  <Image
+                    className="mob:mt-1"
+                    src={star}
+                    alt=""
+                    width={17}
+                    height={17}
+                  />
+                  <Text
+                    as="p"
+                    className="text-[#FFFFFF]/70 text-[17px]  leading-[27px] ml-3 "
+                  >
+                    Unloading/Loading of PODS, Storage Units, etc
+                  </Text>
+                </div>
+                <div className="flex  mob:items-start mt-1">
+                  <Image
+                    className="mob:mt-1"
+                    src={star}
+                    alt=""
+                    width={17}
+                    height={17}
+                  />
+                  <Text
+                    as="p"
+                    className="text-[#FFFFFF]/70 text-[17px]  leading-[27px] ml-3 "
+                  >
+                   Transfer of household items from room to room
+                  </Text>
+                </div>
               </div>
             </div>
 
