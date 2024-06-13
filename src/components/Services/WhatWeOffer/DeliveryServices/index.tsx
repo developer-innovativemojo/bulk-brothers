@@ -128,7 +128,7 @@ const DeliveryServices: React.FC<WhatWeOfferProps> = ({ id }) => {
                     as="p"
                     className="text-[#FFFFFF]/70  text-[15px] leading-[27px] mob:text-[14px] "
                   >
-                    Delivery contacts available upon request
+                    Delivery contracts available upon request
                   </Text>
                 </div>
               </div>
