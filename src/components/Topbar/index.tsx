@@ -15,7 +15,7 @@ function Topbar() {
         <button
           className=" uppercase px-[43px] mob:px-2  mob:h-auto rounded-[150px] bg-[#191A05]   border-[#191A05] border text-[15px] font-inter font-medium leading-[25.5px] text-[#FFFFFF] "
           onClick={(event) => {
-            window.location.href = "tel:+443.636.1824";
+            window.location.href = "tel:+1 443-636-1824";
             console.log("call");
           }}
         >
@@ -33,7 +33,8 @@ function Topbar() {
               as="h2"
               className="text-[20px] xl:text-center text-[#E2E1DB] leading-[40px] font-bold mob:text-[15px] mob:leading-[26px] "
             >
-              443-636-1824
+              +1 443-636-1824
+
             </Text>
           </div>
         </button>

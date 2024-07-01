@@ -221,7 +221,7 @@ const Footer = () => {
 
 
                 {/* phone number */}
-                <a href="tel:443-636-1824">
+                <a href="tel:+1 443-636-1824">
                   <div className="flex mob:justify-center items-center gap-[15px] mt-4">
                     {/* phone */}
                     {/* <FaPhoneAlt className="text-[#FFFFFF] cursor-pointer text-[37px] mob:text-[30px] hover:opacity-75 " /> */}
@@ -230,7 +230,7 @@ const Footer = () => {
                       as="h2"
                       className="text-[24px] xl:text-center text-[#E2E1DB] leading-[40px] font-bold "
                     >
-                      443-636-1824
+                      +1 443-636-1824
                     </Text>
                   </div>
                 </a>

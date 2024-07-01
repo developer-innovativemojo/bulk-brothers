@@ -165,7 +165,7 @@ const Hero = () => {
                     </a>
 
                     {/* phone */}
-                    <a href="tel:443-636-1824">
+                    <a href="tel:+1 443-636-1824">
                       <div className="flex items-start gap-5 mt-5">
                         <Image
                           className=" "
@@ -178,7 +178,7 @@ const Hero = () => {
                           as="p"
                           className="text-[#FFFFFF]/70  text-[15px]  leading-[27px] max-w-[269.04px] "
                         >
-                          443-636-1824
+                          +1 443-636-1824
                         </Text>
                       </div>
                     </a>
