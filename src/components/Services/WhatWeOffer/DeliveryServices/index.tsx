@@ -120,7 +120,7 @@ const DeliveryServices: React.FC<WhatWeOfferProps> = ({ id }) => {
                     Clothes
                   </Text>
                 </div>
-                <div className="flex mb-7 mob:mb-0 items-center pl-[27px] pt-[6px] gap-[14px]">
+                <div className="flex mb-7 mob:mb-0 items-center pl-[27px] pt-[6px] gap-[10px]">
                   {/* <Image src={star} alt="" width={17} height={17} /> */}
                   <Text
                     as="p"
@@ -131,7 +131,7 @@ const DeliveryServices: React.FC<WhatWeOfferProps> = ({ id }) => {
 
                   <Text
                     as="p"
-                    className="text-[#FFFFFF]/70  text-[15px] leading-[27px] mob:text-[14px] "
+                    className="text-[#FFFFFF]/70  text-[15px] leading-[27px] mob:text-[14px] pb-[7px]"
                   >
                     Delivery contracts available upon request
                   </Text>

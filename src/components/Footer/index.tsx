@@ -219,7 +219,6 @@ const Footer = () => {
                   </div>
                 </a>
 
-
                 {/* phone number */}
                 <a href="tel:+1 443-636-1824">
                   <div className="flex mob:justify-center items-center gap-[15px] mt-4">
@@ -234,15 +233,17 @@ const Footer = () => {
                     </Text>
                   </div>
                 </a>
-                
+
                 <button className="bg-white px-3 rounded-[150px] w-full mt-4">
                   <div className="flex gap-4 justify-center items-center">
-                    <Text
-                      as="h2"
-                      className="text-[20px] xl:text-center text-black leading-[40px] font-bold "
-                    >
-                      Virtual Quote
-                    </Text>
+                    <Link href="https://calendly.com/donte-bulkbros/30min">
+                      <Text
+                        as="h2"
+                        className="text-[20px] xl:text-center text-black leading-[40px] font-bold "
+                      >
+                        Virtual Quote
+                      </Text>
+                    </Link>
                   </div>
                 </button>
               </div>
