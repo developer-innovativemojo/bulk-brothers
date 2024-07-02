@@ -121,8 +121,13 @@ const DeliveryServices: React.FC<WhatWeOfferProps> = ({ id }) => {
                   </Text>
                 </div>
                 <div className="flex mb-7 mob:mb-0 items-center pl-[27px] pt-[6px] gap-[14px]">
-                  <Image src={star} alt="" width={17} height={17} />
-                
+                  {/* <Image src={star} alt="" width={17} height={17} /> */}
+                  <Text
+                    as="p"
+                    className=" text-[20px] text-white "
+                  >
+                    *
+                  </Text>
 
                   <Text
                     as="p"

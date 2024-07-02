@@ -7,6 +7,7 @@ import { IoCallOutline } from "react-icons/io5";
 
 
 import Text from "../ui/Text";
+import Link from "next/link";
 
 function Topbar() {
   return (
@@ -50,9 +51,11 @@ function Topbar() {
             </IconContext.Provider>
             
 
-          <Text className="text-[20px] xl:text-center text-[#E2E1DB] leading-[40px] font-bold mob:text-[15px] mob:leading-[26px]">
+         <Link href="https://calendly.com/donte-bulkbros/30min">
+         <Text className="text-[20px] xl:text-center text-[#E2E1DB] leading-[40px] font-bold mob:text-[15px] mob:leading-[26px]">
             Virtual Quote
           </Text>
+          </Link>
         </div>
       </div>
     </div>
