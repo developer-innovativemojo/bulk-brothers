@@ -234,7 +234,7 @@ const Footer = () => {
                   </div>
                 </a>
 
-                    <Link href="https://calendly.com/donte-bulkbros/30min">
+                    <a href="https://calendly.com/donte-bulkbros/30min">
                 <button className="bg-white px-3 rounded-[150px] w-full mt-4">
                   <div className="flex gap-4 justify-center items-center">
                       <Text
@@ -245,7 +245,7 @@ const Footer = () => {
                       </Text>
                   </div>
                 </button>
-                    </Link>
+                    </a>
               </div>
             </div>
           </div>
