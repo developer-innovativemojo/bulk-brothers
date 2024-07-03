@@ -51,11 +51,11 @@ function Topbar() {
             </IconContext.Provider>
             
 
-         <Link href="https://calendly.com/donte-bulkbros/30min">
+         <a href="https://calendly.com/donte-bulkbros/30min">
          <Text className="text-[20px] xl:text-center text-[#E2E1DB] leading-[40px] font-bold mob:text-[15px] mob:leading-[26px]">
             Virtual Quote
           </Text>
-          </Link>
+          </a>
         </div>
       </div>
     </div>
