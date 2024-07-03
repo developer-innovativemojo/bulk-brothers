@@ -82,10 +82,10 @@ export async function POST(request: NextRequest) {
       service: "gmail",
       host: "smtp.gmail.com",
       port: 587,
+      secure: false, 
       auth: {
         user: "Info@bulkbrothersmove.com",
-        pass: "dwrk yott pprm lzuh",
-       
+        pass: "gqav uezw tidh rsqt",
       },
     });
 
