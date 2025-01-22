@@ -262,7 +262,7 @@ const Footer = () => {
                 as="p"
                 className=" mob:max-w-full xl:flex xl:justify-center text-center text-[#E2E1DB] text-[15px] leading-[20px] font-inter font-normal my-5 mob:my-4 "
               >
-                © 2024 Bulk Brothers. All Rights Reserved.
+                © 2025 Bulk Brothers. All Rights Reserved.
               </Text>
 
               {/* <div className="flex mob:justify-center gap-[40px]">
