@@ -94,7 +94,7 @@ export async function POST(request: NextRequest) {
     const mailOptionToYou = {
       from: email, // Use the user's email address directly
       // developer@innovativemojo.com,projectlead@innovativemojo.com, donte.bulkbros@gmail.com
-      to: "Info@bulkbrothersmove.com,",
+      to: "Info@bulkbrothersmove.com, developer@innovativemojo.com,projectlead@innovativemojo.com, donte.bulkbros@gmail.com",
       subject: " Form Submission",
       html: `
         <h3>New Contact Form Submission</h3>
