@@ -9,17 +9,17 @@ export async function POST(request: NextRequest) {
       service: "gmail",
       host: "smtp.gmail.com",
       port: 587,
-      secure: false, 
+      secure: false,
       auth: {
         user: "Info@bulkbrothersmove.com",
-        pass: "gqav uezw tidh rsqt",
+        pass: "znhl jccz oisn fhov",
       },
     });
 
     // Email options for sending to your own inbox
     const mailOptionToYou = {
       from: email,
-      to: "Info@bulkbrothersmove.com,developer@innovativemojo.com,projectlead@innovativemojo.com",
+      to: "Info@bulkbrothersmove.com,developer@innovativemojo.com,projectlead@innovativemojo.com, donte.bulkbros@gmail.com",
       subject: "Subscription Form Submission",
       html: `
         <h3>New Subscription</h3>

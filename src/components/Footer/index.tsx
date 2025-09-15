@@ -234,18 +234,18 @@ const Footer = () => {
                   </div>
                 </a>
 
-                    <a href="https://calendly.com/donte-bulkbros/30min">
-                <button className="bg-white px-3 rounded-[150px] w-full mt-4">
-                  <div className="flex gap-4 justify-center items-center">
+                <a href="https://calendly.com/donte-bulkbros/30min">
+                  <button className="bg-white px-3 rounded-[150px] w-full mt-4">
+                    <div className="flex gap-4 justify-center items-center">
                       <Text
                         as="h2"
                         className="text-[20px] xl:text-center text-black leading-[40px] font-bold "
                       >
                         Virtual Quote
                       </Text>
-                  </div>
-                </button>
-                    </a>
+                    </div>
+                  </button>
+                </a>
               </div>
             </div>
           </div>
