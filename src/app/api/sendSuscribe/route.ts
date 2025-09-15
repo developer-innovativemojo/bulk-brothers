@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
 
     const mailOptionToYou = {
       from: email,
-      to: "Info@bulkbrothersmove.com,developer@innovativemojo.com,projectlead@innovativemojo.com, donte.bulkbros@gmail.com",
+      to: "Info@bulkbrothersmove.com",
       subject: "Subscription Form Submission",
       html: `
         <h3>New Subscription</h3>

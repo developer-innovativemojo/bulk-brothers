@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
     // Email options for sending to your own inbox
     const mailOptionToYou = {
       from: email,
-      to: "Info@bulkbrothersmove.com,developer@innovativemojo.com,projectlead@innovativemojo.com, donte.bulkbros@gmail.com",
+      to: "Info@bulkbrothersmove.com",
       subject: "Contact Form Submission",
       html: `
         <h3>New Contact Form Submission</h3>
