@@ -11,8 +11,8 @@ export async function POST(request: NextRequest) {
       port: 587,
       secure: false,
       auth: {
-        user: "Info@bulkbrothersmove.com",
-        pass: "znhl jccz oisn fhov",
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
       },
     });
 
@@ -55,8 +55,12 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
+    console.error("Email sending error:", error);
     return NextResponse.json(
-      { message: "Failed to Send Email" },
+      {
+        message: "Failed to Send Email",
+        error: error instanceof Error ? error.message : "Unknown error",
+      },
       { status: 500 }
     );
   }
