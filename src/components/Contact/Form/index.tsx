@@ -82,6 +82,35 @@ const Form: React.FC = () => {
     // console.log("this is selected value", selectedValue);
   };
 
+  // simple FE rate limiter: max 3 sends/hour
+  const canSendNow = (
+    bucket: string,
+    limit: number = 3,
+    windowMs: number = 3600000
+  ): boolean => {
+    try {
+      const raw = localStorage.getItem(bucket);
+      const now = Date.now();
+      const arr: number[] = raw ? JSON.parse(raw) : [];
+      const recent = arr.filter((t) => now - t < windowMs);
+      if (recent.length >= limit) return false;
+      return true;
+    } catch {
+      return true;
+    }
+  };
+
+  const recordSend = (bucket: string): void => {
+    try {
+      const raw = localStorage.getItem(bucket);
+      const now = Date.now();
+      const arr: number[] = raw ? JSON.parse(raw) : [];
+      const recent = arr.filter((t) => now - t < 3600000);
+      recent.push(now);
+      localStorage.setItem(bucket, JSON.stringify(recent));
+    } catch {}
+  };
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -148,6 +177,13 @@ const Form: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // FE rate limit guard (3/hour)
+    if (!canSendNow("email_send_counter:/api/sendForm")) {
+      alert("Too many requests. Please try after sometime");
+      setLoading(false);
+      return;
+    }
+
     if (!selectedValue || selectedValue === "Select Service") {
       alert("Please select a service before submitting the form.");
       setLoading(false);
@@ -165,18 +201,22 @@ const Form: React.FC = () => {
       selectedService: selectedValue,
     };
 
-   
-
     try {
       const response = await axios.post("/api/sendForm", allData, {
         headers: {
           "Content-Type": "application/json",
         },
       });
+      if (response.status === 429) {
+        alert("Too many requests. Please try after sometime");
+        return;
+      }
       console.log("Form data sent successfully:", response.data);
       setSuccessfully("Form data sent successfully");
 
       alert("Form data sent successfully!");
+      // record successful send
+      recordSend("email_send_counter:/api/sendForm");
     } catch (error) {
       console.error("Error sending form data:", error);
       alert("Error sending form data. Please try again.");

@@ -23,6 +23,35 @@ const Contactus: React.FC<ContactusProps> = ({ refProps }) => {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [showPlaceholder, setShowPlaceholder] = useState(true);
 
+  // simple FE rate limiter: max 3 sends/hour
+  const canSendNow = (
+    bucket: string,
+    limit: number = 3,
+    windowMs: number = 3600000
+  ): boolean => {
+    try {
+      const raw = localStorage.getItem(bucket);
+      const now = Date.now();
+      const arr: number[] = raw ? JSON.parse(raw) : [];
+      const recent = arr.filter((t) => now - t < windowMs);
+      if (recent.length >= limit) return false;
+      return true;
+    } catch {
+      return true;
+    }
+  };
+
+  const recordSend = (bucket: string): void => {
+    try {
+      const raw = localStorage.getItem(bucket);
+      const now = Date.now();
+      const arr: number[] = raw ? JSON.parse(raw) : [];
+      const recent = arr.filter((t) => now - t < 3600000);
+      recent.push(now);
+      localStorage.setItem(bucket, JSON.stringify(recent));
+    } catch {}
+  };
+
   const handleDateChange = (date: Date | null) => {
     setStartDate(date);
     setShowPlaceholder(!date);
@@ -37,6 +66,12 @@ const Contactus: React.FC<ContactusProps> = ({ refProps }) => {
   ) => {
     e.preventDefault();
     // console.log(startDate,"startDate")
+
+    // FE rate limit guard (3/hour)
+    if (!canSendNow("email_send_counter:/api/sendEmail")) {
+      alert("Too many requests. Please try after sometime");
+      return;
+    }
 
     if (!fname || !email || !phone || !startDate) {
       alert("Please fill in all fields");
@@ -67,11 +102,18 @@ const Contactus: React.FC<ContactusProps> = ({ refProps }) => {
 
       const data = await response.json();
 
+      if (response.status === 429) {
+        alert("Too many requests. Please try after sometime");
+        return;
+      }
+
       if (response.ok) {
         // If response is successful
         setSuccessMessage("Email Sent Successfully!");
         alert("Email sent successfully!");
         console.log(data);
+        // record successful send
+        recordSend("email_send_counter:/api/sendEmail");
 
         // Reset input fields
         setFname("");

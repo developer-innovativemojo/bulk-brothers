@@ -20,8 +20,42 @@ const Footer = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [emailError, setEmailError] = useState<string>("");
 
+  // simple FE rate limiter: max 3 sends/hour
+  const canSendNow = (
+    bucket: string,
+    limit: number = 3,
+    windowMs: number = 3600000
+  ): boolean => {
+    try {
+      const raw = localStorage.getItem(bucket);
+      const now = Date.now();
+      const arr: number[] = raw ? JSON.parse(raw) : [];
+      const recent = arr.filter((t) => now - t < windowMs);
+      if (recent.length >= limit) return false;
+      return true;
+    } catch {
+      return true;
+    }
+  };
+
+  const recordSend = (bucket: string): void => {
+    try {
+      const raw = localStorage.getItem(bucket);
+      const now = Date.now();
+      const arr: number[] = raw ? JSON.parse(raw) : [];
+      const recent = arr.filter((t) => now - t < 3600000);
+      recent.push(now);
+      localStorage.setItem(bucket, JSON.stringify(recent));
+    } catch {}
+  };
+
   const sendMail = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // FE rate limit guard (3/hour)
+    if (!canSendNow("email_send_counter:/api/sendSuscribe")) {
+      alert("Too many requests. Please try after sometime");
+      return;
+    }
     setLoading(true);
     try {
       const response = await fetch("/api/sendSuscribe", {
@@ -36,9 +70,16 @@ const Footer = () => {
 
       const data = await response.json();
 
+      if (response.status === 429) {
+        alert("Too many requests. Please try after sometime");
+        return;
+      }
+
       if (response.ok) {
         setSuccessMessage("Subscribed Successfully!");
         alert("Subscribed successfully!");
+        // record successful send
+        recordSend("email_send_counter:/api/sendSuscribe");
         setEmail("");
       } else {
         throw new Error(data.message || "Failed to send email");
