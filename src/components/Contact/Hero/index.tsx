@@ -19,19 +19,18 @@ const Hero = () => {
   return (
     <div className="pb-16 mob:pb-0">
       <div className="bg-[#48422D] min-h-[400px]  mob:min-h-full mob:pt-16 relative flex justify-center items-end  mb-[300px] mob:mb-0 mob:hidden">
-      <Image
-              className="absolute w-full bottom-[-5px] z-[9] mob:hidden"
-              src={backimg}
-              alt=""
-              width={1484}
-              height={555}
-            />
+        <Image
+          className="absolute w-full bottom-[-5px] z-[9] mob:hidden"
+          src={backimg}
+          alt=""
+          width={1484}
+          height={555}
+        />
         <div className="w-full max-w-[1484px]  h-full  relative pt-[0px] ">
           {/* content */}
 
           {/* imgs */}
           <div className="flex justify-center">
-           
             <Image
               className="absolute bottom-0 z-10 mob:hidden"
               src={bussesimg}
@@ -42,9 +41,12 @@ const Hero = () => {
           </div>
 
           {/* desktop */}
-          <div className="flex justify-center w-full absolute mob:hidden z-10 top-[-300px] mob:top-5" data-aos="fade-up"
-  data-aos-duration="1000"
-  data-aos-easing="ease-in-out">
+          <div
+            className="flex justify-center w-full absolute mob:hidden z-10 top-[-300px] mob:top-5"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-out"
+          >
             <div className="w-full bg-[#191A05] max-w-[953px] min-h-[604px]  relative flex flex-wrap justify-center items-center ">
               {/* left */}
               <div className="flex flex-col w-full max-w-[508px] mob:py-10">
@@ -76,13 +78,13 @@ const Hero = () => {
                       {/* facebook */}
                       <Link href="https://www.facebook.com/BulkBrosMovingTrashandhauling/">
                         {" "}
-                      <Image
-                        className=" cursor-pointer hover:opacity-75 "
-                        src={facebook}
-                        alt="fb"
-                        width={26}
-                        height={26}
-                      />
+                        <Image
+                          className=" cursor-pointer hover:opacity-75 "
+                          src={facebook}
+                          alt="fb"
+                          width={26}
+                          height={26}
+                        />
                       </Link>
 
                       {/* insta */}
@@ -115,10 +117,9 @@ const Hero = () => {
                 <Image
                   className="ml-[-70px] mob:ml-0 mt-5 "
                   data-aos="fade-left"
-  data-aos-duration="1000"
-  data-aos-easing="ease-in-out"
-  data-aos-delay="1000"
-
+                  data-aos-duration="1000"
+                  data-aos-easing="ease-in-out"
+                  data-aos-delay="1000"
                   src={buss}
                   alt=""
                   width={452.2}
@@ -250,13 +251,13 @@ const Hero = () => {
                 <div className="flex justify-center gap-[30px] mt-10">
                   {/* facebook */}
                   <Link href="https://www.facebook.com/BulkBrosMovingTrashandhauling/">
-                  <Image
-                    className=" cursor-pointer hover:opacity-75 "
-                    src={facebook}
-                    alt="fb"
-                    width={26}
-                    height={26}
-                  />
+                    <Image
+                      className=" cursor-pointer hover:opacity-75 "
+                      src={facebook}
+                      alt="fb"
+                      width={26}
+                      height={26}
+                    />
                   </Link>
                   {/* insta */}
                   <Link href="https://www.instagram.com/Seanbulkbrosrideout/">
@@ -345,7 +346,7 @@ const Hero = () => {
                       as="p"
                       className="text-[#FFFFFF]/70  text-[15px]  leading-[27px] max-w-[269.04px] "
                     >
-                     +1 443-636-1824
+                      +1 443-636-1824
                     </Text>
                   </div>
                 </a>

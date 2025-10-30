@@ -81,7 +81,8 @@ const Hero: React.FC<HeroProps> = ({ scrollCallback }) => {
                   >
                     {" "}
                     If you are moving to a new home trust Bulk Brothers to make
-                    sure all your items make it to their new destination safely.
+                    sure at any cost all your items make it to their new
+                    destination safely.
                   </Text>
                 </div>
 
