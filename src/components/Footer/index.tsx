@@ -12,6 +12,7 @@ import phone from "@/public/images/phonefooter.png";
 import facebook from "@/public/icons/facebook.svg";
 import youtube from "@/public/icons/insta.svg";
 import insta from "@/public/icons/youtube.svg";
+import { cn } from "@/libs/utils/twMerge";
 // import Subscribe from "./Subscribe";
 
 const Footer = () => {
@@ -171,7 +172,10 @@ const Footer = () => {
 
               <form
                 onSubmit={sendMail}
-                className="relative mb-12 max-w-[301px] flex mob:block items-center mob:justify-center mob:max-w-full"
+                className={cn(
+                  "relative max-w-[301px] flex mob:block items-center mob:justify-center mob:max-w-full mb-12",
+                  emailError && "mb-0"
+                )}
               >
                 <div className="mob:flex mob:justify-center w-full max-w-[301px] mob:max-w-full">
                   <input
@@ -186,15 +190,19 @@ const Footer = () => {
                     required
                   />
                 </div>
-                {emailError && (
-                  <div className="mt-2 text-red-500 text-sm">{emailError}</div>
-                )}
+
                 <div className="mob:flex mob:justify-center mob:w-full mob:mt-3 ">
                   <Button className="absolute mob:bg-[#48422D] mob:relative top-2 right-3 mob:right-0 h-[32px] mob:h-[48px] max-w-[114px] mob:max-w-[301px] font-medium uppercase tracking-[1px] text-[13px] leading-[15.73px]">
                     {loading ? "Subscribing..." : "Subscribe"}
                   </Button>
                 </div>
               </form>
+
+              {emailError && (
+                <div className="mt-2 text-red-500 text-sm relative mb-12 px-5">
+                  {emailError}
+                </div>
+              )}
             </div>
 
             {/* second col */}

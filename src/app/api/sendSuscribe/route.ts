@@ -179,6 +179,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // FINAL SAFETY CHECK: Ensure email is not empty before sending
+    if (!normalizedEmail || normalizedEmail.trim().length === 0) {
+      return NextResponse.json(
+        { message: "Email cannot be empty" },
+        { status: 400 }
+      );
+    }
+
     const transporter = nodemailer.createTransport({
       service: "gmail",
       host: "smtp.gmail.com",
@@ -199,8 +207,7 @@ export async function POST(request: NextRequest) {
         <h3>New Subscription</h3>
         <ul>
           <li>Email: ${normalizedEmail}</li>
-          <li>Submitted from IP: ${ip}</li>
-          <li>Timestamp: ${new Date().toISOString()}</li>
+         
         </ul>
       `,
     };
@@ -218,6 +225,18 @@ export async function POST(request: NextRequest) {
         <p>BULK BROTHERS</p>
       `,
     };
+
+    // FINAL VALIDATION: Double-check email is valid before sending
+    if (
+      !normalizedEmail ||
+      normalizedEmail.length === 0 ||
+      !EMAIL_REGEX.test(normalizedEmail)
+    ) {
+      return NextResponse.json(
+        { message: "Invalid email address" },
+        { status: 400 }
+      );
+    }
 
     // Send emails with error handling
     try {
