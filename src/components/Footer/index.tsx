@@ -49,14 +49,43 @@ const Footer = () => {
     } catch {}
   };
 
+  const validateEmail = (email: string): boolean => {
+    const trimmedEmail = email.trim();
+    if (!trimmedEmail) {
+      setEmailError("Email is required");
+      return false;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(trimmedEmail)) {
+      setEmailError("Please enter a valid email address");
+      return false;
+    }
+    if (trimmedEmail.length > 254) {
+      setEmailError("Email is too long");
+      return false;
+    }
+    return true;
+  };
+
   const sendMail = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Validate email format before proceeding
+    if (!validateEmail(email)) {
+      setLoading(false);
+      return;
+    }
+
     // FE rate limit guard (3/hour)
     if (!canSendNow("email_send_counter:/api/sendSuscribe")) {
       alert("Too many requests. Please try after sometime");
+      setLoading(false);
       return;
     }
+
     setLoading(true);
+    setEmailError("");
+
     try {
       const response = await fetch("/api/sendSuscribe", {
         method: "POST",
@@ -64,7 +93,7 @@ const Footer = () => {
           "content-type": "application/json",
         },
         body: JSON.stringify({
-          email,
+          email: email.trim(), // Send trimmed email
         }),
       });
 
@@ -72,6 +101,22 @@ const Footer = () => {
 
       if (response.status === 429) {
         alert("Too many requests. Please try after sometime");
+        setLoading(false);
+        return;
+      }
+
+      if (response.status === 409) {
+        alert(
+          "This email has already been subscribed recently. Please try again later."
+        );
+        setLoading(false);
+        return;
+      }
+
+      if (response.status === 400) {
+        setEmailError(data.message || "Invalid email address");
+        alert(data.message || "Invalid email address");
+        setLoading(false);
         return;
       }
 
@@ -81,11 +126,13 @@ const Footer = () => {
         // record successful send
         recordSend("email_send_counter:/api/sendSuscribe");
         setEmail("");
+        setEmailError("");
       } else {
         throw new Error(data.message || "Failed to send email");
       }
     } catch (error) {
       console.error("Error sending email:", error);
+      setEmailError("Failed to send email. Please try again later.");
       alert("Failed to send email. Please try again later.");
     } finally {
       setLoading(false);
@@ -139,8 +186,11 @@ const Footer = () => {
                     required
                   />
                 </div>
+                {emailError && (
+                  <div className="mt-2 text-red-500 text-sm">{emailError}</div>
+                )}
                 <div className="mob:flex mob:justify-center mob:w-full mob:mt-3 ">
-                  <Button className="absolute mob:bg-[#48422D] mob:relative top-2 right-3 mob:right-0 h-[32px] mob:h-[48px] max-w-[114px] mob:max-w-[301px] font-medium uppercase tracking-[1px] text-[13px] leading-[15.73px] ">
+                  <Button className="absolute mob:bg-[#48422D] mob:relative top-2 right-3 mob:right-0 h-[32px] mob:h-[48px] max-w-[114px] mob:max-w-[301px] font-medium uppercase tracking-[1px] text-[13px] leading-[15.73px]">
                     {loading ? "Subscribing..." : "Subscribe"}
                   </Button>
                 </div>
