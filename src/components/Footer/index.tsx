@@ -163,7 +163,14 @@ const Footer = () => {
                   rates.
                 </span>
               </Text>
+
               <Text
+                as="p"
+                className="text-[#E2E1DB] text-[15px] leading-[20px] font-inter font-normal mt-14 mob:my-4 md:block hidden"
+              >
+                © 2025 Bulk Brothers. All Rights Reserved.
+              </Text>
+              {/* <Text
                 as="p"
                 className=" w-[372px] xl:w-full mob:max-w-full xl:flex xl:justify-center xl:text-center text-[#E2E1DB] text-[14px] leading-[20px] font-inter font-normal mb-4 mob:my-4 "
               >
@@ -202,7 +209,7 @@ const Footer = () => {
                 <div className="mt-2 text-red-500 text-sm relative mb-12 px-5">
                   {emailError}
                 </div>
-              )}
+              )} */}
             </div>
 
             {/* second col */}
@@ -211,7 +218,7 @@ const Footer = () => {
               <div className="">
                 <Text
                   as="h2"
-                  className="font-bold xl:text-center text-[#E2E1DB] text-[18px] leading-[22.97px] tracking-[1px] mb-4 mt-10    mob:mb-0"
+                  className="font-bold xl:text-center text-[#E2E1DB] text-[18px] leading-[22.97px] tracking-[1px] mb-4 md:mt-10 mob:mb-0"
                 >
                   QUICK LINKS
                 </Text>
@@ -352,18 +359,18 @@ const Footer = () => {
 
         {/* bottom line */}
 
-        <div className="flex justify-center w-full xl:pt-6 pb-4">
+        <div className="flex justify-center w-full xl:pt-6 pb-4 mt-4">
           <div className="max-w-[1127px] w-full xl:px-[5%]">
             <hr className="h-px mt-[0px] mb-3 bg-[#FFFFFF33]/20 border-0 "></hr>
 
-            <div className="flex justify-center mob:block">
-              <Text
-                as="p"
-                className=" mob:max-w-full xl:flex xl:justify-center text-center text-[#E2E1DB] text-[15px] leading-[20px] font-inter font-normal my-5 mob:my-4 "
-              >
-                © 2025 Bulk Brothers. All Rights Reserved.
-              </Text>
+            <Text
+              as="p"
+              className="text-[#E2E1DB] text-[15px] leading-[20px] font-inter font-normal mt-14 mob:my-4 text-center md:hidden block "
+            >
+              © 2025 Bulk Brothers. All Rights Reserved.
+            </Text>
 
+            <div className="flex justify-center mob:block">
               {/* <div className="flex mob:justify-center gap-[40px]">
                 <Text
                   as="p"
