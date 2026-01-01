@@ -367,7 +367,7 @@ const Footer = () => {
               as="p"
               className="text-[#E2E1DB] text-[15px] leading-[20px] font-inter font-normal mt-14 mob:my-4 text-center md:hidden block "
             >
-              © 2025 Bulk Brothers. All Rights Reserved.
+              © 2026 Bulk Brothers. All Rights Reserved.
             </Text>
 
             <div className="flex justify-center mob:block">
