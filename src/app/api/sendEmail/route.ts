@@ -42,7 +42,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { fname, email, phone, startDate } = await request.json();
+    // receive 'service' instead of 'startDate'
+    const { fname, email, phone, service } = await request.json();
+    // const { fname, email, phone, startDate } = await request.json();
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -58,7 +60,7 @@ export async function POST(request: NextRequest) {
     // Email options for sending to your own inbox
     const mailOptionToYou = {
       from: email,
-      to: "Info@bulkbrothersmove.com, developer@innovativemojo.com,projectlead@innovativemojo.com, donte.bulkbros@gmail.com",
+      to: "Info@bulkbrothersmove.com, developer@innovativemojo.com, projectlead@innovativemojo.com, donte.bulkbros@gmail.com",
       subject: "Contact Form Submission",
       html: `
         <h3>New Contact Form Submission</h3>
@@ -66,7 +68,7 @@ export async function POST(request: NextRequest) {
           <li>First Name: ${fname}</li>
           <li>Email: ${email}</li> 
           <li>Number: ${phone}</li> 
-          <li>Date: ${startDate}</li> 
+          <li>Service: ${service}</li> 
         </ul>
       `,
     };
@@ -74,7 +76,6 @@ export async function POST(request: NextRequest) {
     // Email options for sending thank you email to the user
     const mailOptionToUser = {
       from: "BULK BROTHERS <Info@bulkbrothersmove.com>",
-
       to: email,
       subject: "Thank You for Contacting Us",
       html: `
