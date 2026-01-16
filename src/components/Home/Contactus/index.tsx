@@ -219,7 +219,7 @@ const Contactus: React.FC<ContactusProps> = ({ refProps }) => {
               <div className="relative w-full">
                 <button
                   type="button"
-                  className="flex items-center gap-[0px] justify-between w-full h-[80px] px-5 bg-transparent border text-[17px] text-[#fff] font-inter font-medium border-[#fff]/70 placeholder:text-[#fff] outline-none"
+                  className="flex items-center gap-[0px]  w-full h-[80px] px-5 bg-transparent border text-[17px] text-[#fff] font-inter font-medium border-[#fff]/70 placeholder:text-[#fff] outline-none"
                   id="menu-button"
                   aria-expanded={isOpen}
                   aria-haspopup="true"
