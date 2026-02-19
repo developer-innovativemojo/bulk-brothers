@@ -6,8 +6,8 @@ import Contactus from "@/components/Home/Contactus";
 export default function Gallery() {
   return (
     <main className="bg-[#191A05] min-h-screen">
-    {/* <Hero/>
-    <Photos/> */}
+    <Hero/>
+    <Photos/> 
     <Contactus/>
     </main>
   );
