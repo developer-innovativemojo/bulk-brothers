@@ -28,7 +28,6 @@ export default function Home() {
   return (
     <main className="bg-[#191A05] min-h-screen">
       <Hero scrollCallback={scrollCallback} />
-      Who we are
       {/* <Estimate /> */}
       <WhoWeAre scrollCallback={scrollCallback} />
       <YearsService />
