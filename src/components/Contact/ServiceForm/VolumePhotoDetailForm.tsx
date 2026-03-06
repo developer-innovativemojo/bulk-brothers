@@ -22,6 +22,7 @@ import {
 import Image from "next/image";
 import uploadicon from "@/public/images/serviceform/upload.png";
 import propertytypeIcon from "@/public/images/serviceform/propertytype.png";
+import labordropIcon from "@/public/images/serviceform/labordrop.png";
 
 const VOLUME_OPTIONS: { value: VolumeSize; label: string; sublabel: string }[] = [
   { value: "small", label: "Small", sublabel: "Pickup Truck / Sprinter Van" },
@@ -81,7 +82,7 @@ export default function VolumePhotoDetailForm({
   const isLabor = service === "labor";
 
   // In all steps: description and photo upload are optional; all other details are required.
-  // Moving/Trash: volume, location, propertyType, and (elevator or serviceElevator or flightsOfStairs).
+  // Moving/Trash: volume, location, propertyType; if apartment, also (elevator or serviceElevator or flightsOfStairs).
   // Delivery: volume, origin, destination, productWeight.
   // Labor: volume, workersNeeded.
   const valid = (() => {
@@ -89,8 +90,10 @@ export default function VolumePhotoDetailForm({
     if (isMovingOrTrash) {
       if (!data.location.trim()) return false;
       if (!data.propertyType) return false;
-      if (!data.elevator && !data.serviceElevator && !data.flightsOfStairs.trim())
-        return false;
+      if (data.propertyType === "apartment") {
+        if (!data.elevator && !data.serviceElevator && !data.flightsOfStairs.trim())
+          return false;
+      }
       return true;
     }
     if (isDelivery) {
@@ -234,47 +237,51 @@ export default function VolumePhotoDetailForm({
               )}
             </div>
           </div>
-          <div className="flex flex-wrap gap-6">
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={data.elevator}
-                onChange={(e) => update({ elevator: e.target.checked })}
-                className="w-4 h-4 rounded border-[#191A05]/30 text-[#191A05] focus:ring-[#191A05]"
-              />
-              <span className="text-[#FFFFFF] text-[14px] font-inter">
-                Elevator
-              </span>
-            </label>
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={data.serviceElevator}
-                onChange={(e) =>
-                  update({ serviceElevator: e.target.checked })
-                }
-                className="w-4 h-4 rounded border-[#191A05]/30 text-[#191A05] focus:ring-[#191A05]"
-              />
-              <span className="text-[#FFFFFF] text-[14px] font-inter">
-                Service elevator
-              </span>
-            </label>
-          </div>
-          {!data.elevator && !data.serviceElevator && (
-            <div>
-              <label className={labelClass}>
-                If no elevator, how many flights of stairs?
-              </label>
-              <input
-                type="text"
-                className={inputClass}
-                placeholder="Enter the number of flights of stairs"
-                value={data.flightsOfStairs}
-                onChange={(e) =>
-                  update({ flightsOfStairs: e.target.value })
-                }
-              />
-            </div>
+          {data.propertyType === "apartment" && (
+            <>
+              <div className="flex flex-wrap gap-6">
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={data.elevator}
+                    onChange={(e) => update({ elevator: e.target.checked })}
+                    className="w-4 h-4 rounded border-[#191A05]/30 text-[#191A05] focus:ring-[#191A05]"
+                  />
+                  <span className="text-[#FFFFFF] text-[14px] font-inter">
+                    Elevator
+                  </span>
+                </label>
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={data.serviceElevator}
+                    onChange={(e) =>
+                      update({ serviceElevator: e.target.checked })
+                    }
+                    className="w-4 h-4 rounded border-[#191A05]/30 text-[#191A05] focus:ring-[#191A05]"
+                  />
+                  <span className="text-[#FFFFFF] text-[14px] font-inter">
+                    Service elevator
+                  </span>
+                </label>
+              </div>
+              {!data.elevator && !data.serviceElevator && (
+                <div>
+                  <label className={labelClass}>
+                    If no elevator, how many flights of stairs?
+                  </label>
+                  <input
+                    type="text"
+                    className={inputClass}
+                    placeholder="Enter the number of flights of stairs"
+                    value={data.flightsOfStairs}
+                    onChange={(e) =>
+                      update({ flightsOfStairs: e.target.value })
+                    }
+                  />
+                </div>
+              )}
+            </>
           )}
         </>
       )}
@@ -343,7 +350,7 @@ export default function VolumePhotoDetailForm({
           <Text className={cn(labelClass, "mb-4")}>Labor</Text>
           <div className="relative">
             <select
-              className={cn(inputClass, "appearance-none pr-10")}
+              className={cn(inputClass, "appearance-none pl-12 pr-10")}
               value={data.workersNeeded}
               onChange={(e) => update({ workersNeeded: e.target.value })}
             >
@@ -354,6 +361,13 @@ export default function VolumePhotoDetailForm({
                 </option>
               ))}
             </select>
+            <Image
+              src={labordropIcon}
+              alt=""
+              width={20}
+              height={20}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 object-contain pointer-events-none"
+            />
             <IoChevronDownOutline
               className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#191A05]/60 pointer-events-none"
               aria-hidden
@@ -364,7 +378,9 @@ export default function VolumePhotoDetailForm({
 
       {/* Description (optional) */}
       <div>
-        <label className={labelClass}>Description (optional)</label>
+        <label className={labelClass}>
+          {isLabor ? "Labor Description (optional)" : "Description (optional)"}
+        </label>
         <textarea
           className={cn(inputClass, "min-h-[120px] py-4 resize-y")}
           placeholder="List of items"
