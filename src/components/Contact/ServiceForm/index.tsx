@@ -272,7 +272,7 @@ const ServiceForm = () => {
   }, [buildPayload, getPhotoFilesInOrder]);
 
   return (
-    <div className="bg-[#191A05] w-full max-w-[953px] mx-auto px-4 py-6 sm:px-8 sm:py-10 md:px-10">
+    <div className="bg-[#191A05] w-full max-w-[953px] px-5 md:px-0 py-6  sm:py-10 ">
       {/* Header */}
       <Text
         as="h1"
