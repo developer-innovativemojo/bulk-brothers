@@ -91,6 +91,7 @@ export default function ContactDateForm({
             className={cn(inputClass, "pr-12 w-full")}
             wrapperClassName="w-full react-datepicker__input-container"
             isClearable={false}
+            minDate={new Date()}
           />
           <Image
             className="absolute right-4 pointer-events-none"

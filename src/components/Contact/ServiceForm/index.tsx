@@ -59,6 +59,7 @@ function serializedToDetail(
 
 const ServiceForm = () => {
   const [step, setStep] = useState<FormStep>(1);
+  const formSectionRef = useRef<HTMLDivElement>(null);
   const [selectedServices, setSelectedServices] = useState<ServiceId[]>([]);
   const [detailFormIndex, setDetailFormIndex] = useState(0);
   const [detailFormData, setDetailFormData] = useState<
@@ -156,6 +157,16 @@ const ServiceForm = () => {
     );
   }, []);
 
+  const scrollFormToTop = useCallback(() => {
+    setTimeout(() => {
+      const el = formSectionRef.current;
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    }, 80);
+  }, []);
+
   const goNext = useCallback(() => {
     if (step === 1) {
       if (selectedServices.length === 0) return;
@@ -167,27 +178,33 @@ const ServiceForm = () => {
           [id]: d[id] ?? { ...EMPTY_DETAIL_DATA },
         }));
       });
+      scrollFormToTop();
     } else if (step === 2) {
       if (detailFormIndex < selectedServices.length - 1) {
         setDetailFormIndex((i) => i + 1);
+        scrollFormToTop();
       } else {
         setStep(3);
+        scrollFormToTop();
       }
     }
-  }, [step, selectedServices, detailFormIndex]);
+  }, [step, selectedServices, detailFormIndex, scrollFormToTop]);
 
   const goBack = useCallback(() => {
     if (step === 2) {
       if (detailFormIndex > 0) {
         setDetailFormIndex((i) => i - 1);
+        scrollFormToTop();
       } else {
         setStep(1);
+        scrollFormToTop();
       }
     } else if (step === 3) {
       setStep(2);
       setDetailFormIndex(selectedServices.length - 1);
+      scrollFormToTop();
     }
-  }, [step, detailFormIndex, selectedServices.length]);
+  }, [step, detailFormIndex, selectedServices.length, scrollFormToTop]);
 
   const updateDetailData = useCallback(
     (id: string, data: VolumePhotoDetailData) => {
@@ -272,7 +289,10 @@ const ServiceForm = () => {
   }, [buildPayload, getPhotoFilesInOrder]);
 
   return (
-    <div className="bg-[#191A05] w-full max-w-[953px] px-5 md:px-0 py-6  sm:py-10 ">
+    <div
+      ref={formSectionRef}
+      className="bg-[#191A05] w-full max-w-[953px] px-5 md:px-0 py-6  sm:py-10 "
+    >
       {/* Header */}
       <Text
         as="h1"
@@ -363,7 +383,7 @@ const ServiceForm = () => {
       {step === 2 && currentServiceId && currentService && (
         <div className="mb-10">
           {selectedServices.length > 1 && (
-            <Text className="text-[#FFFFFF]/80 text-[14px] font-inter mb-4">
+            <Text className="text-[#FFFFFF] text-[18px] font-inter mb-4">
               Step {detailFormIndex + 1} of {selectedServices.length} –{" "}
               {currentService.label}
             </Text>
