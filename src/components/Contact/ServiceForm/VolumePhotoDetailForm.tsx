@@ -7,6 +7,7 @@ import {
   IoCarOutline,
   IoChevronDownOutline,
   IoCloudUploadOutline,
+  IoCheckmark,
 } from "react-icons/io5";
 import type { ServiceId } from "./types";
 import {
@@ -18,8 +19,9 @@ import {
   PRODUCT_WEIGHTS,
   WORKERS_OPTIONS,
 } from "./types";
-import uploadicon from "@/public/images/serviceform/upload.png";
 import Image from "next/image";
+import uploadicon from "@/public/images/serviceform/upload.png";
+import propertytypeIcon from "@/public/images/serviceform/propertytype.png";
 
 const VOLUME_OPTIONS: { value: VolumeSize; label: string; sublabel: string }[] = [
   { value: "small", label: "Small", sublabel: "Pickup Truck / Sprinter Van" },
@@ -51,6 +53,21 @@ export default function VolumePhotoDetailForm({
   onValidChange,
 }: VolumePhotoDetailFormProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const propertyTypeDropdownRef = useRef<HTMLDivElement>(null);
+  const [propertyTypeOpen, setPropertyTypeOpen] = React.useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        propertyTypeDropdownRef.current &&
+        !propertyTypeDropdownRef.current.contains(e.target as Node)
+      ) {
+        setPropertyTypeOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const update = useCallback(
     (partial: Partial<VolumePhotoDetailData>) => {
@@ -154,25 +171,67 @@ export default function VolumePhotoDetailForm({
           </div>
           <div>
             <label className={labelClass}>Property Type</label>
-            <div className="relative">
-              <select
-                className={cn(inputClass, "appearance-none pr-10")}
-                value={data.propertyType}
-                onChange={(e) =>
-                  update({ propertyType: e.target.value as PropertyType })
-                }
+            <div ref={propertyTypeDropdownRef} className="relative">
+              <button
+                type="button"
+                onClick={() => setPropertyTypeOpen((o) => !o)}
+                className={cn(
+                  inputClass,
+                  "flex items-center justify-between text-left pl-12 pr-10 min-h-[51px] h-auto py-3"
+                )}
               >
-                <option value="">Select the property type</option>
-                {PROPERTY_TYPES.map((p) => (
-                  <option key={p.value} value={p.value}>
-                    {p.label}
-                  </option>
-                ))}
-              </select>
-              <IoChevronDownOutline
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#191A05]/60 pointer-events-none"
-                aria-hidden
+                <span className={cn(
+                  "flex-1 truncate text-left",
+                  !data.propertyType && "text-[#191A05]/50"
+                )}>
+                  {data.propertyType
+                    ? PROPERTY_TYPES.find((p) => p.value === data.propertyType)?.label ?? "Select the property type"
+                    : "Select the property type"}
+                </span>
+                <IoChevronDownOutline
+                  className={cn(
+                    "w-5 h-5 text-[#191A05]/60 shrink-0 transition-transform",
+                    propertyTypeOpen && "rotate-180"
+                  )}
+                  aria-hidden
+                />
+              </button>
+              <Image
+                src={propertytypeIcon}
+                alt=""
+                width={20}
+                height={20}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 object-contain pointer-events-none"
               />
+              {propertyTypeOpen && (
+                <div className="absolute left-0 right-0 top-full z-10 mt-1 rounded-xl border border-[#191A05]/20 bg-white shadow-lg overflow-hidden">
+                  <ul className="py-2">
+                    {PROPERTY_TYPES.map((p) => {
+                      const isSelected = data.propertyType === p.value;
+                      return (
+                        <li key={p.value}>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              update({ propertyType: p.value });
+                              setPropertyTypeOpen(false);
+                            }}
+                            className={cn(
+                              "w-full flex items-center justify-between gap-3 px-4 py-3 text-left font-inter text-[15px] text-[#191A05] hover:bg-[#191A05]/5 transition-colors",
+                              isSelected && "bg-[#191A05]/5"
+                            )}
+                          >
+                            <span className="flex-1">{p.label}</span>
+                            {isSelected && (
+                              <IoCheckmark className="w-5 h-5 text-[#48432D] shrink-0" />
+                            )}
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
           <div className="flex flex-wrap gap-6">
