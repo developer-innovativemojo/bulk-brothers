@@ -18,6 +18,8 @@ import {
   PRODUCT_WEIGHTS,
   WORKERS_OPTIONS,
 } from "./types";
+import uploadicon from "@/public/images/serviceform/upload.png";
+import Image from "next/image";
 
 const VOLUME_OPTIONS: { value: VolumeSize; label: string; sublabel: string }[] = [
   { value: "small", label: "Small", sublabel: "Pickup Truck / Sprinter Van" },
@@ -117,7 +119,7 @@ export default function VolumePhotoDetailForm({
                 type="button"
                 onClick={() => update({ volume: opt.value })}
                 className={cn(
-                  "flex flex-col items-center gap-2 p-5 rounded-xl bg-white border-2 text-left transition-all",
+                  "flex flex-col items-center gap-1 p-5 rounded-xl bg-white border-2 text-left transition-all",
                   isSelected
                     ? "border-[#191A05] ring-2 ring-[#E2E1DB] ring-offset-2 ring-offset-[#191A05]"
                     : "border-[#191A05]/20 hover:border-[#191A05]/40"
@@ -127,7 +129,7 @@ export default function VolumePhotoDetailForm({
                 <span className="font-inter font-bold text-[#191A05] text-[15px]">
                   {opt.label}
                 </span>
-                <span className="font-inter text-[#191A05]/80 text-[13px] text-center">
+                <span className="font-inter text-[#191A05] text-[12px] text-center">
                   {opt.sublabel}
                 </span>
               </button>
@@ -333,21 +335,21 @@ export default function VolumePhotoDetailForm({
           onDrop={handleDrop}
           onDragOver={handleDragOver}
           className={cn(
-            "flex flex-col items-center justify-center gap-3 min-h-[180px] rounded-xl border-2 border-dashed border-[#191A05]/30 bg-white/5 cursor-pointer",
-            "hover:border-[#191A05]/50 hover:bg-white/10 transition-colors"
+            "flex flex-col items-center justify-center gap-2 p-5 rounded-xl border-2 border-dashed border-[#48432D] bg-white cursor-pointer",
+            "hover:border-[#48432D]/80 transition-colors"
           )}
         >
           <div className="w-14 h-14 rounded-full bg-[#E2E1DB]/20 flex items-center justify-center">
-            <IoCloudUploadOutline className="w-7 h-7 text-[#E2E1DB]" />
+            <Image src={uploadicon} alt="uploadicon" width={50} height={50} />
           </div>
-          <span className="font-inter text-[15px] text-[#FFFFFF]">
+          <span className="font-inter text-[15px] text-[#191A05]">
             Click to upload or drag and drop
           </span>
-          <span className="font-inter text-[13px] text-[#FFFFFF]/70">
+          <span className="font-inter text-[13px] text-[#191A05]">
             Upload photos of the items to be removed or transported
           </span>
           {data.photoFiles.length > 0 && (
-            <span className="text-[#E2E1DB] text-sm">
+            <span className="text-[#48432D] text-sm font-inter">
               {data.photoFiles.length} file(s) selected
             </span>
           )}

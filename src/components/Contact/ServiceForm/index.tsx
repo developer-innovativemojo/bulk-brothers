@@ -1,16 +1,10 @@
 "use client";
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Text from "@/components/ui/Text";
 import { cn } from "@/libs/utils/twMerge";
-import {
-  IoCarOutline,
-  IoTrashOutline,
-  IoCubeOutline,
-  IoConstructOutline,
-  IoChevronBackOutline,
-  IoChevronForwardOutline,
-} from "react-icons/io5";
+import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import VolumePhotoDetailForm from "./VolumePhotoDetailForm";
 import ContactDateForm from "./ContactDateForm";
 import type { ServiceId } from "./types";
@@ -32,15 +26,11 @@ const STEPS = [
   { id: 3, label: "Contact & Date" },
 ];
 
-const SERVICES: {
-  id: ServiceId;
-  label: string;
-  Icon: React.ComponentType<{ className?: string }>;
-}[] = [
-  { id: "moving", label: "Moving", Icon: IoCarOutline },
-  { id: "trash", label: "Trash", Icon: IoTrashOutline },
-  { id: "delivery", label: "Delivery", Icon: IoCubeOutline },
-  { id: "labor", label: "Labor", Icon: IoConstructOutline },
+const SERVICES: { id: ServiceId; label: string }[] = [
+  { id: "moving", label: "Moving" },
+  { id: "trash", label: "Trash" },
+  { id: "delivery", label: "Delivery" },
+  { id: "labor", label: "Labor" },
 ];
 
 type FormStep = 1 | 2 | 3;
@@ -80,6 +70,9 @@ const ServiceForm = () => {
     null
   );
   const [contactFormValid, setContactFormValid] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
   const didRestoreRef = useRef(false);
   const skipNextPersistRef = useRef(true);
 
@@ -213,8 +206,9 @@ const ServiceForm = () => {
           ? contactFormValid
           : true;
 
-  const buildPayload = useCallback((): ServiceFormPayload => {
+  const buildPayload = useCallback((): ServiceFormPayload & { photoFileOrder?: string[] } => {
     const serializedDetail: Record<string, VolumePhotoDetailDataSerialized> = {};
+    const photoFileOrder: string[] = [];
     selectedServices.forEach((id) => {
       const d = detailFormData[id];
       if (!d) return;
@@ -223,36 +217,71 @@ const ServiceForm = () => {
         ...rest,
         photoFileNames: photoFiles.map((f) => f.name),
       };
+      (photoFiles || []).forEach(() => photoFileOrder.push(id));
     });
     return {
       selectedServices,
       detailFormData: serializedDetail,
       contact,
       submittedAt: new Date().toISOString(),
+      photoFileOrder,
     };
   }, [selectedServices, detailFormData, contact]);
 
-  const handleSendInformation = useCallback(() => {
+  const getPhotoFilesInOrder = useCallback((): File[] => {
+    const files: File[] = [];
+    selectedServices.forEach((id) => {
+      const d = detailFormData[id];
+      if (!d?.photoFiles?.length) return;
+      d.photoFiles.forEach((f) => files.push(f));
+    });
+    return files;
+  }, [selectedServices, detailFormData]);
+
+  const handleSendInformation = useCallback(async () => {
     const payload = buildPayload();
+    const photoFiles = getPhotoFilesInOrder();
+    setIsSubmitting(true);
+    setSubmitError(null);
     try {
+      const formData = new FormData();
+      formData.append("payload", JSON.stringify(payload));
+      photoFiles.forEach((file) => formData.append("photos", file));
+      const res = await fetch("/api/serviceForm", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setSubmitError(data.message || "Failed to send. Please try again.");
+        return;
+      }
       localStorage.setItem(SERVICE_FORM_STORAGE_KEY, JSON.stringify(payload));
       localStorage.removeItem(SERVICE_FORM_DRAFT_KEY);
+      setSubmitSuccess(true);
+      setStep(1);
+      setSelectedServices([]);
+      setDetailFormIndex(0);
+      setDetailFormData({});
+      setContact(EMPTY_CONTACT_DATA);
+      setPreferredDateValue(null);
     } catch (e) {
-      console.warn("Could not save form to localStorage", e);
+      setSubmitError("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
-    // Optional: show success toast or redirect; payload is now in localStorage
-  }, [buildPayload]);
+  }, [buildPayload, getPhotoFilesInOrder]);
 
   return (
     <div className="bg-[#191A05] w-full max-w-[953px] mx-auto px-8 py-10 md:px-10">
       {/* Header */}
       <Text
         as="h1"
-        className="text-[32px] md:text-[40px] font-bold font-rajdhani leading-tight text-[#FFFFFF] mb-2"
+        className="text-[32px] md:text-[48px] font-bold font-inter leading-tight text-[#FFFFFF] mb-2"
       >
         Let&apos;s get started
       </Text>
-      <Text className="text-[#FFFFFF] text-[14px] font-inter leading-[22.4px] opacity-90 mb-8">
+      <Text className="text-[#FFFFFF] text-[16px] font-inter leading-[22.4px] opacity-90 mb-8">
         Three quick steps. No commitment until you accept the quote.
       </Text>
 
@@ -263,12 +292,10 @@ const ServiceForm = () => {
             <div className="flex items-center gap-2">
               <div
                 className={cn(
-                  "w-10 h-10 rounded-full flex items-center justify-center text-sm font-inter font-medium shrink-0",
-                  step > s.id
-                    ? "bg-[#E2E1DB] text-[#191A05]"
-                    : step === s.id
-                      ? "bg-[#E2E1DB] text-[#191A05]"
-                      : "border border-[#E2E1DB]/40 text-[#E2E1DB]/60"
+                  "w-8 h-8 rounded-full flex items-center justify-center text-sm font-inter font-medium shrink-0",
+                  step >= s.id
+                    ? "bg-[#48432D] text-white"
+                    : "bg-[#FEFEFF] text-[#48432D]"
                 )}
               >
                 {s.id}
@@ -276,7 +303,7 @@ const ServiceForm = () => {
               <span
                 className={cn(
                   "text-[14px] font-inter font-medium",
-                  step >= s.id ? "text-[#E2E1DB]" : "text-[#E2E1DB]/50"
+                  step >= s.id ? "text-white" : "text-white"
                 )}
               >
                 {s.label}
@@ -286,7 +313,7 @@ const ServiceForm = () => {
               <div
                 className={cn(
                   "h-px mx-2 min-w-[24px] flex-1 max-w-[80px]",
-                  step > s.id ? "bg-[#E2E1DB]/60" : "bg-[#E2E1DB]/30"
+                  step > s.id ? "bg-[#FFFFFF]" : "bg-[#FFFFFF]"
                 )}
                 aria-hidden
               />
@@ -296,14 +323,13 @@ const ServiceForm = () => {
       </div>
 
       {/* Step 1: Service selection */}
-      {step === 1 && (
+      {step === 1 && !submitSuccess && (
         <>
-          <Text className="text-[18px] font-inter font-medium text-[#FFFFFF] mb-5">
+          <Text className="text-[16px] font-inter font-medium text-[#FFFFFF] mb-5">
             What do you need hauled?
           </Text>
           <div className="grid grid-cols-2 gap-4 mb-10">
             {SERVICES.map((svc) => {
-              const Icon = svc.Icon;
               const isSelected = selectedServices.includes(svc.id);
               return (
                 <button
@@ -311,14 +337,20 @@ const ServiceForm = () => {
                   type="button"
                   onClick={() => toggleService(svc.id)}
                   className={cn(
-                    "flex items-center gap-3 p-5 rounded-xl bg-[#E2E1DB] text-left transition-all border-2",
+                    "flex items-center gap-3 p-4 rounded-xl text-left transition-all border-2",
                     isSelected
-                      ? "border-[#191A05] ring-2 ring-[#E2E1DB] ring-offset-2 ring-offset-[#191A05]"
-                      : "border-transparent hover:bg-white/95"
+                      ? "bg-[#FEFEFF] border-[#48432D] ring-2 ring-[#E2E1DB] ring-offset-2 ring-offset-[#48432D]"
+                      : "bg-[#FEFEFF] border-transparent hover:bg-white"
                   )}
                 >
-                  <Icon className="w-6 h-6 shrink-0 text-[#191A05]" />
-                  <span className="font-inter font-medium text-[15px] leading-[22px] text-[#191A05]">
+                  <Image
+                    src={`/images/serviceform/${svc.id}.png`}
+                    alt=""
+                    width={24}
+                    height={24}
+                    className="w-6 h-6 shrink-0 object-contain"
+                  />
+                  <span className="font-inter font-medium text-[16px] leading-[22px] text-[#191A05]">
                     {svc.label}
                   </span>
                 </button>
@@ -352,6 +384,9 @@ const ServiceForm = () => {
       {/* Step 3: Contact & Date */}
       {step === 3 && (
         <div className="mb-10">
+          {submitError && (
+            <p className="text-red-400 text-sm font-inter mb-4">{submitError}</p>
+          )}
           <ContactDateForm
             data={contact}
             preferredDateValue={preferredDateValue}
@@ -362,40 +397,62 @@ const ServiceForm = () => {
         </div>
       )}
 
+      {/* Success message */}
+      {submitSuccess && (
+        <div className="mb-10 p-6 rounded-xl bg-[#E2E1DB]/20 border border-[#E2E1DB] text-[#E2E1DB]">
+          <p className="font-inter font-medium text-lg">Thank you!</p>
+          <p className="font-inter text-sm mt-2 opacity-90">
+            We have received your request and will get back to you soon with a quote.
+          </p>
+          <button
+            type="button"
+            onClick={() => setSubmitSuccess(false)}
+            className="mt-4 font-inter text-sm underline hover:no-underline"
+          >
+            Submit another request
+          </button>
+        </div>
+      )}
+
       {/* Navigation */}
+      {!submitSuccess && (
       <div className="flex items-center justify-between gap-4">
-        <div className="w-[120px]">
+        <div className="">
           {step > 1 ? (
             <button
               type="button"
               onClick={goBack}
-              className="rounded-xl px-6 py-3.5 text-[15px] font-medium w-full bg-[#2a2b0a] border border-[#E2E1DB]/20 hover:bg-[#35361a] text-[#FFFFFF] flex items-center justify-center gap-2 font-inter"
-            >
-              <IoChevronBackOutline className="w-5 h-5" />
-              <span>&lt; Back</span>
+              className=
+              "rounded-xl pl-3 pr-5 py-3.5 text-[15px] font-medium w-full max-w-[120px] bg-[#48432D]  hover:bg-[#35361a] text-[#FFFFFF] flex items-center justify-center gap-1 font-inter"
+              >
+              <IoChevronBackOutline className="w-5 h-5 text-[#191A05]" />
+              <span> Back</span>
             </button>
           ) : null}
         </div>
         <div className="flex-1" />
-        <div className="w-auto min-w-[180px]">
+        <div className="">
           <button
             type="button"
             onClick={step === 3 ? handleSendInformation : goNext}
-            disabled={step === 3 ? !canGoNext : !canGoNext}
+            disabled={step === 3 ? !canGoNext || isSubmitting : !canGoNext}
             className={cn(
-              "rounded-xl px-6 py-3.5 text-[15px] font-medium w-full min-w-[180px] bg-[#2a2b0a] border border-[#E2E1DB]/20 hover:bg-[#35361a] text-[#FFFFFF] flex items-center justify-center gap-2 font-inter",
-              !canGoNext && "opacity-50 cursor-not-allowed"
+              "rounded-xl pl-5 pr-3 py-3.5 text-[15px] font-medium w-full max-w-[120px] bg-[#48432D]  hover:bg-[#35361a] text-[#FFFFFF] flex items-center justify-center gap-1 font-inter",
+              (!canGoNext || isSubmitting) && "opacity-50 cursor-not-allowed"
             )}
           >
-            {step === 2 && detailFormIndex < selectedServices.length - 1
-              ? "Next"
-              : step === 3
-                ? "Send information"
-                : "Next"}
-            <IoChevronForwardOutline className="w-5 h-5" />
+            {isSubmitting
+              ? "Sending…"
+              : step === 2 && detailFormIndex < selectedServices.length - 1
+                ? "Next"
+                : step === 3
+                  ? "Send information"
+                  : "Next"}
+            {!isSubmitting && <IoChevronForwardOutline className="w-5 h-5 text-[#191A05]" />}
           </button>
         </div>
       </div>
+      )}
     </div>
   );
 };

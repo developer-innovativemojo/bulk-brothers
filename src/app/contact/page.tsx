@@ -7,9 +7,11 @@ export default function services() {
     <main className="bg-[#E9E9E9] ">
       <Hero />
       {/* <Form /> */}
-      <div className="flex justify-center w-full px-[70px] py-10 max-w-[953px] mx-auto bg-[#191A05] ">
+     <div className="w-full pb-16">
+     <div className="flex justify-center w-full px-[70px] py-10 mob:px-0 mob:py-5 max-w-[953px] mx-auto bg-[#191A05] ">
       <ServiceForm />
       </div>
+     </div>
     </main>
   );
 }
