@@ -75,7 +75,6 @@ const ServiceForm = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const didRestoreRef = useRef(false);
   const skipNextPersistRef = useRef(true);
-
   // Restore draft once on mount (client-only)
   useEffect(() => {
     if (typeof window === "undefined" || didRestoreRef.current) return;
@@ -273,7 +272,7 @@ const ServiceForm = () => {
   }, [buildPayload, getPhotoFilesInOrder]);
 
   return (
-    <div className="bg-[#191A05] w-full max-w-[953px] mx-auto px-8 py-10 md:px-10">
+    <div className="bg-[#191A05] w-full max-w-[953px] mx-auto px-4 py-6 sm:px-8 sm:py-10 md:px-10">
       {/* Header */}
       <Text
         as="h1"
@@ -286,7 +285,7 @@ const ServiceForm = () => {
       </Text>
 
       {/* Stepper */}
-      <div className="flex items-center gap-0 mb-10">
+      <div className="flex items-center gap-0 mb-8 sm:mb-10">
         {STEPS.map((s, i) => (
           <React.Fragment key={s.id}>
             <div className="flex items-center gap-2">
@@ -302,7 +301,7 @@ const ServiceForm = () => {
               </div>
               <span
                 className={cn(
-                  "text-[14px] font-inter font-medium",
+                  "text-[14px] font-inter font-medium hidden sm:inline",
                   step >= s.id ? "text-white" : "text-white"
                 )}
               >
@@ -328,7 +327,7 @@ const ServiceForm = () => {
           <Text className="text-[16px] font-inter font-medium text-[#FFFFFF] mb-5">
             What do you need hauled?
           </Text>
-          <div className="grid grid-cols-2 gap-4 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8 sm:mb-10">
             {SERVICES.map((svc) => {
               const isSelected = selectedServices.includes(svc.id);
               return (
@@ -337,10 +336,10 @@ const ServiceForm = () => {
                   type="button"
                   onClick={() => toggleService(svc.id)}
                   className={cn(
-                    "flex items-center gap-3 p-4 rounded-xl text-left transition-all border-2",
+                    "flex items-center gap-3 p-4 rounded-xl text-left transition-all border-2 w-full bg-[#FEFEFF]",
                     isSelected
-                      ? "bg-[#FEFEFF] border-[#48432D] ring-2 ring-[#E2E1DB] ring-offset-2 ring-offset-[#48432D]"
-                      : "bg-[#FEFEFF] border-transparent hover:bg-white"
+                      ? "border-[#48432D] ring-2 ring-[#E2E1DB] ring-offset-2 ring-offset-[#48432D]"
+                      : "border-transparent hover:bg-white"
                   )}
                 >
                   <Image
@@ -350,7 +349,7 @@ const ServiceForm = () => {
                     height={24}
                     className="w-6 h-6 shrink-0 object-contain"
                   />
-                  <span className="font-inter font-medium text-[16px] leading-[22px] text-[#191A05]">
+                  <span className="font-inter font-medium text-[15px] sm:text-[16px] leading-[22px] text-[#48432D]">
                     {svc.label}
                   </span>
                 </button>
@@ -416,28 +415,22 @@ const ServiceForm = () => {
 
       {/* Navigation */}
       {!submitSuccess && (
-      <div className="flex items-center justify-between gap-4">
-        <div className="">
-          {step > 1 ? (
-            <button
-              type="button"
-              onClick={goBack}
-              className=
-              "rounded-xl pl-3 pr-5 py-3.5 text-[15px] font-medium w-full max-w-[120px] bg-[#48432D]  hover:bg-[#35361a] text-[#FFFFFF] flex items-center justify-center gap-1 font-inter"
-              >
-              <IoChevronBackOutline className="w-5 h-5 text-[#191A05]" />
-              <span> Back</span>
-            </button>
-          ) : null}
-        </div>
-        <div className="flex-1" />
-        <div className="">
+      <div className={cn(
+        "flex gap-4",
+        step === 1
+          ? "flex-col sm:flex-row sm:justify-end"
+          : "flex-col sm:flex-row sm:items-center sm:justify-between"
+      )}>
+        <div className={cn(
+          "mob:w-full order-1",
+          step > 1 && "sm:w-auto  sm:order-2"
+        )}>
           <button
             type="button"
             onClick={step === 3 ? handleSendInformation : goNext}
             disabled={step === 3 ? !canGoNext || isSubmitting : !canGoNext}
             className={cn(
-              "rounded-xl pl-5 pr-3 py-3.5 text-[15px] font-medium w-full max-w-[120px] bg-[#48432D]  hover:bg-[#35361a] text-[#FFFFFF] flex items-center justify-center gap-1 font-inter",
+              "rounded-[12px] pl-5 pr-4 py-4 sm:py-3.5 text-[15px] font-medium w-full bg-[#48432D] hover:bg-[#5F5E4B] sm:hover:bg-[#35361a] text-white flex items-center justify-center gap-2 font-inter",
               (!canGoNext || isSubmitting) && "opacity-50 cursor-not-allowed"
             )}
           >
@@ -448,9 +441,21 @@ const ServiceForm = () => {
                 : step === 3
                   ? "Send information"
                   : "Next"}
-            {!isSubmitting && <IoChevronForwardOutline className="w-5 h-5 text-[#191A05]" />}
+            {!isSubmitting && <IoChevronForwardOutline className="w-5 h-5 text-white shrink-0" />}
           </button>
         </div>
+        {step > 1 && (
+          <div className="w-full sm:w-auto sm:max-w-[120px] order-2 sm:order-1">
+            <button
+              type="button"
+              onClick={goBack}
+              className="rounded-[12px] pl-4 pr-5 py-4 sm:py-3.5 text-[15px] font-medium w-full bg-[#48432D] hover:bg-[#5F5E4B] sm:hover:bg-[#35361a] text-white flex items-center justify-center gap-2 font-inter"
+            >
+              <IoChevronBackOutline className="w-5 h-5 text-white shrink-0" />
+              <span>Back</span>
+            </button>
+          </div>
+        )}
       </div>
       )}
     </div>

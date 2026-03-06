@@ -63,9 +63,10 @@ export default function VolumePhotoDetailForm({
   const isDelivery = service === "delivery";
   const isLabor = service === "labor";
 
-  // Required for moving/trash: volume, location, propertyType. If no elevator, flightsOfStairs.
-  // Required for delivery: volume, origin, destination, productWeight.
-  // Required for labor: volume, workersNeeded.
+  // In all steps: description and photo upload are optional; all other details are required.
+  // Moving/Trash: volume, location, propertyType, and (elevator or serviceElevator or flightsOfStairs).
+  // Delivery: volume, origin, destination, productWeight.
+  // Labor: volume, workersNeeded.
   const valid = (() => {
     if (!data.volume) return false;
     if (isMovingOrTrash) {
