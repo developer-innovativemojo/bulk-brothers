@@ -110,8 +110,8 @@ type FormStep = 1 | 2 | 3;
 
 function parsePreferredDate(s: string): Date | null {
   if (!s || !/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(s.trim())) return null;
-  const [d, m, y] = s.split("/").map(Number);
-  if (d < 1 || d > 31 || m < 1 || m > 12) return null;
+  const [m, d, y] = s.split("/").map(Number);
+  if (m < 1 || m > 12 || d < 1 || d > 31) return null;
   const date = new Date(y, m - 1, d);
   return isNaN(date.getTime()) ? null : date;
 }

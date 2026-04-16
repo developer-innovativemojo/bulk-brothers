@@ -84,11 +84,11 @@ function checkRateLimit(
   return true;
 }
 
-function formatDateDDMMYYYY(d: Date): string {
+function formatDateMMDDYYYY(d: Date): string {
   const day = String(d.getDate()).padStart(2, "0");
   const month = String(d.getMonth() + 1).padStart(2, "0");
   const year = d.getFullYear();
-  return `${day}/${month}/${year}`;
+  return `${month}/${day}/${year}`;
 }
 
 function escapeHtml(s: string): string {
@@ -170,7 +170,7 @@ function buildEmailHtml(
 ): string {
   const c = payload.contact;
   const submittedDate = payload.submittedAt
-    ? formatDateDDMMYYYY(new Date(payload.submittedAt))
+    ? formatDateMMDDYYYY(new Date(payload.submittedAt))
     : "—";
 
   let servicesHtml = "";

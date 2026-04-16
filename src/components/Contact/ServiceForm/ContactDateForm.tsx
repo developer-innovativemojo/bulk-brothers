@@ -42,7 +42,7 @@ export default function ContactDateForm({
     onPreferredDateChange(date);
     onChange({
       ...data,
-      preferredDate: date ? formatDDMMYYYY(date) : "",
+      preferredDate: date ? formatMMDDYYYY(date) : "",
     });
   };
 
@@ -86,8 +86,8 @@ export default function ContactDateForm({
           <DatePicker
             selected={preferredDateValue}
             onChange={handleDateChange}
-            dateFormat="dd/MM/yyyy"
-            placeholderText="dd/MM/yyyy"
+            dateFormat="MM/dd/yyyy"
+            placeholderText="MM/dd/yyyy"
             className={cn(inputClass, "pr-12 w-full")}
             wrapperClassName="w-full react-datepicker__input-container"
             isClearable={false}
@@ -106,9 +106,9 @@ export default function ContactDateForm({
   );
 }
 
-function formatDDMMYYYY(d: Date): string {
+function formatMMDDYYYY(d: Date): string {
   const day = String(d.getDate()).padStart(2, "0");
   const month = String(d.getMonth() + 1).padStart(2, "0");
   const year = d.getFullYear();
-  return `${day}/${month}/${year}`;
+  return `${month}/${day}/${year}`;
 }
