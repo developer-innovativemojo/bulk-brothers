@@ -86,8 +86,8 @@ export default function ContactDateForm({
           <DatePicker
             selected={preferredDateValue}
             onChange={handleDateChange}
-            dateFormat="dd/MM/YYYY"
-            placeholderText="MM/dd/YYYY"
+            dateFormat="dd/MM/yyyy"
+            placeholderText="dd/MM/yyyy"
             className={cn(inputClass, "pr-12 w-full")}
             wrapperClassName="w-full react-datepicker__input-container"
             isClearable={false}
