@@ -66,19 +66,21 @@ const TruckLargeSvg = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const VOLUME_OPTIONS: { value: VolumeSize; label: string; sublabel: string }[] = [
-  { value: "small", label: "Small", sublabel: "Pickup Truck / Sprinter Van" },
-  {
-    value: "medium",
-    label: "Medium",
-    sublabel: "14' Box Truck / 16' Box Truck",
-  },
-  { value: "large", label: "Large", sublabel: "26' Box Truck" },
-];
+const VOLUME_OPTIONS: { value: VolumeSize; label: string; sublabel: string }[] =
+  [
+    { value: "small", label: "Small", sublabel: "Pickup Truck / Sprinter Van" },
+    {
+      value: "medium",
+      label: "Medium",
+      sublabel: "14' Box Truck / 16' Box Truck",
+    },
+    { value: "large", label: "Large", sublabel: "26' Box Truck" },
+  ];
 
 const inputClass =
   "w-full h-[51px] px-5 bg-white border border-[#191A05]/20 rounded-xl text-[15px] text-[#191A05] font-inter placeholder:text-[#191A05]/50 outline-none focus:border-[#191A05]/50";
-const labelClass = "text-[#FFFFFF] text-[14px] font-inter font-medium mb-2 block";
+const labelClass =
+  "text-[#FFFFFF] text-[14px] font-inter font-medium mb-2 block";
 
 interface VolumePhotoDetailFormProps {
   service: ServiceId;
@@ -116,7 +118,7 @@ export default function VolumePhotoDetailForm({
     (partial: Partial<VolumePhotoDetailData>) => {
       onChange({ ...data, ...partial });
     },
-    [data, onChange]
+    [data, onChange],
   );
 
   const isMovingOrTrash = service === "moving" || service === "trash";
@@ -124,16 +126,21 @@ export default function VolumePhotoDetailForm({
   const isLabor = service === "labor";
 
   // In all steps: description and photo upload are optional; all other details are required.
-  // Moving/Trash: volume, location, propertyType; if apartment, also (elevator or serviceElevator or flightsOfStairs).
+  // Moving/Trash: volume, pickup/drop-off location, propertyType; if apartment, also (elevator or serviceElevator or flightsOfStairs).
   // Delivery: volume, origin, destination, productWeight.
   // Labor: volume, workersNeeded.
   const valid = (() => {
     if (!data.volume) return false;
     if (isMovingOrTrash) {
-      if (!data.location.trim()) return false;
+      if (!data.pickupLocation.trim() || !data.dropoffLocation.trim())
+        return false;
       if (!data.propertyType) return false;
       if (data.propertyType === "apartment") {
-        if (!data.elevator && !data.serviceElevator && !data.flightsOfStairs.trim())
+        if (
+          !data.elevator &&
+          !data.serviceElevator &&
+          !data.flightsOfStairs.trim()
+        )
           return false;
       }
       return true;
@@ -175,7 +182,7 @@ export default function VolumePhotoDetailForm({
         photoFiles: data.photoFiles.filter((_, i) => i !== index),
       });
     },
-    [data.photoFiles, update]
+    [data.photoFiles, update],
   );
 
   const previewUrlsRef = useRef<string[]>([]);
@@ -189,7 +196,7 @@ export default function VolumePhotoDetailForm({
     () => () => {
       previewUrlsRef.current.forEach(URL.revokeObjectURL);
     },
-    []
+    [],
   );
 
   return (
@@ -221,19 +228,19 @@ export default function VolumePhotoDetailForm({
                   "flex flex-col items-center gap-1 p-5 rounded-xl border-2 text-left transition-all",
                   isSelected
                     ? "bg-[#48432D] border-[#48432D]"
-                    : "bg-white border-[#191A05]/20 hover:border-[#191A05]/40"
+                    : "bg-white border-[#191A05]/20 hover:border-[#191A05]/40",
                 )}
               >
                 <TruckIcon
                   className={cn(
                     iconSizeClass,
-                    isSelected ? "text-white" : "text-[#48432D]"
+                    isSelected ? "text-white" : "text-[#48432D]",
                   )}
                 />
                 <span
                   className={cn(
                     "font-inter font-bold text-[15px]",
-                    isSelected ? "text-white" : "text-[#191A05]"
+                    isSelected ? "text-white" : "text-[#191A05]",
                   )}
                 >
                   {opt.label}
@@ -241,7 +248,7 @@ export default function VolumePhotoDetailForm({
                 <span
                   className={cn(
                     "font-inter text-[12px] text-center",
-                    isSelected ? "text-white/90" : "text-[#191A05]"
+                    isSelected ? "text-white/90" : "text-[#191A05]",
                   )}
                 >
                   {opt.sublabel}
@@ -256,13 +263,23 @@ export default function VolumePhotoDetailForm({
       {isMovingOrTrash && (
         <>
           <div>
-            <label className={labelClass}>Location</label>
+            <label className={labelClass}>Pickup Location</label>
             <input
               type="text"
               className={inputClass}
-              placeholder="Enter your location"
-              value={data.location}
-              onChange={(e) => update({ location: e.target.value })}
+              placeholder="Enter pickup location"
+              value={data.pickupLocation}
+              onChange={(e) => update({ pickupLocation: e.target.value })}
+            />
+          </div>
+          <div>
+            <label className={labelClass}>Drop-off Location</label>
+            <input
+              type="text"
+              className={inputClass}
+              placeholder="Enter drop-off location"
+              value={data.dropoffLocation}
+              onChange={(e) => update({ dropoffLocation: e.target.value })}
             />
           </div>
           <div>
@@ -273,21 +290,24 @@ export default function VolumePhotoDetailForm({
                 onClick={() => setPropertyTypeOpen((o) => !o)}
                 className={cn(
                   inputClass,
-                  "flex items-center justify-between text-left pl-12 pr-10 min-h-[51px] h-auto py-3"
+                  "flex items-center justify-between text-left pl-12 pr-10 min-h-[51px] h-auto py-3",
                 )}
               >
-                <span className={cn(
-                  "flex-1 truncate text-left",
-                  !data.propertyType && "text-[#191A05]/50"
-                )}>
+                <span
+                  className={cn(
+                    "flex-1 truncate text-left",
+                    !data.propertyType && "text-[#191A05]/50",
+                  )}
+                >
                   {data.propertyType
-                    ? PROPERTY_TYPES.find((p) => p.value === data.propertyType)?.label ?? "Select the property type"
+                    ? (PROPERTY_TYPES.find((p) => p.value === data.propertyType)
+                        ?.label ?? "Select the property type")
                     : "Select the property type"}
                 </span>
                 <IoChevronDownOutline
                   className={cn(
                     "w-5 h-5 text-[#191A05]/60 shrink-0 transition-transform",
-                    propertyTypeOpen && "rotate-180"
+                    propertyTypeOpen && "rotate-180",
                   )}
                   aria-hidden
                 />
@@ -314,7 +334,7 @@ export default function VolumePhotoDetailForm({
                             }}
                             className={cn(
                               "w-full flex items-center justify-between gap-3 px-4 py-3 text-left font-inter text-[15px] text-[#191A05] hover:bg-[#191A05]/5 transition-colors",
-                              isSelected && "bg-[#191A05]/5"
+                              isSelected && "bg-[#191A05]/5",
                             )}
                           >
                             <span className="flex-1">{p.label}</span>
@@ -450,7 +470,8 @@ export default function VolumePhotoDetailForm({
               <option value="">How many workers are needed?</option>
               {WORKERS_OPTIONS.map((w) => (
                 <option key={w} value={w}>
-                  {w} {w === "5+" ? "workers" : w === "1" ? "worker" : "workers"}
+                  {w}{" "}
+                  {w === "5+" ? "workers" : w === "1" ? "worker" : "workers"}
                 </option>
               ))}
             </select>
@@ -498,10 +519,12 @@ export default function VolumePhotoDetailForm({
           role="button"
           tabIndex={0}
           onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") fileInputRef.current?.click();
+            if (e.key === "Enter" || e.key === " ")
+              fileInputRef.current?.click();
           }}
           onClick={(e) => {
-            if ((e.target as HTMLElement).closest("[data-remove-photo]")) return;
+            if ((e.target as HTMLElement).closest("[data-remove-photo]"))
+              return;
             fileInputRef.current?.click();
           }}
           onDrop={handleDrop}
@@ -509,7 +532,7 @@ export default function VolumePhotoDetailForm({
           className={cn(
             "rounded-xl border-2 border-dashed border-[#48432D] bg-white cursor-pointer overflow-hidden",
             "hover:border-[#48432D]/80 transition-colors",
-            "min-h-[180px] flex flex-col p-5"
+            "min-h-[180px] flex flex-col p-5",
           )}
         >
           <div className="flex flex-col items-center justify-center gap-2 text-center shrink-0">

@@ -12,7 +12,8 @@ interface ContactData {
 
 interface VolumePhotoDetailDataSerialized {
   volume: string | null;
-  location: string;
+  pickupLocation: string;
+  dropoffLocation: string;
   propertyType: string;
   elevator: boolean;
   serviceElevator: boolean;
@@ -120,7 +121,8 @@ function buildServiceDetailHtml(
   row("Roughly how much", data.volume ? VOLUME_LABELS[data.volume] ?? data.volume : null);
 
   if (serviceId === "moving" || serviceId === "trash") {
-    row("Location", data.location);
+    row("Pickup location", data.pickupLocation);
+    row("Drop-off location", data.dropoffLocation);
     row("Property type", data.propertyType ? PROPERTY_LABELS[data.propertyType] ?? data.propertyType : null);
     row("Elevator", data.elevator);
     row("Service elevator", data.serviceElevator);
