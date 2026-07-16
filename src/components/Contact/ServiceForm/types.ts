@@ -14,6 +14,9 @@ export type ProductWeight =
 
 export interface VolumePhotoDetailData {
   volume: VolumeSize;
+  /** Single location for trash */
+  location: string;
+  /** Moving only */
   pickupLocation: string;
   dropoffLocation: string;
   propertyType: PropertyType;
@@ -30,6 +33,7 @@ export interface VolumePhotoDetailData {
 
 export const EMPTY_DETAIL_DATA: VolumePhotoDetailData = {
   volume: null,
+  location: "",
   pickupLocation: "",
   dropoffLocation: "",
   propertyType: "",

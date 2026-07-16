@@ -126,14 +126,19 @@ export default function VolumePhotoDetailForm({
   const isLabor = service === "labor";
 
   // In all steps: description and photo upload are optional; all other details are required.
-  // Moving/Trash: volume, pickup/drop-off location, propertyType; if apartment, also (elevator or serviceElevator or flightsOfStairs).
+  // Moving: volume, pickup/drop-off location, propertyType; if apartment, also (elevator or serviceElevator or flightsOfStairs).
+  // Trash: volume, location, propertyType; if apartment, also (elevator or serviceElevator or flightsOfStairs).
   // Delivery: volume, origin, destination, productWeight.
   // Labor: volume, workersNeeded.
   const valid = (() => {
     if (!data.volume) return false;
     if (isMovingOrTrash) {
-      if (!data.pickupLocation.trim() || !data.dropoffLocation.trim())
+      if (service === "moving") {
+        if (!data.pickupLocation.trim() || !data.dropoffLocation.trim())
+          return false;
+      } else if (!data.location.trim()) {
         return false;
+      }
       if (!data.propertyType) return false;
       if (data.propertyType === "apartment") {
         if (
@@ -259,29 +264,44 @@ export default function VolumePhotoDetailForm({
         </div>
       </div>
 
-      {/* Moving / Trash: Location, Property type, Elevator, Stairs */}
+      {/* Moving / Trash: Location(s), Property type, Elevator, Stairs */}
       {isMovingOrTrash && (
         <>
-          <div>
-            <label className={labelClass}>Pickup Location</label>
-            <input
-              type="text"
-              className={inputClass}
-              placeholder="Enter pickup location"
-              value={data.pickupLocation}
-              onChange={(e) => update({ pickupLocation: e.target.value })}
-            />
-          </div>
-          <div>
-            <label className={labelClass}>Drop-off Location</label>
-            <input
-              type="text"
-              className={inputClass}
-              placeholder="Enter drop-off location"
-              value={data.dropoffLocation}
-              onChange={(e) => update({ dropoffLocation: e.target.value })}
-            />
-          </div>
+          {service === "moving" ? (
+            <>
+              <div>
+                <label className={labelClass}>Pickup Location</label>
+                <input
+                  type="text"
+                  className={inputClass}
+                  placeholder="Enter pickup location"
+                  value={data.pickupLocation}
+                  onChange={(e) => update({ pickupLocation: e.target.value })}
+                />
+              </div>
+              <div>
+                <label className={labelClass}>Drop-off Location</label>
+                <input
+                  type="text"
+                  className={inputClass}
+                  placeholder="Enter drop-off location"
+                  value={data.dropoffLocation}
+                  onChange={(e) => update({ dropoffLocation: e.target.value })}
+                />
+              </div>
+            </>
+          ) : (
+            <div>
+              <label className={labelClass}>Location</label>
+              <input
+                type="text"
+                className={inputClass}
+                placeholder="Enter your location"
+                value={data.location}
+                onChange={(e) => update({ location: e.target.value })}
+              />
+            </div>
+          )}
           <div>
             <label className={labelClass}>Property Type</label>
             <div ref={propertyTypeDropdownRef} className="relative">

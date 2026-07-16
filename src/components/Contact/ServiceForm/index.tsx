@@ -99,7 +99,10 @@ const ServiceLaborSvg = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const SERVICE_ICONS: Record<ServiceId, React.ComponentType<{ className?: string }>> = {
+const SERVICE_ICONS: Record<
+  ServiceId,
+  React.ComponentType<{ className?: string }>
+> = {
   moving: ServiceMovingSvg,
   trash: ServiceTrashSvg,
   delivery: ServiceDeliverySvg,
@@ -127,7 +130,7 @@ const ServiceForm = () => {
   const [detailFormValid, setDetailFormValid] = useState(false);
   const [contact, setContact] = useState<ContactData>(EMPTY_CONTACT_DATA);
   const [preferredDateValue, setPreferredDateValue] = useState<Date | null>(
-    null
+    null,
   );
   const [contactFormValid, setContactFormValid] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -141,7 +144,7 @@ const ServiceForm = () => {
 
   const toggleService = useCallback((id: ServiceId) => {
     setSelectedServices((prev) =>
-      prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id],
     );
   }, []);
 
@@ -198,7 +201,7 @@ const ServiceForm = () => {
     (id: string, data: VolumePhotoDetailData) => {
       setDetailFormData((prev) => ({ ...prev, [id]: data }));
     },
-    []
+    [],
   );
 
   const canGoNext =
@@ -210,8 +213,11 @@ const ServiceForm = () => {
           ? contactFormValid
           : true;
 
-  const buildPayload = useCallback((): ServiceFormPayload & { photoFileOrder?: string[] } => {
-    const serializedDetail: Record<string, VolumePhotoDetailDataSerialized> = {};
+  const buildPayload = useCallback((): ServiceFormPayload & {
+    photoFileOrder?: string[];
+  } => {
+    const serializedDetail: Record<string, VolumePhotoDetailDataSerialized> =
+      {};
     const photoFileOrder: string[] = [];
     selectedServices.forEach((id) => {
       const d = detailFormData[id];
@@ -302,7 +308,7 @@ const ServiceForm = () => {
                   "w-8 h-8 rounded-full flex items-center justify-center text-sm font-inter font-medium shrink-0",
                   step >= s.id
                     ? "bg-[#48432D] text-white"
-                    : "bg-[#FEFEFF] text-[#48432D]"
+                    : "bg-[#FEFEFF] text-[#48432D]",
                 )}
               >
                 {s.id}
@@ -310,7 +316,7 @@ const ServiceForm = () => {
               <span
                 className={cn(
                   "text-[14px] font-inter font-medium hidden sm:inline",
-                  step >= s.id ? "text-white" : "text-white"
+                  step >= s.id ? "text-white" : "text-white",
                 )}
               >
                 {s.label}
@@ -320,7 +326,7 @@ const ServiceForm = () => {
               <div
                 className={cn(
                   "h-px mx-2 min-w-[24px] flex-1 max-w-[80px]",
-                  step > s.id ? "bg-[#FFFFFF]" : "bg-[#FFFFFF]"
+                  step > s.id ? "bg-[#FFFFFF]" : "bg-[#FFFFFF]",
                 )}
                 aria-hidden
               />
@@ -347,13 +353,13 @@ const ServiceForm = () => {
                     "flex items-center gap-3 p-4 rounded-xl text-left transition-all border-2 w-full",
                     isSelected
                       ? "bg-[#48432D] border-[#48432D]"
-                      : "bg-[#FEFEFF] border-transparent hover:bg-white"
+                      : "bg-[#FEFEFF] border-transparent hover:bg-white",
                   )}
                 >
                   <span
                     className={cn(
                       "w-6 h-6 shrink-0 flex items-center justify-center",
-                      isSelected ? "text-white" : "text-[#48432D]"
+                      isSelected ? "text-white" : "text-[#48432D]",
                     )}
                   >
                     {React.createElement(SERVICE_ICONS[svc.id], {
@@ -363,7 +369,7 @@ const ServiceForm = () => {
                   <span
                     className={cn(
                       "font-inter font-medium text-[15px] sm:text-[16px] leading-[22px]",
-                      isSelected ? "text-white" : "text-[#48432D]"
+                      isSelected ? "text-white" : "text-[#48432D]",
                     )}
                   >
                     {svc.label}
@@ -387,9 +393,7 @@ const ServiceForm = () => {
           <VolumePhotoDetailForm
             service={currentServiceId}
             serviceLabel={currentService.label}
-            data={
-              detailFormData[currentServiceId] ?? { ...EMPTY_DETAIL_DATA }
-            }
+            data={detailFormData[currentServiceId] ?? { ...EMPTY_DETAIL_DATA }}
             onChange={(data) => updateDetailData(currentServiceId, data)}
             onValidChange={setDetailFormValid}
           />
@@ -400,7 +404,9 @@ const ServiceForm = () => {
       {step === 3 && (
         <div className="mb-10">
           {submitError && (
-            <p className="text-red-400 text-sm font-inter mb-4">{submitError}</p>
+            <p className="text-red-400 text-sm font-inter mb-4">
+              {submitError}
+            </p>
           )}
           <ContactDateForm
             data={contact}
@@ -417,7 +423,8 @@ const ServiceForm = () => {
         <div className="mb-10 p-6 rounded-xl bg-[#E2E1DB]/20 border border-[#E2E1DB] text-[#E2E1DB]">
           <p className="font-inter font-medium text-lg">Thank you!</p>
           <p className="font-inter text-sm mt-2 opacity-90">
-            We have received your request and will get back to you soon with a quote.
+            We have received your request and will get back to you soon with a
+            quote.
           </p>
           <button
             type="button"
@@ -431,48 +438,54 @@ const ServiceForm = () => {
 
       {/* Navigation */}
       {!submitSuccess && (
-      <div className={cn(
-        "flex gap-4",
-        step === 1
-          ? "flex-col sm:flex-row sm:justify-end"
-          : "flex-col sm:flex-row sm:items-center sm:justify-between"
-      )}>
-        <div className={cn(
-          "mob:w-full order-1",
-          step > 1 && "sm:w-auto  sm:order-2"
-        )}>
-          <button
-            type="button"
-            onClick={step === 3 ? handleSendInformation : goNext}
-            disabled={step === 3 ? !canGoNext || isSubmitting : !canGoNext}
+        <div
+          className={cn(
+            "flex gap-4",
+            step === 1
+              ? "flex-col sm:flex-row sm:justify-end"
+              : "flex-col sm:flex-row sm:items-center sm:justify-between",
+          )}
+        >
+          <div
             className={cn(
-              "rounded-[12px] pl-5 pr-4 py-4 sm:py-3.5 text-[15px] font-medium w-full bg-[#48432D] hover:bg-[#5F5E4B] sm:hover:bg-[#35361a] text-white flex items-center justify-center gap-2 font-inter",
-              (!canGoNext || isSubmitting) && "opacity-50 cursor-not-allowed"
+              "mob:w-full order-1",
+              step > 1 && "sm:w-auto  sm:order-2",
             )}
           >
-            {isSubmitting
-              ? "Sending…"
-              : step === 2 && detailFormIndex < selectedServices.length - 1
-                ? "Next"
-                : step === 3
-                  ? "Send information"
-                  : "Next"}
-            {!isSubmitting && <IoChevronForwardOutline className="w-5 h-5 text-white shrink-0" />}
-          </button>
-        </div>
-        {step > 1 && (
-          <div className="w-full sm:w-auto sm:max-w-[120px] order-2 sm:order-1">
             <button
               type="button"
-              onClick={goBack}
-              className="rounded-[12px] pl-4 pr-5 py-4 sm:py-3.5 text-[15px] font-medium w-full bg-[#48432D] hover:bg-[#5F5E4B] sm:hover:bg-[#35361a] text-white flex items-center justify-center gap-2 font-inter"
+              onClick={step === 3 ? handleSendInformation : goNext}
+              disabled={step === 3 ? !canGoNext || isSubmitting : !canGoNext}
+              className={cn(
+                "rounded-[12px] pl-5 pr-4 py-4 sm:py-3.5 text-[15px] font-medium w-full bg-[#48432D] hover:bg-[#5F5E4B] sm:hover:bg-[#35361a] text-white flex items-center justify-center gap-2 font-inter",
+                (!canGoNext || isSubmitting) && "opacity-50 cursor-not-allowed",
+              )}
             >
-              <IoChevronBackOutline className="w-5 h-5 text-white shrink-0" />
-              <span>Back</span>
+              {isSubmitting
+                ? "Sending…"
+                : step === 2 && detailFormIndex < selectedServices.length - 1
+                  ? "Next"
+                  : step === 3
+                    ? "Send information"
+                    : "Next"}
+              {!isSubmitting && (
+                <IoChevronForwardOutline className="w-5 h-5 text-white shrink-0" />
+              )}
             </button>
           </div>
-        )}
-      </div>
+          {step > 1 && (
+            <div className="w-full sm:w-auto sm:max-w-[120px] order-2 sm:order-1">
+              <button
+                type="button"
+                onClick={goBack}
+                className="rounded-[12px] pl-4 pr-5 py-4 sm:py-3.5 text-[15px] font-medium w-full bg-[#48432D] hover:bg-[#5F5E4B] sm:hover:bg-[#35361a] text-white flex items-center justify-center gap-2 font-inter"
+              >
+                <IoChevronBackOutline className="w-5 h-5 text-white shrink-0" />
+                <span>Back</span>
+              </button>
+            </div>
+          )}
+        </div>
       )}
     </div>
   );
