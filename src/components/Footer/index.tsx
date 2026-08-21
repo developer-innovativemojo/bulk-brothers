@@ -166,13 +166,21 @@ const Footer = () => {
                 </span>
               </Text>
 
-              <Image
-                src={footerlogo}
-                alt="logo"
-                width={300}
-                height={300}
-                className="rounded-[20px] mob:w-full"
-              />
+
+
+              <Link
+                href="https://resupply.com/donation-pickup-partner"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src={footerlogo}
+                  alt="ReSupply Hauling Partner"
+                  width={300}
+                  height={300}
+                  className="rounded-[20px] mob:w-full"
+                />
+              </Link>
               <Text
                 as="p"
                 className="text-[#E2E1DB] text-[15px] leading-[20px] font-inter font-normal mt-14 mob:my-4 md:block hidden"
