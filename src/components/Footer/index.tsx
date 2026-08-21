@@ -15,6 +15,8 @@ import insta from "@/public/icons/youtube.svg";
 import { cn } from "@/libs/utils/twMerge";
 // import Subscribe from "./Subscribe";
 
+import footerlogo from "@/public/logo-footer.jpeg";
+
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [successMessage, setSuccessMessage] = useState<string>("");
@@ -25,7 +27,7 @@ const Footer = () => {
   const canSendNow = (
     bucket: string,
     limit: number = 3,
-    windowMs: number = 3600000
+    windowMs: number = 3600000,
   ): boolean => {
     try {
       const raw = localStorage.getItem(bucket);
@@ -108,7 +110,7 @@ const Footer = () => {
 
       if (response.status === 409) {
         alert(
-          "This email has already been subscribed recently. Please try again later."
+          "This email has already been subscribed recently. Please try again later.",
         );
         setLoading(false);
         return;
@@ -164,6 +166,13 @@ const Footer = () => {
                 </span>
               </Text>
 
+              <Image
+                src={footerlogo}
+                alt="logo"
+                width={300}
+                height={300}
+                className="rounded-[20px] mob:w-full"
+              />
               <Text
                 as="p"
                 className="text-[#E2E1DB] text-[15px] leading-[20px] font-inter font-normal mt-14 mob:my-4 md:block hidden"
