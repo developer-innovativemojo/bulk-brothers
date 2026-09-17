@@ -62,6 +62,8 @@ const VOLUME_LABELS: Record<string, string> = {
   large: "Large (26' Box Truck)",
 };
 
+const DEFAULT_RECAPTCHA_MIN_SCORE = 0.5;
+
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 
 function checkRateLimit(
@@ -283,12 +285,58 @@ function validatePayload(body: unknown): body is ServiceFormPayload {
   return true;
 }
 
+async function verifyRecaptcha(
+  token: string,
+  remoteip?: string
+): Promise<boolean> {
+  const secret = process.env.RECAPTCHA_SECRET_KEY;
+  if (!secret) {
+    console.error("RECAPTCHA_SECRET_KEY is not configured");
+    return false;
+  }
+
+  const params = new URLSearchParams({
+    secret,
+    response: token,
+  });
+  if (remoteip) {
+    params.append("remoteip", remoteip);
+  }
+
+  const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: params.toString(),
+  });
+
+  const data = (await res.json()) as {
+    success?: boolean;
+    score?: number;
+    action?: string;
+  };
+
+  if (!data.success) {
+    return false;
+  }
+
+  if (typeof data.score === "number") {
+    const minScore = DEFAULT_RECAPTCHA_MIN_SCORE;
+    if (data.action && data.action !== "service_form") {
+      return false;
+    }
+    return data.score >= minScore;
+  }
+
+  return true;
+}
+
 async function parseRequestPayload(
   request: NextRequest
 ): Promise<{
   payload: ServiceFormPayload;
   attachments: { filename: string; content: Buffer; cid: string }[];
   cidsByService: Record<string, string[]>;
+  captchaToken?: string;
 }> {
   const contentType = request.headers.get("content-type") ?? "";
   const isMultipart = contentType.includes("multipart/form-data");
@@ -322,10 +370,19 @@ async function parseRequestPayload(
         cidsByService[sid].push(cid);
       }
     }
-    return { payload, attachments, cidsByService };
+    const captchaToken = formData.get("captchaToken");
+    return {
+      payload,
+      attachments,
+      cidsByService,
+      captchaToken:
+        typeof captchaToken === "string" ? captchaToken : undefined,
+    };
   }
 
-  const body = await request.json();
+  const body = (await request.json()) as Record<string, unknown>;
+  const captchaToken =
+    typeof body.captchaToken === "string" ? body.captchaToken : undefined;
   if (!validatePayload(body)) {
     throw new Error("Invalid form data");
   }
@@ -333,6 +390,7 @@ async function parseRequestPayload(
     payload: body as ServiceFormPayload,
     attachments: [],
     cidsByService: {},
+    captchaToken,
   };
 }
 
@@ -351,8 +409,28 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { payload, attachments, cidsByService } =
+    const { payload, attachments, cidsByService, captchaToken } =
       await parseRequestPayload(request);
+
+    if (process.env.RECAPTCHA_SECRET_KEY) {
+      if (!captchaToken) {
+        return NextResponse.json(
+          { message: "Captcha verification is required." },
+          { status: 400 }
+        );
+      }
+
+      const captchaValid = await verifyRecaptcha(
+        captchaToken,
+        ip !== "unknown" ? ip : undefined
+      );
+      if (!captchaValid) {
+        return NextResponse.json(
+          { message: "Captcha verification failed. Please try again." },
+          { status: 400 }
+        );
+      }
+    }
 
     const email = payload.contact.email?.trim();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -402,7 +480,9 @@ export async function POST(request: NextRequest) {
     const message =
       error instanceof Error ? error.message : "Unknown error";
     const status =
-      message.includes("Invalid") || message.includes("Missing")
+      message.includes("Invalid") ||
+      message.includes("Missing") ||
+      message.includes("Captcha")
         ? 400
         : 500;
     return NextResponse.json(
