@@ -271,6 +271,15 @@ function validatePayload(body: unknown): body is ServiceFormPayload {
     return false;
   if (typeof contact.preferredDate !== "string") return false;
   if (!b.detailFormData || typeof b.detailFormData !== "object") return false;
+
+  const detailFormData = b.detailFormData as Record<string, unknown>;
+  for (const serviceId of b.selectedServices as ServiceId[]) {
+    const detail = detailFormData[serviceId];
+    if (!detail || typeof detail !== "object") return false;
+    const description = (detail as Record<string, unknown>).description;
+    if (typeof description !== "string" || !description.trim()) return false;
+  }
+
   return true;
 }
 

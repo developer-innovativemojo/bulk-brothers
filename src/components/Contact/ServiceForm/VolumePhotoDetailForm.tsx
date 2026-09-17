@@ -125,13 +125,13 @@ export default function VolumePhotoDetailForm({
   const isDelivery = service === "delivery";
   const isLabor = service === "labor";
 
-  // In all steps: description and photo upload are optional; all other details are required.
-  // Moving: volume, pickup/drop-off location, propertyType; if apartment, also (elevator or serviceElevator or flightsOfStairs).
-  // Trash: volume, location, propertyType; if apartment, also (elevator or serviceElevator or flightsOfStairs).
-  // Delivery: volume, origin, destination, productWeight.
-  // Labor: volume, workersNeeded.
+  // In all steps: photo upload is optional; all other details (including description) are required.
+  // Moving: volume, pickup/drop-off location, propertyType, description; if apartment, also (elevator or serviceElevator or flightsOfStairs).
+  // Trash: volume, location, propertyType, description; if apartment, also (elevator or serviceElevator or flightsOfStairs).
+  // Delivery: volume, origin, destination, productWeight, description.
+  // Labor: volume, workersNeeded, description.
   const valid = (() => {
-    if (!data.volume) return false;
+    if (!data.volume || !data.description.trim()) return false;
     if (isMovingOrTrash) {
       if (service === "moving") {
         if (!data.pickupLocation.trim() || !data.dropoffLocation.trim())
@@ -510,10 +510,10 @@ export default function VolumePhotoDetailForm({
         </div>
       )}
 
-      {/* Description (optional) */}
+      {/* Description */}
       <div>
         <label className={labelClass}>
-          {isLabor ? "Labor Description (optional)" : "Description (optional)"}
+          {isLabor ? "Labor Description" : "Description"}
         </label>
         <textarea
           className={cn(inputClass, "min-h-[120px] py-4 resize-y")}
