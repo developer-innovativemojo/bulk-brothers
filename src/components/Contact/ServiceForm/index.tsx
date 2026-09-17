@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Text from "@/components/ui/Text";
+import { executeRecaptchaV3, loadRecaptchaV3 } from "@/libs/recaptcha";
 import { cn } from "@/libs/utils/twMerge";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import VolumePhotoDetailForm from "./VolumePhotoDetailForm";
@@ -30,6 +31,9 @@ const SERVICES: { id: ServiceId; label: string }[] = [
   { id: "delivery", label: "Delivery" },
   { id: "labor", label: "Labor" },
 ];
+
+const CAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY ?? "";
+const RECAPTCHA_ACTION = "service_form";
 
 const ServiceMovingSvg = ({ className }: { className?: string }) => (
   <svg
@@ -136,6 +140,12 @@ const ServiceForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  useEffect(() => {
+    if (step === 3 && CAPTCHA_SITE_KEY) {
+      loadRecaptchaV3(CAPTCHA_SITE_KEY).catch(() => {});
+    }
+  }, [step]);
 
   const currentServiceId = selectedServices[detailFormIndex] ?? null;
   const currentService = currentServiceId
@@ -254,9 +264,20 @@ const ServiceForm = () => {
     setIsSubmitting(true);
     setSubmitError(null);
     try {
+      let captchaToken: string | undefined;
+      if (CAPTCHA_SITE_KEY) {
+        captchaToken = await executeRecaptchaV3(
+          CAPTCHA_SITE_KEY,
+          RECAPTCHA_ACTION,
+        );
+      }
+
       const formData = new FormData();
       formData.append("payload", JSON.stringify(payload));
       photoFiles.forEach((file) => formData.append("photos", file));
+      if (captchaToken) {
+        formData.append("captchaToken", captchaToken);
+      }
       const res = await fetch("/api/serviceForm", {
         method: "POST",
         body: formData,
@@ -276,7 +297,11 @@ const ServiceForm = () => {
       setContact(EMPTY_CONTACT_DATA);
       setPreferredDateValue(null);
     } catch (e) {
-      setSubmitError("Something went wrong. Please try again.");
+      setSubmitError(
+        CAPTCHA_SITE_KEY
+          ? "Captcha verification failed. Please try again."
+          : "Something went wrong. Please try again.",
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -415,6 +440,29 @@ const ServiceForm = () => {
             onPreferredDateChange={setPreferredDateValue}
             onValidChange={setContactFormValid}
           />
+          {CAPTCHA_SITE_KEY && (
+            <p className="mt-4 text-[12px] text-white/60 font-inter leading-relaxed">
+              This site is protected by reCAPTCHA and the Google{" "}
+              <a
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:no-underline"
+              >
+                Privacy Policy
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://policies.google.com/terms"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:no-underline"
+              >
+                Terms of Service
+              </a>{" "}
+              apply.
+            </p>
+          )}
         </div>
       )}
 
