@@ -72,12 +72,12 @@ const WhoWeAre: React.FC<WhoWeAreProps> = ({ scrollCallback }) => {
                     </button>
                   </Link>
 
-                  <button
+                  <Link
+                    href="/services?id=delivery-service"
                     className=" bg-primary-dark text-center w-[166px] mob:max-w-[144px] mob:px-1 font-inter text-white px-4 py-2 rounded-md cursor-pointer uppercase"
-                    onClick={scrollCallback}
                   >
                     Delivery
-                  </button>
+                  </Link>
                 </div>
 
                 <div className=" flex justify-center gap-4">
@@ -87,12 +87,12 @@ const WhoWeAre: React.FC<WhoWeAreProps> = ({ scrollCallback }) => {
                     </button>
                   </Link>
 
-                  <button
+                  <Link
+                    href="/services?id=labor-service"
                     className=" bg-primary-dark text-center w-[166px] mob:max-w-[144px] mob:px-1 font-inter text-white px-4 rounded-md py-2 cursor-pointer uppercase"
-                    onClick={scrollCallback}
                   >
                     Labor Only
-                  </button>
+                  </Link>
                 </div>
               </div>
           </div>
