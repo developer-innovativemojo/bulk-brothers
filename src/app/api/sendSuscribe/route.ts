@@ -122,7 +122,6 @@ export async function POST(request: NextRequest) {
       request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
       request.headers.get("x-real-ip")?.trim() ||
       request.headers.get("x-client-ip")?.trim() ||
-      request.ip ||
       "unknown";
 
     // Parse and validate request body
