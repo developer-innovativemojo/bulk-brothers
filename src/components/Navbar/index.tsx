@@ -171,6 +171,8 @@ const Navbar = () => {
                   <Drawer isOpen={isOpen} onClose={onClose}>
                     <div className="flex items-center h-full w-full ">
                       <ul className="font-normal  w-full  mob:left-0 mob:w-full z-50 flex flex-col py-4 md:p-0 mt-4 gap-[0px]  rtl:space-x-reverse md:mt-0 ">
+                        {/* Full reload kept intentionally (matches live behaviour); Next 15 lint now errors on this */}
+                        {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
                         <a
                           href="/"
                           className="block  text-[20px] font-inter font-medium leading-[25.5px] text-[#FFFFFF]  " 
